@@ -1,0 +1,2 @@
+module GlucoseMeasurementHelper
+end

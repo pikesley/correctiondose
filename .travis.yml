@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.3.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: Mk3gbPcoUUJaS+aqH7uA12JZ1xHcEthtP1NVtNY8N7QQBWbSP03aFrNgHi0/pFIJhXWvZ1D0quZnO3r26hTV6Lu8KoNokTfZzojVcqDf2GW3KCsZ9BPYXkGTn2RFjMz96DoVIaQr4+eHNYyPSiHUMli/3u6TSE0/T6+gZIZPSHNJdA58e5tQvyjBYcOUePV2xT/sDNTvKdm/zyyNNmg+XjUz24Mw3sfxzX3ySCvhdHutxDANoM1B5EggggJbtWbwv4jcmuW+BAwJmI8F/l6C3fv29qn7Ys/7cU0PSgPV3vK8LA7CTyHTqkIWDlcuWeyuPYj6bf3uGA0N8JWQjNhkNbwE88WlThHYGc7W9SH9Ow3/FcRatzFDwIpCwx2m+8oumhHB9uJwERza7JPe9O0PjmSFY4hlhaxL1QRqXEk3MwcUPCz6lYJ3vWYtaXhEJGPZBFdSOLLbzRC3LV76iPmVPJoSetgsgm7TXEvxDUaaSzOe0yVxUwQophPkbXi+rzyiSfkCZf+zg6Y3hDZ+1AwxgziK0J20Wq9wRNRKkkHhX6kGWQnDqyaDNMJPbS7GqaBMXwr0w5dWyfH/vXhCoQreM3BNADxIj7hKjuYhetjFvIusPzkhHJKJaY98ElJx8F06TnnPu5EnSfnEVg7r+IzQSmou2BdA6oTae/q3QAx4oAA=
+  app: correctiondose
+  on:
+    repo: pikesley/CorrectionDose
+  run: 'rake db:migrate'

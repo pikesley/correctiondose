@@ -58,7 +58,7 @@ describe GlucoseMeasurementsController, type: :controller do
   end
 
   describe 'PUT #update' do
-    let (:test_measurement) { create :glucose_measurement, datetime: '1974-06-15 12:00:00', value: 7.0}
+    let (:test_measurement) { create :glucose_measurement, datetime: '1974-06-15 12:00:00', value: 7.0 }
 
     context 'valid attributes' do
       it 'locates the requested measurement' do

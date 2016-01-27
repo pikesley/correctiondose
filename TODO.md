@@ -1,2 +1,1 @@
-* Coveralls
-* License
+* Inheritance

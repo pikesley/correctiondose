@@ -1,30 +1,29 @@
 <h1>BG measurements</h1>
 
-<table>
-  <tr>
-    <th>
-      Datetime
-    </th>
-    <th>
-      Value
-    </th>
-  </tr>
-
-  <% @glucose_measurements.each do |measurement| %>
+<table class='table table-bordered table-striped'>
+  <% date_sift(@glucose_measurements).keys.each do |k| %>
     <tr>
-      <td>
-        <%= measurement.datetime %>
-      </td>
-      <td>
-        <%= measurement.value %>
-      </td>
-      <td>
-        <%= link_to 'Destroy', glucose_measurement_path(measurement),
-                               method: :delete,
-                               data: {
-                                 confirm: 'Are you sure?'
-                                } %>
-      </td>
+      <th colspan=3>
+        <%= k %>
+      </th>
     </tr>
+    <% date_sift(@glucose_measurements)[k].each do |m| %>
+      <tr>
+        <td>
+          <%= m.datetime.strftime '%H:%M' %>
+        </td>
+        <td>
+          <%= m.value %>
+        </td>
+        <td>
+          <%= link_to 'Destroy',
+              glucose_measurement_path(m),
+              method: :delete,
+              data: {
+                confirm: 'Are you sure?'
+              } %>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
 </table>

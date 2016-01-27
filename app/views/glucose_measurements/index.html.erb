@@ -3,20 +3,27 @@
 <table>
   <tr>
     <th>
-      Time
+      Datetime
     </th>
     <th>
       Value
     </th>
   </tr>
 
-  <% @glucose_measurements.each do |m| %>
+  <% @glucose_measurements.each do |measurement| %>
     <tr>
       <td>
-        <%= m.time %>
+        <%= measurement.datetime %>
       </td>
       <td>
-        <%= m.value %>
+        <%= measurement.value %>
+      </td>
+      <td>
+        <%= link_to 'Destroy', glucose_measurement_path(measurement),
+                               method: :delete,
+                               data: {
+                                 confirm: 'Are you sure?'
+                                } %>
       </td>
     </tr>
   <% end %>

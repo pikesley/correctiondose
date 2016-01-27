@@ -46,6 +46,6 @@ class GlucoseMeasurementsController < ApplicationController
   private
 
   def glucose_measurement_params
-    params.require(:glucose_measurement).permit(:time, :value)
+    params.require(:glucose_measurement).permit(:datetime, :value)
   end
 end

@@ -58,7 +58,7 @@ describe GlucoseMeasurementsController, type: :controller do
   end
 
   describe 'PUT #update' do
-    let (:test_measurement) { create :glucose_measurement, time: '1974-06-15 12:00:00', value: 7.0}
+    let (:test_measurement) { create :glucose_measurement, datetime: '1974-06-15 12:00:00', value: 7.0}
 
     context 'valid attributes' do
       it 'locates the requested measurement' do
@@ -69,10 +69,10 @@ describe GlucoseMeasurementsController, type: :controller do
       it 'changes test_measurement`s attributes' do
         put :update, id: test_measurement,
                      glucose_measurement: attributes_for(:glucose_measurement,
-                                                         time: '1975-06-15 13:00:00',
+                                                         datetime: '1975-06-15 13:00:00',
                                                          value: 12)
         test_measurement.reload
-        expect(test_measurement.time).to eq '1975-06-15 13:00:00'
+        expect(test_measurement.datetime).to eq '1975-06-15 13:00:00'
         expect(test_measurement.value).to eq 12.0
       end
 
@@ -91,11 +91,11 @@ describe GlucoseMeasurementsController, type: :controller do
       it 'does not change the test_measurement attributes' do
         put :update, id: test_measurement,
                      glucose_measurement: attributes_for(:glucose_measurement,
-                                                         time: nil,
+                                                         datetime: nil,
                                                          value: 4)
         test_measurement.reload
         expect(test_measurement.value).to_not eq 4
-        expect(test_measurement.time).to eq '1974-06-15 12:00:00'
+        expect(test_measurement.datetime).to eq '1974-06-15 12:00:00'
       end
 
       it 're-renders the #edit view' do

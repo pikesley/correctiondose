@@ -1,1 +1,71 @@
-@import "bootstrap";
+@import 'colours';
+@import 'fonts';
+@import 'bootstrap';
+
+/* Dragones below this line */
+
+nav {
+  background-color: $brand-primary;
+}
+
+.navbar-default .navbar-nav > .active > a {
+}
+
+.navbar {
+  border: 0px;
+  background-color: $brand-primary;
+}
+
+/* navbar */
+.navbar-default {
+}
+/* title */
+.navbar-default .navbar-brand {
+  color: white;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+}
+/* link */
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  opacity: 0.5;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  opacity: 0.5;
+}
+
+.navbar {
+  -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
+}
+
+/* mobile version */
+.navbar-default .navbar-toggle {
+  border-color: #DDD;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #DDD;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #CCC;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #777;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #333;
+  }
+}

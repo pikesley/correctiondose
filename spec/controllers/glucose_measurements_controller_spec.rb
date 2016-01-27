@@ -1,13 +1,13 @@
-describe GlucoseMeasurementController, type: :controller do
+describe GlucoseMeasurementsController, type: :controller do
   before :each do
     sign_in
   end
 
   describe 'GET #index' do
     it 'populates an array of measurements' do
-      measurement = create(:glucose_measurement)
+      glucose_measurement = create(:glucose_measurement)
       get :index
-      expect(assigns(:measurements)).to eq [measurement]
+      expect(assigns(:glucose_measurements)).to eq [glucose_measurement]
     end
 
     it 'renders the #index view' do
@@ -17,10 +17,10 @@ describe GlucoseMeasurementController, type: :controller do
   end
 
   describe 'GET #show' do
-    it 'assigns the requested measurement to @measurement' do
-      measurement = create(:glucose_measurement)
-      get :show, id: measurement
-      expect(assigns(:measurement)).to eq measurement
+    it 'assigns the requested measurement to @glucose_measurement' do
+      glucose_measurement = create(:glucose_measurement)
+      get :show, id: glucose_measurement
+      expect(assigns(:glucose_measurement)).to eq glucose_measurement
     end
 
     it 'renders the #show view' do
@@ -33,12 +33,12 @@ describe GlucoseMeasurementController, type: :controller do
     context 'with valid attributes' do
       it 'creates a new measurement' do
         expect {
-          post :create, measurement: attributes_for(:glucose_measurement)
+          post :create, glucose_measurement: attributes_for(:glucose_measurement)
         }.to change(GlucoseMeasurement, :count).by 1
       end
 
       it 'redirects to the new measurement' do
-        post :create, measurement: attributes_for(:glucose_measurement)
+        post :create, glucose_measurement: attributes_for(:glucose_measurement)
         expect(response).to redirect_to GlucoseMeasurement.last
       end
     end
@@ -46,12 +46,12 @@ describe GlucoseMeasurementController, type: :controller do
     context 'with invalid attributes' do
       it 'does not save the new contact' do
         expect {
-          post :create, measurement: attributes_for(:invalid_glucose_measurement)
+          post :create, glucose_measurement: attributes_for(:invalid_glucose_measurement)
         }.to_not change(GlucoseMeasurement, :count)
       end
 
       it 're-renders the #new view' do
-        post :create, measurement: attributes_for(:invalid_glucose_measurement)
+        post :create, glucose_measurement: attributes_for(:invalid_glucose_measurement)
         expect(response).to render_template :new
       end
     end

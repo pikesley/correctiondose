@@ -37,10 +37,9 @@ describe GlucoseMeasurementsController, type: :controller do
         }.to change(GlucoseMeasurement, :count).by 1
       end
 
-      it 'redirects to the new measurement' do
+      it 'redirects to the index page' do
         post :create, glucose_measurement: attributes_for(:glucose_measurement)
-        expect(response).to redirect_to GlucoseMeasurement.last
-      #  expect(response).to redirect_to render_template :index
+        expect(response).to redirect_to glucose_measurements_url
       end
     end
 
@@ -78,8 +77,9 @@ describe GlucoseMeasurementsController, type: :controller do
       end
 
       it 'redirects to the updated measurement' do
-        put :update, id: test_measurement, glucose_measurement: attributes_for(:invalid_glucose_measurement)
+        put :update, id: test_measurement, glucose_measurement: attributes_for(:glucose_measurement)
         expect(assigns :glucose_measurement).to eq test_measurement
+        expect(response).to redirect_to glucose_measurements_url
       end
     end
 

@@ -10,13 +10,11 @@ describe 'GlucoseMeasurements' do
         click_button 'Create'
       }.to change(GlucoseMeasurement, :count).by 1
 
-      within 'h1' do
-        expect(page).to have_content 'Datetime: 2016-01-27 17:53:00'
+      within 'th' do
+        expect(page).to have_content 'Wednesday January 27th'
       end
-
-      within 'h2' do
-        expect(page).to have_content '5.6'
-      end
+      expect(page).to have_content '17:53'
+      expect(page).to have_content '5.6'
     end
 
     it 'Edit a measurement' do

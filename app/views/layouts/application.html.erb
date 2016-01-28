@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!--
+    http://stackoverflow.com/questions/9386429/simple-bootstrap-page-is-not-responsive-on-the-iphone
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Correction Dose</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -10,11 +14,11 @@
     <%= render 'shared/nav' %>
     <div class='container'>
       <div class='row'>
-        <div class='col-md-2'></div>
-        <div class='col-md-8'>
+        <div class='col-md-3'></div>
+        <div class='col-md-6'>
           <%= yield %>
         </div>
-        <div class='col-md-2'></div>
+        <div class='col-md-3'></div>
       </div>
       <div id="flash">
         <% flash.each do |key, value| %>

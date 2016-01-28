@@ -13,6 +13,10 @@ class MedicationEventsController < ApplicationController
     @medication_event = MedicationEvent.new
   end
 
+  def edit
+    @medication_event = MedicationEvent.find(params[:id])
+  end
+
   def create
     @medication_event = MedicationEvent.new(medication_event_params)
     if @medication_event.save

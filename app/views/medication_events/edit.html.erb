@@ -1,0 +1,12 @@
+<h1>Meds</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Delete', medication_event_path(@medication_event),
+                              class: 'btn btn-warning',
+                              method: :delete,
+                              data: {
+                                confirm: 'Are you sure?'
+                              } %>
+
+<%= link_to 'Back', medication_events_path, class: 'btn btn-default' %>

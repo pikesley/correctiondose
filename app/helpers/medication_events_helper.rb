@@ -1,0 +1,2 @@
+module MedicationEventsHelper
+end

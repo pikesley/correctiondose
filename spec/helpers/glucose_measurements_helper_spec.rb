@@ -1,0 +1,2 @@
+describe GlucoseMeasurementsHelper do
+end

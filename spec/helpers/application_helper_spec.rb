@@ -1,4 +1,4 @@
-describe GlucoseMeasurementHelper do
+describe ApplicationHelper do
   describe '#date_sifter' do
     let (:one) { create :glucose_measurement, datetime: '2016-01-28 12:00:00', value: 7.0 }
     let (:two) { create :glucose_measurement, datetime: '2016-01-27 13:00:00', value: 7.0 }

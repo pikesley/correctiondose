@@ -32,7 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 
 # Strap your boots
-gem 'bootstrap'
+gem 'bootstrap-sass'
 
 gem 'clearance'
 

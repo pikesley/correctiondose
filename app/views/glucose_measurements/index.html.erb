@@ -1,19 +1,20 @@
 <h1>BG measurements</h1>
 
 <table class='table table-bordered table-striped'>
-  <% date_sift(@glucose_measurements).keys.each do |k| %>
+  <% date_sift(@glucose_measurements).each_pair do |day, values| %>
     <tr>
       <th colspan=2>
-        <%= k %>
+        <% date = Time.parse(day) %>
+        <%= date.strftime "%A %B #{date.day.ordinalize}" %>
       </th>
     </tr>
-    <% date_sift(@glucose_measurements)[k].each do |m| %>
+    <% values.each do |v| %>
       <tr>
         <td>
-          <%= link_to m.datetime.strftime('%H:%M'), edit_glucose_measurement_path(m) %>
+          <%= link_to v.datetime.strftime('%H:%M'), edit_glucose_measurement_path(v) %>
         </td>
         <td>
-          <%= link_to m.value, edit_glucose_measurement_path(m) %>
+          <%= link_to v.value, edit_glucose_measurement_path(v) %>
         </td>
       </tr>
     <% end %>

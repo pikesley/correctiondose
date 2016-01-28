@@ -26,7 +26,7 @@
 
   <p>
     <%= f.label :insulin %><br>
-    <%= f.select :insulin, [ 'humalog', 'lantus' ] %>
+    <%= f.select :insulin, MedicationEvent.insulins %>
   </p>
 
   <p>

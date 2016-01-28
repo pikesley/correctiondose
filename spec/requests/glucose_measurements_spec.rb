@@ -5,27 +5,23 @@ describe 'GlucoseMeasurements' do
     it 'Adds a measurement and displays the results' do
       visit new_glucose_measurement_url(as: user)
       expect {
-        fill_in 'Datetime', with: '2016-01-27 17:53:00'
+        fill_in 'Date and time', with: '2016-01-27 17:53:00'
         fill_in 'Value', with: '5.6'
-        click_button 'Create Glucose measurement'
+        click_button 'Create'
       }.to change(GlucoseMeasurement, :count).by 1
 
-      within 'h1' do
-        expect(page).to have_content 'Datetime: 2016-01-27 17:53:00'
+      within 'th' do
+        expect(page).to have_content 'Wednesday January 27th'
       end
-
-      within 'h2' do
-        expect(page).to have_content '5.6'
-      end
+      expect(page).to have_content '17:53'
+      expect(page).to have_content '5.6'
     end
 
-    it 'Deletes a measurement' do
+    it 'Edit a measurement' do
       glucose_measurement = create(:glucose_measurement, datetime: '1992-06-15 12:00:00', value: '7')
       visit glucose_measurements_path(as: user)
-      expect {
-        click_link 'Destroy'
-      }.to change(GlucoseMeasurement, :count).by -1
-      expect(page).to have_content 'BG measurements'
+      click_link '12:00'
+      expect(page).to have_content 'BG measurement'
     end
   end
 end

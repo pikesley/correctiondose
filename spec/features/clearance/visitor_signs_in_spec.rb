@@ -16,19 +16,22 @@ feature "Visitor signs in" do
     expect_user_to_be_signed_in
   end
 
-  scenario "tries with invalid password" do
-    create_user "user@example.com", "password"
-    sign_in_with "user@example.com", "wrong_password"
 
-    expect_page_to_display_sign_in_error
-    expect_user_to_be_signed_out
-  end
+  if Clearance.configuration.allow_sign_up?
+    scenario "tries with invalid password" do
+      create_user "user@example.com", "password"
+      sign_in_with "user@example.com", "wrong_password"
 
-  scenario "tries with invalid email" do
-    sign_in_with "unknown.email@example.com", "password"
+      expect_page_to_display_sign_in_error
+      expect_user_to_be_signed_out
+    end
 
-    expect_page_to_display_sign_in_error
-    expect_user_to_be_signed_out
+    scenario "tries with invalid email" do
+      sign_in_with "unknown.email@example.com", "password"
+
+      expect_page_to_display_sign_in_error
+      expect_user_to_be_signed_out
+    end
   end
 
   private

@@ -4,12 +4,14 @@ require "support/features/clearance_helpers"
 feature "Visitor resets password" do
   before { ActionMailer::Base.deliveries.clear }
 
-  scenario "by navigating to the page" do
-    visit sign_in_path
+  if Clearance.configuration.allow_sign_up?
+    scenario "by navigating to the page" do
+      visit sign_in_path
 
-    click_link I18n.t("sessions.form.forgot_password")
+      click_link I18n.t("sessions.form.forgot_password")
 
-    expect(current_path).to eq new_password_path
+      expect(current_path).to eq new_password_path
+    end
   end
 
   scenario "with valid email" do

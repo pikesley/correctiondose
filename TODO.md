@@ -1,3 +1,3 @@
 * Inheritance
 * Let's encrypt
-* Change 'Destroy' to 'Edit'
+* i18n

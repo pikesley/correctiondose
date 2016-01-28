@@ -32,9 +32,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 
 # Strap your boots
-gem 'bootstrap'
+gem 'bootstrap-sass'
 
 gem 'clearance'
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

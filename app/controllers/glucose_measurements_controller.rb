@@ -20,9 +20,9 @@ class GlucoseMeasurementsController < ApplicationController
   def create
     @glucose_measurement = GlucoseMeasurement.new(glucose_measurement_params)
     if @glucose_measurement.save
-      redirect_to @glucose_measurement
+      redirect_to glucose_measurements_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -30,9 +30,9 @@ class GlucoseMeasurementsController < ApplicationController
     @glucose_measurement = GlucoseMeasurement.find(params[:id])
 
     if @glucose_measurement.update(glucose_measurement_params)
-      redirect_to @glucose_measurement
+      redirect_to glucose_measurements_path
     else
-      render 'edit'
+      render :edit
     end
   end
 

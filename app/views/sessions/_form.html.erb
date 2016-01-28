@@ -1,0 +1,27 @@
+<%= form_for :session, url: session_path do |form| %>
+<dl class='dl-horizontal'>
+  <dt class="text-field">
+    <%= form.label :email %>
+  </dt>
+  <dd>
+    <%= form.text_field :email, type: 'email', class: 'form-control' %>
+  </dd>
+
+  <dt class="password-field">
+    <%= form.label :password %>
+  </dt>
+  <dd>
+    <%= form.password_field :password, class: 'form-control' %>
+  </dd>
+</dl>
+  <div class="submit-field">
+    <%= form.submit class: 'btn btn-success pull-right' %>
+  </div>
+
+  <div class="other-links">
+    <% if Clearance.configuration.allow_sign_up? %>
+      <%= link_to t(".sign_up"), sign_up_path %>
+      <%= link_to t(".forgot_password"), new_password_path %>
+    <% end %>
+  </div>
+<% end %>

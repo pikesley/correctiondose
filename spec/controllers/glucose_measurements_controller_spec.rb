@@ -108,7 +108,6 @@ describe GlucoseMeasurementsController, type: :controller do
 
   describe 'DELETE #destroy' do
     let! (:test_measurement) { create :glucose_measurement }
-
     it 'deletes the measurement' do
       expect {
         delete :destroy, id: test_measurement

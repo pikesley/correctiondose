@@ -22,6 +22,7 @@ describe 'GlucoseMeasurements' do
       visit glucose_measurements_path(as: user)
       click_link '12:00'
       expect(page).to have_content 'BG measurement'
+      expect(page).to have_content 'Delete'
     end
   end
 end

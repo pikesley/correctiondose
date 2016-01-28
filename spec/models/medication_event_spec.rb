@@ -4,6 +4,6 @@ describe MedicationEvent, type: :model do
   end
 
   it 'is invalid with an unknown type' do
-    expect(build :medication_event, type: 'snakeoil').to_not be_valid
+    expect(build :medication_event, insulin: 'snakeoil').to_not be_valid
   end
 end

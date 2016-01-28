@@ -1,0 +1,26 @@
+<%= link_to 'Add new meds', new_medication_event_url, class: 'btn btn-success pull-right' %>
+<h1>Meds</h1>
+
+<table class='table table-bordered table-striped'>
+  <% date_sift(@medication_events).each_pair do |day, values| %>
+    <tr>
+      <th colspan=3>
+        <% date = Time.parse(day) %>
+        <%= date.strftime "%A %B #{date.day.ordinalize}" %>
+      </th>
+    </tr>
+    <% values.each do |v| %>
+      <tr>
+        <td>
+          <%= link_to v.datetime.strftime('%H:%M'), edit_medication_event_path(v) %>
+        </td>
+        <td>
+          <%= v.amount %>
+        </td>
+        <td>
+          <%= v.insulin %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

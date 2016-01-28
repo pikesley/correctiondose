@@ -14,6 +14,14 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class='collapse navbar-collapse' id='navbar-collapse'>
       <ul class='nav navbar-nav'>
+        <% {
+          'Glucose' => '/glucose',
+          'Meds' => '/meds'
+        }.each_pair do |label, url| %>
+          <li>
+            <%= link_to label, url %>
+          </li>
+        <% end %>
       </ul>
       <p class="navbar-text navbar-right">
         <% if signed_in? %>

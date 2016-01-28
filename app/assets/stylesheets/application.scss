@@ -4,6 +4,14 @@
 @import 'bootstrap';
 @import 'plugins';
 
+.bg-high {
+  background-color: $warning-pink;
+}
+
+.bg-low {
+  background-color: $warning-blue;
+}
+
 /* Dragones below this line */
 
 nav {

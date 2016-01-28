@@ -15,25 +15,25 @@
   <% end %>
 
   <p>
-    <%= f.label :datetime %><br>
-    <%= f.text_field :datetime, id: 'glucose_measurement_datetime' %>
-    <script type="text/javascript">
-      $(function () {
-        $('#glucose_measurement_datetime').datetimepicker({
-          format: 'YYYY-MM-DD HH:mm',
-          defaultDate: moment()
-        });
-      });
-    </script>
+    <%= f.label :datetime, 'Date and time' %><br>
+    <%= f.text_field :datetime, id: 'glucose_measurement_datetime', class: 'form-control' %>
   </p>
 
   <p>
     <%= f.label :value %><br>
-    <%= f.text_field :value %>
+    <%= f.text_field :value, class: 'form-control' %>
   </p>
 
   <p>
     <%= f.submit 'Create', class: 'btn btn-success' %>
   </p>
-
 <% end %>
+
+<script type="text/javascript">
+  $(function () {
+    $('#glucose_measurement_datetime').datetimepicker({
+      format: 'YYYY-MM-DD HH:mm',
+      defaultDate: moment()
+    });
+  });
+</script>

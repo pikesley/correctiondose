@@ -5,7 +5,7 @@ describe 'GlucoseMeasurements' do
     it 'Adds a measurement and displays the results' do
       visit new_glucose_measurement_url(as: user)
       expect {
-        fill_in 'Datetime', with: '2016-01-27 17:53:00'
+        fill_in 'Date and time', with: '2016-01-27 17:53:00'
         fill_in 'Value', with: '5.6'
         click_button 'Create'
       }.to change(GlucoseMeasurement, :count).by 1

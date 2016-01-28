@@ -19,14 +19,11 @@ describe 'GlucoseMeasurements' do
       end
     end
 
-    it 'Deletes a measurement' do
-      pending
+    it 'Edit a measurement' do
       glucose_measurement = create(:glucose_measurement, datetime: '1992-06-15 12:00:00', value: '7')
       visit glucose_measurements_path(as: user)
-      expect {
-        click_link 'Edit'
-      }.to change(GlucoseMeasurement, :count).by -1
-      expect(page).to have_content 'BG measurements'
+      click_link '12:00'
+      expect(page).to have_content 'BG measurement'
     end
   end
 end

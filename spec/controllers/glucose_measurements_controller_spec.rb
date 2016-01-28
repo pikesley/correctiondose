@@ -40,6 +40,7 @@ describe GlucoseMeasurementsController, type: :controller do
       it 'redirects to the new measurement' do
         post :create, glucose_measurement: attributes_for(:glucose_measurement)
         expect(response).to redirect_to GlucoseMeasurement.last
+      #  expect(response).to redirect_to render_template :index
       end
     end
 

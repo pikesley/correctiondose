@@ -1,4 +1,4 @@
-<h1>BG measurements</h1>
+<h1>Blood Glucose</h1>
 
 <table class='table table-bordered table-striped'>
   <% date_sift(@glucose_measurements).each_pair do |day, values| %>
@@ -14,7 +14,7 @@
           <%= link_to v.datetime.strftime('%H:%M'), edit_glucose_measurement_path(v) %>
         </td>
         <td>
-          <%= link_to v.value, edit_glucose_measurement_path(v) %>
+          <%= v.value %>
         </td>
       </tr>
     <% end %>

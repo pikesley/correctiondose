@@ -2,4 +2,11 @@
 
 <%= render 'form' %>
 
+<%= link_to 'Delete', glucose_measurement_path(@glucose_measurement),
+                              class: 'btn btn-warning',
+                              method: :delete,
+                              data: {
+                                confirm: 'Are you sure?'
+                              } %>
+
 <%= link_to 'Back', glucose_measurements_path, class: 'btn btn-default' %>

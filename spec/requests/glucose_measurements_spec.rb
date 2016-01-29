@@ -53,6 +53,13 @@ describe 'GlucoseMeasurements' do
       expect(page).to have_selector 'input[type=submit][value="Update Glucose measurement"]'
       expect(page).to have_link 'Delete', href: '/glucose/3'
       expect(page).to have_link 'Back', href: '/glucose'
+
+      click_link 'Delete'
+      expect(GlucoseMeasurement.count).to eq 2
+      expect(page).to have_link 'Add new measurement', href: 'http://www.example.com/glucose/new'
+      within 'th' do
+        expect(page).to have_content 'Wednesday January 27th'
+      end
     end
   end
 end

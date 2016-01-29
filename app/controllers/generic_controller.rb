@@ -15,6 +15,15 @@ class GenericController < ApplicationController
     @metric = find_class.find(params[:id])
   end
 
+  def create
+    @metric = find_class.new(acceptable_params)
+    if @metric.save
+      redirect_to glucose_measurements_path
+    else
+      render :new
+    end
+  end
+
   private
 
   def find_class

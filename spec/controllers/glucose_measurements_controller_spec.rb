@@ -17,7 +17,7 @@ describe GlucoseMeasurementsController, type: :controller do
   end
 
   describe 'GET #show' do
-    it 'assigns the requested measurement to @glucose_measurement' do
+    it 'assigns the requested measurement to @metric' do
       glucose_measurement = create(:glucose_measurement)
       get :show, id: glucose_measurement
       expect(assigns(:metric)).to eq glucose_measurement

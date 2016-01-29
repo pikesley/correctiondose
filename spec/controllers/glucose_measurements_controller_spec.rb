@@ -76,7 +76,7 @@ describe GlucoseMeasurementsController, type: :controller do
         expect(test_measurement.value).to eq 12.0
       end
 
-      it 'redirects to the updated measurement' do
+      it 'redirects to the index page' do
         put :update, id: test_measurement, glucose_measurement: attributes_for(:glucose_measurement)
         expect(assigns :metric).to eq test_measurement
         expect(response).to redirect_to glucose_measurements_url

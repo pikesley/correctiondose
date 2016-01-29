@@ -4,4 +4,8 @@ FactoryGirl.define do
     f.weight 70
     f.description 'pasta bolognese'
   end
+
+  factory :invalid_carbohydrate_intake, parent: :carbohydrate_intake do |f|
+    f.weight -10
+  end
 end

@@ -1,0 +1,12 @@
+<h1>Carbs Intake</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Delete', carbohydrate_intake_path(@metric),
+                              class: 'btn btn-warning',
+                              method: :delete,
+                              data: {
+                                confirm: 'Are you sure?'
+                              } %>
+
+<%= link_to 'Back', carbohydrate_intakes_path, class: 'btn btn-default' %>

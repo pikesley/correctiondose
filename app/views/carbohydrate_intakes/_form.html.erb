@@ -1,0 +1,45 @@
+<%= form_for @metric do |f| %>
+
+  <% if @metric.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@metric.errors.count, "error") %> prohibited
+        this measurement from being saved:
+      </h2>
+      <ul>
+        <% @metric.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :datetime, 'Date and time' %><br>
+    <%= f.text_field :datetime, id: 'carbohydrate_intake_datetime', class: 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :weight %><br>
+    <%= f.text_field :weight, class: 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.submit class: 'btn btn-success' %>
+
+  </p>
+<% end %>
+
+<script type="text/javascript">
+  $(function () {
+    $('#carbohydrate_intake_datetime').datetimepicker({
+      format: 'YYYY-MM-DD HH:mm',
+      defaultDate: moment()
+    });
+  });
+</script>

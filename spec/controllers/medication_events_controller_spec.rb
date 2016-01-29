@@ -77,7 +77,7 @@ describe MedicationEventsController, type: :controller do
         expect(test_meds.amount).to eq 16.0
       end
 
-      it 'redirects to the updated measurement' do
+      it 'redirects to the index page' do
         put :update, id: test_meds, medication_event: attributes_for(:medication_event)
         expect(assigns :metric).to eq test_meds
         expect(response).to redirect_to medication_events_url

@@ -1,17 +1,5 @@
-class GlucoseMeasurementsController < ApplicationController
+class GlucoseMeasurementsController < GenericController
   before_action :require_login
-
-  def index
-    @glucose_measurements = GlucoseMeasurement.all
-  end
-
-  def show
-    @glucose_measurement = GlucoseMeasurement.find(params[:id])
-  end
-
-  def new
-    @glucose_measurement = GlucoseMeasurement.new
-  end
 
   def edit
     @glucose_measurement = GlucoseMeasurement.find(params[:id])

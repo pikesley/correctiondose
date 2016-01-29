@@ -7,7 +7,7 @@ describe GlucoseMeasurementsController, type: :controller do
     it 'populates an array of measurements' do
       glucose_measurement = create(:glucose_measurement)
       get :index
-      expect(assigns(:glucose_measurements)).to eq [glucose_measurement]
+      expect(assigns(:metrics)).to eq [glucose_measurement]
     end
 
     it 'renders the #index view' do
@@ -20,7 +20,7 @@ describe GlucoseMeasurementsController, type: :controller do
     it 'assigns the requested measurement to @glucose_measurement' do
       glucose_measurement = create(:glucose_measurement)
       get :show, id: glucose_measurement
-      expect(assigns(:glucose_measurement)).to eq glucose_measurement
+      expect(assigns(:metric)).to eq glucose_measurement
     end
 
     it 'renders the #show view' do

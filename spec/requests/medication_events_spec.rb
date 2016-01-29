@@ -2,7 +2,7 @@ describe 'MedicationEvents' do
   describe 'Manage medication events' do
     let(:user) { create :user }
 
-    it 'Adds an event and displays the results' do
+    it 'adds an event and displays the results' do
       visit new_medication_event_url(as: user)
       expect {
         fill_in 'Date and time', with: '2016-01-27 18:53:00'
@@ -19,7 +19,7 @@ describe 'MedicationEvents' do
       expect(page).to have_content 'humalog'
     end
 
-    it 'Edits an event' do
+    it 'edits an event' do
       DatabaseCleaner.clean
 
       medication_event = create(:medication_event, datetime: '1992-06-15 12:00:00', amount: '7', insulin: 'humalog')
@@ -29,7 +29,7 @@ describe 'MedicationEvents' do
       expect(page).to have_content 'Delete'
     end
 
-    it 'Adds several measurements' do
+    it 'adds several measurements' do
       DatabaseCleaner.clean
 
       visit new_medication_event_url(as: user)

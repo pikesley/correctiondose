@@ -1,4 +1,6 @@
 class GenericController < ApplicationController
+  before_action :require_login
+
   def index
     @metrics = find_class.all
   end
@@ -22,6 +24,23 @@ class GenericController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @metric = find_class.find(params[:id])
+
+    if @metric.update(acceptable_params)
+      redirect_to metrics_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @metric = find_class.find(params[:id])
+    @metric.destroy
+
+    redirect_to metrics_path
   end
 
   private

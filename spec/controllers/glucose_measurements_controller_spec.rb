@@ -63,7 +63,7 @@ describe GlucoseMeasurementsController, type: :controller do
     context 'valid attributes' do
       it 'locates the requested measurement' do
         put :update, id: test_measurement, glucose_measurement: attributes_for(:glucose_measurement)
-        expect(assigns :glucose_measurement).to eq test_measurement
+        expect(assigns :metric).to eq test_measurement
       end
 
       it 'changes test_measurement`s attributes' do
@@ -78,7 +78,7 @@ describe GlucoseMeasurementsController, type: :controller do
 
       it 'redirects to the updated measurement' do
         put :update, id: test_measurement, glucose_measurement: attributes_for(:glucose_measurement)
-        expect(assigns :glucose_measurement).to eq test_measurement
+        expect(assigns :metric).to eq test_measurement
         expect(response).to redirect_to glucose_measurements_url
       end
     end
@@ -86,7 +86,7 @@ describe GlucoseMeasurementsController, type: :controller do
     context 'invalid attributes' do
       it 'locates the requested measurement' do
         put :update, id: test_measurement, glucose_measurement: attributes_for(:invalid_glucose_measurement)
-        expect(assigns(:glucose_measurement)).to eq test_measurement
+        expect(assigns(:metric)).to eq test_measurement
       end
 
       it 'does not change the test_measurement attributes' do

@@ -1,0 +1,11 @@
+<h1><%= title.titleize %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Delete', send("#{@metric.class.name.underscore}_path".to_sym, @metric),
+                              class: 'btn btn-warning',
+                              method: :delete,
+                              data: {
+                                confirm: 'Are you sure?'
+                              } %>
+<%= link_to 'Back', send("#{@metric.class.name.underscore}s_path".to_sym), class: 'btn btn-default' %>

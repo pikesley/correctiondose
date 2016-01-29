@@ -70,7 +70,7 @@ describe 'MedicationEvents' do
 
       click_link 'Delete'
       expect(MedicationEvent.count).to eq 2
-      expect(page).to have_link 'Add new meds', href: '/meds/new'
+      expect(page).to have_link 'Add meds', href: '/meds/new'
       expect(page).to_not have_content 'Sunday February 28th'
     end
   end

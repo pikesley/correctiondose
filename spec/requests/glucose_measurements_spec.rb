@@ -17,7 +17,7 @@ describe 'GlucoseMeasurements' do
       expect(page).to have_content '5.6'
     end
 
-    it 'Edit a measurement' do
+    it 'Edits a measurement' do
       glucose_measurement = create(:glucose_measurement, datetime: '1992-06-15 12:00:00', value: '7')
       visit glucose_measurements_path(as: user)
       click_link '12:00'
@@ -25,7 +25,7 @@ describe 'GlucoseMeasurements' do
       expect(page).to have_content 'Delete'
     end
 
-    it 'Add several measurements' do
+    it 'Adds several measurements' do
       DatabaseCleaner.clean
 
       visit new_glucose_measurement_url(as: user)

@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160129223328) do
   create_table "medication_events", force: :cascade do |t|
     t.datetime "datetime"
     t.string   "insulin"
-    t.float    "dose"
+    t.float    "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

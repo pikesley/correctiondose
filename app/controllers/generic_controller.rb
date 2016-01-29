@@ -18,7 +18,7 @@ class GenericController < ApplicationController
   def create
     @metric = find_class.new(acceptable_params)
     if @metric.save
-      redirect_to glucose_measurements_path
+      redirect_to metrics_path
     else
       render :new
     end

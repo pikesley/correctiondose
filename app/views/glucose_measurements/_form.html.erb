@@ -1,18 +1,6 @@
 <%= form_for @metric do |f| %>
 
-  <% if @metric.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@metric.errors.count, "error") %> prohibited
-        this measurement from being saved:
-      </h2>
-      <ul>
-        <% @metric.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: 'shared/form_errors' %>
 
   <p>
     <%= f.label :datetime, 'Date and time' %><br>

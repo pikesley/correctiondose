@@ -21,7 +21,7 @@ describe 'GlucoseMeasurements' do
       glucose_measurement = create(:glucose_measurement, datetime: '1992-06-15 12:00:00', value: '7')
       visit glucose_measurements_path(as: user)
       click_link '12:00'
-      expect(page).to have_content 'BG measurement'
+      expect(page).to have_content 'Glucose'
       expect(page).to have_content 'Delete'
     end
 
@@ -48,7 +48,7 @@ describe 'GlucoseMeasurements' do
       expect(page).to have_content '13:00'
 
       click_link '13:00'
-      expect(page).to have_content 'BG measurement'
+      expect(page).to have_content 'Glucose'
       expect(page).to have_field 'Date and time'
       expect(page).to have_selector 'input[type=submit][value="Update Glucose measurement"]'
       expect(page).to have_link 'Delete', href: '/glucose/3'

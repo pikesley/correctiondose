@@ -3,7 +3,7 @@ class CreateMedicationEvents < ActiveRecord::Migration
     create_table :medication_events do |t|
       t.datetime :datetime
       t.string :type
-      t.float :amount
+      t.float :dose
 
       t.timestamps null: false
     end

@@ -58,7 +58,7 @@ describe MedicationEventsController, type: :controller do
   end
 
   describe 'PUT #update' do
-    let (:test_meds) { create :medication_event, datetime: '1974-06-15 22:00:00', amount: 14.0, insulin: 'lantus' }
+    let (:test_meds) { create :medication_event, datetime: '1974-06-15 22:00:00', dose: 14.0, insulin: 'lantus' }
 
     context 'valid attributes' do
       it 'locates the requested event' do
@@ -70,11 +70,11 @@ describe MedicationEventsController, type: :controller do
         put :update, id: test_meds,
                      medication_event: attributes_for(:medication_event,
                                                          datetime: '1975-06-15 22:00:00',
-                                                         amount: 16,
+                                                         dose: 16,
                                                          insulin: 'lantus')
         test_meds.reload
         expect(test_meds.datetime).to eq '1975-06-15 22:00:00'
-        expect(test_meds.amount).to eq 16.0
+        expect(test_meds.dose).to eq 16.0
       end
 
       it 'redirects to the index page' do
@@ -94,10 +94,10 @@ describe MedicationEventsController, type: :controller do
         put :update, id: test_meds,
                      medication_event: attributes_for(:medication_event,
                                                          datetime: nil,
-                                                         amount: 4,
+                                                         dose: 4,
                                                          insulin: 'humalog')
         test_meds.reload
-        expect(test_meds.amount).to_not eq 4
+        expect(test_meds.dose).to_not eq 4
         expect(test_meds.datetime).to eq '1974-06-15 22:00:00'
       end
 

@@ -1,5 +1,5 @@
 class MoveColumn < ActiveRecord::Migration
   def change
-    change_column :medication_events, :amount, :float, after: :insulin
+    change_column :medication_events, :dose, :float, after: :insulin
   end
 end

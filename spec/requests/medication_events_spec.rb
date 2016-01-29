@@ -6,7 +6,7 @@ describe 'MedicationEvents' do
       visit new_medication_event_url(as: user)
       expect {
         fill_in 'Date and time', with: '2016-01-27 18:53:00'
-        fill_in 'Amount', with: '10.0'
+        fill_in 'Dose', with: '10.0'
         select 'humalog', from: 'Insulin'
         click_button 'Create'
       }.to change(MedicationEvent, :count).by 1
@@ -22,7 +22,7 @@ describe 'MedicationEvents' do
     it 'edits an event' do
       DatabaseCleaner.clean
 
-      medication_event = create(:medication_event, datetime: '1992-06-15 12:00:00', amount: '7', insulin: 'humalog')
+      medication_event = create(:medication_event, datetime: '1992-06-15 12:00:00', dose: '7', insulin: 'humalog')
       visit medication_events_path(as: user)
       click_link '12:00'
       expect(page).to have_content 'Meds'
@@ -34,20 +34,20 @@ describe 'MedicationEvents' do
 
       visit new_medication_event_url(as: user)
       fill_in 'Date and time', with: '2016-02-28 14:00:00'
-      fill_in 'Amount', with: '10.5'
+      fill_in 'Dose', with: '10.5'
       select 'humalog', from: 'Insulin'
       click_button 'Create'
       expect(page.all('td').map { |cell| cell.text }).to eq ['14:00', '10.5', 'humalog']
 
       visit new_medication_event_url(as: user)
       fill_in 'Date and time', with: '2016-02-25 10:00:00'
-      fill_in 'Amount', with: '5.5'
+      fill_in 'Dose', with: '5.5'
       select 'humalog', from: 'Insulin'
       click_button 'Create'
 
       visit new_medication_event_url(as: user)
       fill_in 'Date and time', with: '2016-02-27 17:00:00'
-      fill_in 'Amount', with: '8.0'
+      fill_in 'Dose', with: '8.0'
       select 'lantus', from: 'Insulin'
       click_button 'Create'
 

@@ -1,20 +1,3 @@
-<%= link_to 'Add new meds', new_medication_event_path, class: 'btn btn-success pull-right' %>
-<h1>Meds</h1>
-
-<table class='table table-bordered table-striped'>
-  <% date_sift(@metrics).each_pair do |day, values| %>
-    <tr>
-      <th colspan=3>
-        <% date = Time.parse(day) %>
-        <%= date.strftime "%A %B #{date.day.ordinalize}" %>
-      </th>
-    </tr>
-    <% values.each do |value| %>
-      <%= render partial: 'shared/table_row', locals: {
-        passed_value: value,
-        fields: ['amount', 'insulin'],
-        edit_path: edit_medication_event_path(value)
-      } %>
-    <% end %>
-  <% end %>
-</table>
+<%= render partial: 'shared/index', locals: {
+  title: 'meds'
+} %>

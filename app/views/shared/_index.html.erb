@@ -1,0 +1,8 @@
+<%= link_to "Add new #{title}",
+    send("new_#{@metrics.first.class.name.underscore}_path".to_sym),
+    class: 'btn btn-success pull-right' %>
+<h1><%= title.titleize %></h1>
+
+<%= render partial: 'shared/table', locals: {
+  metrics: @metrics
+} %>

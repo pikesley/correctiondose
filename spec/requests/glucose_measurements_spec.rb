@@ -56,7 +56,7 @@ describe 'GlucoseMeasurements' do
 
       click_link 'Delete'
       expect(GlucoseMeasurement.count).to eq 2
-      expect(page).to have_link 'Add new measurement', href: '/glucose/new'
+      expect(page).to have_link 'Add new glucose', href: '/glucose/new'
       within 'th' do
         expect(page).to have_content 'Wednesday January 27th'
       end

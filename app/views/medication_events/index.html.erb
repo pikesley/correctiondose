@@ -9,18 +9,12 @@
         <%= date.strftime "%A %B #{date.day.ordinalize}" %>
       </th>
     </tr>
-    <% values.each do |v| %>
-      <tr>
-        <td>
-          <%= link_to v.datetime.strftime('%H:%M'), edit_medication_event_path(v) %>
-        </td>
-        <td>
-          <%= v.amount %>
-        </td>
-        <td>
-          <%= v.insulin %>
-        </td>
-      </tr>
+    <% values.each do |value| %>
+      <%= render partial: 'shared/table_row', locals: {
+        passed_value: value,
+        fields: ['amount', 'insulin'],
+        edit_path: edit_medication_event_path(value)
+      } %>
     <% end %>
   <% end %>
 </table>

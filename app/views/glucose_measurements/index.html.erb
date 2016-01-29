@@ -10,7 +10,11 @@
       </th>
     </tr>
     <% values.each do |value| %>
-      <%= render partial: 'shared/table_row', locals: {passed_value: value, fields: ['value']} %>
+      <%= render partial: 'shared/table_row', locals: {
+        passed_value: value,
+        fields: ['value'],
+        edit_path: edit_glucose_measurement_path(value)
+      } %>
     <% end %>
   <% end %>
 </table>

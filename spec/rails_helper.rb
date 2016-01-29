@@ -7,6 +7,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'clearance/rspec'
 require 'database_cleaner'
+DatabaseCleaner.strategy = :truncation
 
 ActiveRecord::Migration.maintain_test_schema!
 

@@ -48,4 +48,8 @@ class GenericController < ApplicationController
   def find_class
     params[:controller].classify.constantize
   end
+
+  def metrics_path
+    send("#{@metric.class.name.underscore}s_path".to_sym)
+  end
 end

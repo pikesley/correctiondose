@@ -27,4 +27,15 @@
       </div>
     </div>
   </body>
+
+  <script>
+  $('.glucose-measurement-value').each(function() {
+    if($(this).text() > 8.0) {
+      $(this).addClass('bg-high')
+    }
+    if($(this).text() < 4.0) {
+      $(this).addClass('bg-low')
+    }
+  })
+  </script>
 </html>

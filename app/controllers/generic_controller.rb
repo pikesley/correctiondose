@@ -8,7 +8,11 @@ class GenericController < ApplicationController
   end
 
   def new
-    @glucose_measurement = find_class.new
+    @metric = find_class.new
+  end
+
+  def edit
+    @metric = find_class.find(params[:id])
   end
 
   private

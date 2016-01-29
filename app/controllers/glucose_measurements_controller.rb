@@ -1,9 +1,7 @@
 class GlucoseMeasurementsController < GenericController
   before_action :require_login
 
-  def edit
-    @glucose_measurement = GlucoseMeasurement.find(params[:id])
-  end
+
 
   def create
     @glucose_measurement = GlucoseMeasurement.new(glucose_measurement_params)

@@ -2,7 +2,7 @@
 <h1>Glucose</h1>
 
 <table class='table table-bordered table-striped' id='blood-glucose'>
-  <% date_sift(@glucose_measurements).each_pair do |day, values| %>
+  <% date_sift(@metrics).each_pair do |day, values| %>
     <tr>
       <th colspan=2>
         <% date = Time.parse(day) %>

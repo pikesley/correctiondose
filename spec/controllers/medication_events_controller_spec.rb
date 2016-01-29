@@ -7,7 +7,7 @@ describe MedicationEventsController, type: :controller do
     it 'populates an array of medication events' do
       medication_event = create(:medication_event)
       get :index
-      expect(assigns(:medication_events)).to eq [medication_event]
+      expect(assigns(:metrics)).to eq [medication_event]
     end
 
     it 'renders the #index view' do
@@ -17,10 +17,10 @@ describe MedicationEventsController, type: :controller do
   end
 
   describe 'GET #show' do
-    it 'assigns the requested meds event to @medication_event' do
+    it 'assigns the requested meds event to @metric' do
       medication_event = create(:medication_event)
       get :show, id: medication_event
-      expect(assigns(:medication_event)).to eq medication_event
+      expect(assigns(:metric)).to eq medication_event
     end
 
     it 'renders the #show view' do
@@ -63,7 +63,7 @@ describe MedicationEventsController, type: :controller do
     context 'valid attributes' do
       it 'locates the requested event' do
         put :update, id: test_meds, medication_event: attributes_for(:medication_event)
-        expect(assigns :medication_event).to eq test_meds
+        expect(assigns :metric).to eq test_meds
       end
 
       it 'changes test_meds` attributes' do
@@ -79,7 +79,7 @@ describe MedicationEventsController, type: :controller do
 
       it 'redirects to the updated measurement' do
         put :update, id: test_meds, medication_event: attributes_for(:medication_event)
-        expect(assigns :medication_event).to eq test_meds
+        expect(assigns :metric).to eq test_meds
         expect(response).to redirect_to medication_events_url
       end
     end
@@ -87,7 +87,7 @@ describe MedicationEventsController, type: :controller do
     context 'invalid attributes' do
       it 'locates the requested event' do
         put :update, id: test_meds, medication_event: attributes_for(:invalid_medication_event)
-        expect(assigns(:medication_event)).to eq test_meds
+        expect(assigns(:metric)).to eq test_meds
       end
 
       it 'does not change the test_meds attributes' do

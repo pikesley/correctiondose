@@ -2,7 +2,7 @@
 <h1>Meds</h1>
 
 <table class='table table-bordered table-striped'>
-  <% date_sift(@medication_events).each_pair do |day, values| %>
+  <% date_sift(@metrics).each_pair do |day, values| %>
     <tr>
       <th colspan=3>
         <% date = Time.parse(day) %>

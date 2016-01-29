@@ -1,13 +1,13 @@
-<%= form_for @glucose_measurement do |f| %>
+<%= form_for @metric do |f| %>
 
-  <% if @glucose_measurement.errors.any? %>
+  <% if @metric.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@glucose_measurement.errors.count, "error") %> prohibited
+        <%= pluralize(@metric.errors.count, "error") %> prohibited
         this measurement from being saved:
       </h2>
       <ul>
-        <% @glucose_measurement.errors.full_messages.each do |msg| %>
+        <% @metric.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

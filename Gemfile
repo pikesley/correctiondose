@@ -50,6 +50,7 @@ group :development, :test do
   gem 'capybara'
   gem 'coveralls'
   gem 'launchy'
+  gem 'guard-rspec'
 end
 
 group :development do

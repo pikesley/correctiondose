@@ -1,6 +1,8 @@
 <tr>
   <td>
-    <%= link_to passed_value.datetime.strftime('%H:%M'), edit_path %>
+    <%= link_to passed_value.datetime.strftime('%H:%M'),
+      send("edit_#{passed_value.class.name.underscore}_path".to_sym, passed_value) %>
+    <!-- this resolves to e.g. edit_medication_event_path -->
   </td>
 
   <% fields.each do |field| %>

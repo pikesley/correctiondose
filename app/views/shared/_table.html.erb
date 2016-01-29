@@ -1,0 +1,20 @@
+<table class='table table-bordered table-striped'>
+  <% date_sift(metrics).each_pair do |day, values| %>
+    <tr>
+      <th colspan=64> <!-- bootstrap ignores this maybe? -->
+        <% date = Time.parse(day) %>
+        <%= date.strftime "%A %B #{date.day.ordinalize}" %>
+      </th>
+    </tr>
+    <% values.each do |value| %>
+      <%= render partial: 'shared/table_row', locals: {
+        passed_value: value,
+        fields: begin
+          @metrics.first.class.fields
+        rescue NoMethodError
+          @metrics.first.attributes.keys[2..-3]
+        end
+      } %>
+    <% end %>
+  <% end %>
+</table>

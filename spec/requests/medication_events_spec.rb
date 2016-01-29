@@ -37,6 +37,7 @@ describe 'MedicationEvents' do
       fill_in 'Amount', with: '10.5'
       select 'humalog', from: 'Insulin'
       click_button 'Create'
+      expect(page.all('td').map { |cell| cell.text }).to eq ['14:00', '10.5', 'humalog']
 
       visit new_medication_event_url(as: user)
       fill_in 'Date and time', with: '2016-02-25 10:00:00'

@@ -1,31 +1,3 @@
-<%= link_to 'Add new measurement', new_glucose_measurement_path, class: 'btn btn-success pull-right' %>
-<h1>Glucose</h1>
-
-<table class='table table-bordered table-striped' id='blood-glucose'>
-  <% date_sift(@metrics).each_pair do |day, values| %>
-    <tr>
-      <th colspan=2>
-        <% date = Time.parse(day) %>
-        <%= date.strftime "%A %B #{date.day.ordinalize}" %>
-      </th>
-    </tr>
-    <% values.each do |value| %>
-      <%= render partial: 'shared/table_row', locals: {
-        passed_value: value,
-        fields: ['value'],
-        edit_path: edit_glucose_measurement_path(value)
-      } %>
-    <% end %>
-  <% end %>
-</table>
-
-<script>
-$('.glucose-measurement-value').each(function() {
-  if($(this).text() > 8.0) {
-    $(this).addClass('bg-high')
-  }
-  if($(this).text() < 4.0) {
-    $(this).addClass('bg-low')
-  }
-})
-</script>
+<%= render partial: 'shared/index', locals: {
+  title: 'glucose'
+} %>

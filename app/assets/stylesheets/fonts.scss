@@ -1,4 +1,8 @@
-@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
-@import url(//fonts.googleapis.com/css?family=NTR);
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
+@import url('//fonts.googleapis.com/css?family=NTR');
 
 $font-family-sans-serif: NTR, sans-serif;
+
+body {
+  text-transform: lowercase;
+}

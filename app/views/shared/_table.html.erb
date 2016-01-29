@@ -9,11 +9,7 @@
     <% values.each do |value| %>
       <%= render partial: 'shared/table_row', locals: {
         passed_value: value,
-        fields: begin
-          @metrics.first.class.fields
-        rescue NoMethodError
-          @metrics.first.attributes.keys[2..-3]
-        end
+        fields: @metrics.name.constantize.fields
       } %>
     <% end %>
   <% end %>

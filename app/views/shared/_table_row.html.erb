@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <%= link_to passed_value.datetime.strftime('%H:%M'), edit_path %>
+  </td>
+
+  <% fields.each do |field| %>
+    <td class='<%= "#{passed_value.class.name.underscore.gsub('_', '-')}-#{field}" %>'>
+      <%= passed_value.send(field) %>
+    </td>
+  <% end %>
+</tr>

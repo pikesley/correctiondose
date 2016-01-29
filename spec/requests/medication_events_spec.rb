@@ -20,6 +20,8 @@ describe 'MedicationEvents' do
     end
 
     it 'Edits an event' do
+      DatabaseCleaner.clean
+
       medication_event = create(:medication_event, datetime: '1992-06-15 12:00:00', amount: '7', insulin: 'humalog')
       visit medication_events_path(as: user)
       click_link '12:00'

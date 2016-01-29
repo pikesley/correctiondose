@@ -4,7 +4,7 @@
 
   <p>
     <%= f.label :datetime, 'Date and time' %><br>
-    <%= f.text_field :datetime, id: 'glucose_measurement_datetime', class: 'form-control' %>
+    <%= f.text_field :datetime, id: 'glucose_measurement_datetime', class: 'form-control datetime' %>
   </p>
 
   <p>
@@ -14,15 +14,5 @@
 
   <p>
     <%= f.submit class: 'btn btn-success' %>
-
   </p>
 <% end %>
-
-<script type="text/javascript">
-  $(function () {
-    $('#glucose_measurement_datetime').datetimepicker({
-      format: 'YYYY-MM-DD HH:mm',
-      defaultDate: moment()
-    });
-  });
-</script>

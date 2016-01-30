@@ -1,4 +1,4 @@
 Clearance.configure do |config|
-  config.mailer_sender = "reply@example.com"
+  config.mailer_sender = "admin@beekl.es"
   config.allow_sign_up = true
 end

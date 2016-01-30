@@ -12,4 +12,14 @@ module ApplicationHelper
 
     h
   end
+
+  def models
+    [
+      GlucoseMeasurement,
+      CarbohydrateIntake,
+      MedicationEvent,
+      PhysicalExercise
+    ]
+  end
+
 end

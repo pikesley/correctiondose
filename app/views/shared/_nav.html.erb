@@ -13,12 +13,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class='collapse navbar-collapse' id='navbar-collapse'>
       <ul class='nav navbar-nav' role='tablist'>
-        <% if @models %>
-          <% @models.each do |model| %>
-            <li>
-              <%= link_to model.short_name, send("#{model.name.underscore}s_path") %>
-            </li>
-          <% end %>
+        <% models.each do |model| %>
+          <li>
+            <%= link_to model.short_name, send("#{model.name.underscore}s_path") %>
+          </li>
         <% end %>
       </ul>
       <p class="navbar-text navbar-right">

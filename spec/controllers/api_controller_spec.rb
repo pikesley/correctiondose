@@ -75,6 +75,21 @@ describe ApiController, type: :controller do
           }.to_json
         }.to change(PhysicalExercise, :count).by 1
       end
+
+      it 'does not create duplicates' do
+        expect {
+          2.times do
+            post :create, data: {
+              "id":"3645",
+              "datetime":"2016-01-30T01:46:26+00:00",
+              "type":"Medication",
+              "subtype":"Lantus",
+              "category":"Bedtime",
+              "value":"14.0"
+            }
+          end
+        }.to change(MedicationEvent, :count).by 1
+      end
     end
   end
 end

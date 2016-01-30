@@ -1,11 +1,3 @@
 <h1><%= title.titleize %></h1>
 
   <%= render 'form' %>
-
-  <%= link_to 'Delete', send("#{@metric.class.name.underscore}_path".to_sym, @metric),
-                              class: 'btn btn-danger',
-                              method: :delete,
-                              data: {
-                                confirm: 'Are you sure?'
-                              } %>
-    <%= render partial: 'shared/back' %>

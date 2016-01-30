@@ -10,6 +10,14 @@ html {
   min-height: 100%;
 }
 
+body {
+  text-transform: lowercase;
+}
+
+.btn {
+  text-transform: lowercase;
+}
+
 .bg-high {
   background-color: $warning-pink;
 }

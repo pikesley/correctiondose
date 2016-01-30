@@ -83,6 +83,7 @@ GEM
     docile (1.1.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.1.0)
     email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
@@ -274,6 +275,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   coveralls
   database_cleaner
+  dotenv
   factory_girl_rails
   guard-rspec
   jbuilder (~> 2.0)

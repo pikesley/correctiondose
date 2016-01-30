@@ -42,6 +42,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'dotenv'
+
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 3.0'

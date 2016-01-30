@@ -3,12 +3,14 @@ describe 'MedicationEvents' do
     let(:user) { create :user }
 
     it 'adds an event and displays the results' do
+      DatabaseCleaner.clean
+
       visit new_medication_event_url(as: user)
       expect {
         fill_in 'Date and time', with: '2016-01-27 18:53:00'
         fill_in 'Dose', with: '10.0'
         select 'humalog', from: 'Insulin'
-        click_button 'Create'
+        click_button 'Add'
       }.to change(MedicationEvent, :count).by 1
 
       within 'th' do
@@ -36,20 +38,20 @@ describe 'MedicationEvents' do
       fill_in 'Date and time', with: '2016-02-28 14:00:00'
       fill_in 'Dose', with: '10.5'
       select 'humalog', from: 'Insulin'
-      click_button 'Create'
+      click_button 'Add'
       expect(page.all('td').map { |cell| cell.text }).to eq ['14:00', '10.5', 'humalog']
 
       visit new_medication_event_url(as: user)
       fill_in 'Date and time', with: '2016-02-25 10:00:00'
       fill_in 'Dose', with: '5.5'
       select 'humalog', from: 'Insulin'
-      click_button 'Create'
+      click_button 'Add'
 
       visit new_medication_event_url(as: user)
       fill_in 'Date and time', with: '2016-02-27 17:00:00'
       fill_in 'Dose', with: '8.0'
       select 'lantus', from: 'Insulin'
-      click_button 'Create'
+      click_button 'Add'
 
       expect(page).to have_content 'Sunday February 28th'
       expect(page).to have_content '14:00'
@@ -64,7 +66,7 @@ describe 'MedicationEvents' do
       expect(page).to have_content 'Meds'
       expect(page).to have_field 'Date and time'
       expect(page).to have_select 'Insulin', options: ['humalog', 'lantus']
-      expect(page).to have_selector 'input[type=submit][value="Update Medication event"]'
+      expect(page).to have_selector 'input[type=submit][value="Update"]'
       expect(page).to have_link 'Delete', href: '/meds/1'
       expect(page).to have_link 'Back', href: '/meds'
 

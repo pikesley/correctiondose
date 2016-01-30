@@ -1,7 +1,13 @@
-<%= link_to "Add #{title}",
-    send("new_#{@metrics.class.to_s.split('::')[0].underscore}_path".to_sym),
-    class: 'btn btn-success pull-right' %>
-<h1><%= title.titleize %></h1>
+<div class='row'>
+  <div class='col-xs-6'>
+    <h1><%= title.titleize %></h1>
+  </div>
+  <div class='col-xs-6'>
+    <%= link_to "Add #{title}",
+        send("new_#{@metrics.class.to_s.split('::')[0].underscore}_path".to_sym),
+        class: 'btn btn-success pull-right' %>
+  </div>
+</div>
 
 <%= render partial: 'shared/table', locals: {
   metrics: @metrics

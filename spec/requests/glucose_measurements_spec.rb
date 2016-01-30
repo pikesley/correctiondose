@@ -7,7 +7,7 @@ describe 'GlucoseMeasurements' do
       expect {
         fill_in 'Date and time', with: '2016-01-27 17:53:00'
         fill_in 'Value', with: '5.6'
-        click_button 'Create'
+        click_button 'Add'
       }.to change(GlucoseMeasurement, :count).by 1
 
       within 'th' do
@@ -31,17 +31,17 @@ describe 'GlucoseMeasurements' do
       visit new_glucose_measurement_url(as: user)
       fill_in 'Date and time', with: '2016-01-27 12:00:00'
       fill_in 'Value', with: '5.6'
-      click_button 'Create'
+      click_button 'Add'
 
       visit new_glucose_measurement_url(as: user)
       fill_in 'Date and time', with: '2016-01-27 12:30:00'
       fill_in 'Value', with: '9.6'
-      click_button 'Create'
+      click_button 'Add'
 
       visit new_glucose_measurement_url(as: user)
       fill_in 'Date and time', with: '2016-01-27 13:00:00'
       fill_in 'Value', with: '6.5'
-      click_button 'Create'
+      click_button 'Add'
 
       expect(page).to have_content '12:00'
       expect(page).to have_content '12:30'
@@ -50,7 +50,7 @@ describe 'GlucoseMeasurements' do
       click_link '13:00'
       expect(page).to have_content 'Glucose'
       expect(page).to have_field 'Date and time'
-      expect(page).to have_selector 'input[type=submit][value="Update Glucose measurement"]'
+      expect(page).to have_selector 'input[type=submit][value="Update"]'
       expect(page).to have_link 'Delete', href: '/glucose/3'
       expect(page).to have_link 'Back', href: '/glucose'
 

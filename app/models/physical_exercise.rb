@@ -12,4 +12,5 @@ class PhysicalExercise < ActiveRecord::Base
 
   validates :datetime, presence: true
   validates :duration, presence: true, numericality: { greater_than: 0 }
+  validates_uniqueness_of :datetime
 end

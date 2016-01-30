@@ -1,11 +1,11 @@
 language: ruby
 rvm:
-  - 2.3.0
+- 2.3.0
 services:
-  - postgresql
+- postgresql
 before_script:
-  - psql -c 'create database test;' -U postgres
-  - bundle exec rake db:migrate RAILS_ENV=test
+- psql -c 'create database test;' -U postgres
+- bundle exec rake db:migrate RAILS_ENV=test
 deploy:
   provider: heroku
   api_key:
@@ -13,4 +13,8 @@ deploy:
   app: correctiondose
   on:
     repo: pikesley/correctiondose
-  run: 'rake db:migrate'
+  run: rake db:migrate
+env:
+  global:
+  - secure: KCWtdsBXEIE/iUilXPG7T7MGdX7BCQ0ISf1I18RGohV7VFFC6Y4EvyJ8nhLoTEKgQ34pvLnrgyO4VxJ/9dpG9VizZ2ypUv3mTL0vC3k8VKQ1ahJM+DOuwOnttGDiR4o81/sYKFWiI4t3qt1UsBWtIQwAdjvqVJ0iEpaT2rng7hLf5hOmEBJbDURY5Mvrx4a5s9PgsOYXOsBafqlhhOMUsB0V6kMhjZKGsGtZm7g7yQlwRfV5E7y8T2BXmbqKjpBvjlBra5t3yMyLRmYDxZ0bOOSJ5hOceq710ha3+mJ/kU9pfafpCtGgEg8nUrUKgL9vOhT2rD7uKgo/X3u/CjjWCm3kTWIbZw8aIZKJKf8LzegdtyKVrDkPl4XQWDvWrXxYvR4s+0zY6g1mLIRXnF1/0/ahaRX+maLGujiPXJZFoY7Q5g2EgKXb9ok4WeLw6S/Qg3Vx4E4kbMRdg54ch5azp8Su+VXpUI8bxl3uMkrw7GA6rhvAFhuPbEfLUbXXUJ0UvpU+8F7tm77yrvU9adMneLQ62EWzX7uK5p4HWamfb/wUiy68ntFWNaw5XfbXmPoXmtZMpOzdcIn4skje5VEbff8/ikFaTT+c3alyODPQmKCzjWlxBG5YSxSLMtEaaYf+4WJ1y+59T4F+E1Nv576zkrsKrouR4a2y5MRAb+9nfC0=
+  - secure: kLLzwj9kgPiqTlSup3QyfAGxgyDtqo0fjG8+xQzmIJHfUhzgsgiPfTx+l2Jqp8XhWXZPwiNgjCECQRQb5oP7SUZyP9LpAoCfG1x1zT+63uOC8FU+W5NcQsBt4e6yhQGbm8bKTLC7/JZl8vxzFu0ij3Q1UFVJoTumMMEWPut5dzcdEi8vQQiA5NWMj/nsmpOzMFq7XBhnKKH1a2klvw2TTV8cKHgjzAx3KMKS67x5Y9oG4K3h6/pfQ8oppG3povy4gtm2nBc8DZOG7qNXNOl/mcyqUyXdTPLTt5laAarXIdrjYEGbMJvTs04E9jmPa7ae7xAmwpqw6JRSok0BBlAsAaJsz6LpKOAJHVGk1NImkC+0Ys1tluh1rBTbyS/Oxj5DFX68g0Q2aV76rYEKVSVu/IPf78ZWc6NEhXJJQAeUEZBP3gZjngPVFt3NCd5ooRjNGVBjwltl2v3wWAJxlGTpQc106gNXZbzQDUESxLGwg1sTVyAvOJy7wqXbLoQJ2W6Vx1NZ52aMCLlrhOnC2l5SK5lCKW0he74cgPsl+6rlXc2CeToWn6BAf6k/kf9gPqh8bc5yhZhYJSq3LA6YFEXYApfUC4cvJFWeRQA8Mo2hGwzbvTbQX7dH+5DTKMHf4bqzFV3SlV9pCIgkekkFSZm/Qu2pnqvSyOrKmCNZZVONtBY=

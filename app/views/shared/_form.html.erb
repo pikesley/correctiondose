@@ -26,15 +26,7 @@
   <div class='col-xs-12 buttons'>
     <%= f.submit class: 'btn btn-success' %>
     <%= render partial: 'shared/back' %>
-    <% if @metric.id %>
-      <%= link_to 'Delete', send("#{@metric.class.name.underscore}_path".to_sym, @metric),
-                                class: 'btn btn-danger',
-                                method: :delete,
-                                data: {
-                                  confirm: 'Are you sure?'
-                                } %>
-
-    <% end %>
+    <%= render partial: 'shared/delete' %>
   </div>
 <% end %>
 </div>

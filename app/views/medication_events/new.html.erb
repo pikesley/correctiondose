@@ -1,5 +1,3 @@
-<h1>New Medication Event</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', medication_events_path, class: 'btn btn-default' %>
+<%= render partial: 'shared/new', locals: {
+  title: 'meds'
+} %>

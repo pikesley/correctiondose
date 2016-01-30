@@ -1,5 +1,5 @@
 class MedicationEvent < ActiveRecord::Base
-  def self.insulins
+  def self.insulin_types
     [
       'humalog',
       'lantus'
@@ -15,5 +15,5 @@ class MedicationEvent < ActiveRecord::Base
 
   validates :datetime, presence: true
   validates :dose, presence: true, numericality: { greater_than: 0 }
-  validates :insulin, presence: true, inclusion: { in: insulins }
+  validates :insulin, presence: true, inclusion: { in: insulin_types }
 end

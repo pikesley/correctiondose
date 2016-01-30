@@ -1,0 +1,28 @@
+<%= form_for @metric do |f| %>
+  <%= render partial: 'shared/form_errors' %>
+  <p>
+    <%= f.label :datetime, 'Date and time' %><br>
+    <%= f.text_field :datetime, class: 'form-control datetime' %>
+  </p>
+
+  <% @metric.class.fields.each do |field| %>
+  <p>
+    <%= f.label field.to_sym %><br>
+
+    <% if field == 'insulin' %>
+      <%= f.select field.to_sym,
+                   options_for_select(@metric.class.send("#{field}_types".to_sym)),
+                   {},
+                   {class: 'form-control'}
+                   %>
+    <% else %>
+      <%= f.text_field field.to_sym, class: 'form-control' %>
+    <% end %>
+
+  </p>
+  <% end %>
+
+  <p>
+    <%= f.submit class: 'btn btn-success' %>
+  </p>
+<% end %>

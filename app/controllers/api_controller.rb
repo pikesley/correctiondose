@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
   skip_before_filter :verify_authenticity_token
-#  http_basic_authenticate_with name: "#{ENV['API_USER']}", password: "#{ENV['API_PASSWORD']}"
+  http_basic_authenticate_with name: "#{ENV['API_USER']}", password: "#{ENV['API_PASSWORD']}"
 
   def create
     data = params['data']

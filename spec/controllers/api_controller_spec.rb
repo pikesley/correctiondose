@@ -1,9 +1,14 @@
 describe ApiController, type: :controller do
   describe 'POST #create' do
+    before :each do
+      DatabaseCleaner.clean
+      user = ENV['API_USER']
+      pw = ENV['API_PASSWORD']
+      request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials(user,pw)
+    end
+
     context 'with valid attributes' do
       it 'creates a new glucose measurement' do
-        DatabaseCleaner.clean
-
         expect {
           post :create, data: {
             "id":"3648",
@@ -45,6 +50,8 @@ describe ApiController, type: :controller do
             "value"=>"6.0"
           }.to_json
         }.to change(MedicationEvent, :count).by 1
+
+        expect(MedicationEvent.first.insulin).to eq 'humalog'
       end
     end
   end

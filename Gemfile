@@ -43,6 +43,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 # gem 'capistrano-rails', group: :development
 
 gem 'dotenv'
+gem 'httparty'
 
 group :development, :test do
   gem 'pry'

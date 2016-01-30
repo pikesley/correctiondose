@@ -1,7 +1,10 @@
 require 'xmlsimple'
 require 'json'
+require 'httparty'
+require 'dotenv'
+Dotenv.load
 
-data = XmlSimple.xml_in File.read 'spec/support/fixtures/incoming.xml'
+data = XmlSimple.xml_in File.read ARGV[0]
 
 r = data['record']
 r.sort! { |x, y| x['datetime'] <=> y['datetime'] }
@@ -12,4 +15,20 @@ r.each do |datum|
   end
 end
 
-puts r
+url = 'http://localhost:3000/api'
+
+r.each do |j|
+  HTTParty.post(
+    url,
+    body: {
+      data: j.to_json
+    }.to_json,
+    headers: {
+      'Content-Type' => 'application/json'
+    },
+    basic_auth: {
+      username: ENV['API_USER'],
+      password: ENV['API_PASSWORD']
+    }
+  )
+end

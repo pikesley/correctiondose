@@ -10,6 +10,8 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :plain,
   :user_name      => ENV['SENDGRID_USERNAME'],
   :password       => ENV['SENDGRID_PASSWORD'],
-  :domain         => 'heroku.com',
+  :domain         => 'beekl.es',
   :enable_starttls_auto => true
 }
+
+Rails.application.routes.default_url_options[:host] = 'beekl.es'

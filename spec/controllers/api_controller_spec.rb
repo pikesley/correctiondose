@@ -2,9 +2,10 @@ describe ApiController, type: :controller do
   describe 'POST #create' do
     context 'with valid attributes' do
       it 'creates a new glucose measurement' do
+        DatabaseCleaner.clean
+
         expect {
-          post :create, json:
-          {
+          post :create, json: {
             "id":"3648",
             "datetime":"2016-01-30T13:58:31+00:00",
             "type":"Glucose",
@@ -13,9 +14,14 @@ describe ApiController, type: :controller do
             "value":"12.0"
           }.to_json
         }.to change(GlucoseMeasurement, :count).by 1
+
+        expect(GlucoseMeasurement.first.value).to eq 12.0
+        expect(GlucoseMeasurement.first.datetime).to eq '2016-01-30T13:58:31+00:00'
       end
 
       it 'fails with duff values' do
+        DatabaseCleaner.clean
+
         expect {
           post :create, json:
           {
@@ -24,6 +30,21 @@ describe ApiController, type: :controller do
             "value":"0"
           }.to_json
         }.to_not change(GlucoseMeasurement, :count)
+      end
+
+      it 'creates a new meds event' do
+        DatabaseCleaner.clean
+
+        expect {
+          post :create, json: {
+            "id":"3649",
+            "datetime":"2016-01-30T14:05:00+00:00",
+            "type":"Medication",
+            "subtype":"Humalog",
+            "category":"Lunch",
+            "value"=>"6.0"
+          }.to_json
+        }.to change(MedicationEvent, :count).by 1
       end
     end
   end

@@ -55,4 +55,20 @@
       <category>Dinner</category>
       <value>14.0</value>
   </record>
+  <record>
+      <id>3650</id>
+      <datetime>2016-01-29T19:01:46+00:00</datetime>
+      <type>Food</type>
+      <subtype></subtype>
+      <category>Dinner</category>
+      <value>70.0</value>
+  </record>
+  <record>
+      <id>3651</id>
+      <datetime>2016-01-20T19:02:13+00:00</datetime>
+      <type>Exercise</type>
+      <subtype>Drumming</subtype>
+      <category>Dinner</category>
+      <value>180.0</value>
+  </record>
 </ontrack>

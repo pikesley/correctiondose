@@ -5,7 +5,7 @@ describe ApiController, type: :controller do
         DatabaseCleaner.clean
 
         expect {
-          post :create, json: {
+          post :create, data: {
             "id":"3648",
             "datetime":"2016-01-30T13:58:31+00:00",
             "type":"Glucose",
@@ -23,7 +23,7 @@ describe ApiController, type: :controller do
         DatabaseCleaner.clean
 
         expect {
-          post :create, json:
+          post :create, data:
           {
             "datetime":"2016-01-30T13:58:31+00:00",
             "type":"Glucose",
@@ -36,7 +36,7 @@ describe ApiController, type: :controller do
         DatabaseCleaner.clean
 
         expect {
-          post :create, json: {
+          post :create, data: {
             "id":"3649",
             "datetime":"2016-01-30T14:05:00+00:00",
             "type":"Medication",

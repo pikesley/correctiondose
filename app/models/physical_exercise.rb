@@ -1,4 +1,8 @@
 class PhysicalExercise < ActiveRecord::Base
+  def self.short_name
+    'Exercise'
+  end
+
   def self.fields
     [
       'duration',

@@ -1,4 +1,8 @@
 class GlucoseMeasurement < ActiveRecord::Base
+  def self.short_name
+    'Glucose'
+  end
+
   def self.fields
     [
       'value'

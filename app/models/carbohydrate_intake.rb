@@ -1,4 +1,8 @@
 class CarbohydrateIntake < ActiveRecord::Base
+  def self.short_name
+    'Carbs'
+  end
+  
   def self.fields
     [
       'weight',

@@ -51,6 +51,7 @@ group :development, :test do
   gem 'coveralls'
   gem 'launchy'
   gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
 end
 
 group :development do

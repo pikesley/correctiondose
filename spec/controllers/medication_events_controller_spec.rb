@@ -44,7 +44,7 @@ describe MedicationEventsController, type: :controller do
     end
 
     context 'with invalid attributes' do
-      it 'does not save the new contact' do
+      it 'does not save the new meds' do
         expect {
           post :create, medication_event: attributes_for(:invalid_medication_event)
         }.to_not change(MedicationEvent, :count)

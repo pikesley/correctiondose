@@ -44,7 +44,7 @@ describe CarbohydrateIntakesController, type: :controller do
     end
 
     context 'with invalid attributes' do
-      it 'does not save the new contact' do
+      it 'does not save the new carbs' do
         expect {
           post :create, carbohydrate_intake: attributes_for(:invalid_carbohydrate_intake)
         }.to_not change(CarbohydrateIntake, :count)

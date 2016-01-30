@@ -1,0 +1,2 @@
+module PhysicalExerciseHelper
+end

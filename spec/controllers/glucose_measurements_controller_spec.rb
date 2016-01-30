@@ -44,7 +44,7 @@ describe GlucoseMeasurementsController, type: :controller do
     end
 
     context 'with invalid attributes' do
-      it 'does not save the new contact' do
+      it 'does not save the new glucose' do
         expect {
           post :create, glucose_measurement: attributes_for(:invalid_glucose_measurement)
         }.to_not change(GlucoseMeasurement, :count)

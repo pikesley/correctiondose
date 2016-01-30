@@ -11,16 +11,25 @@ class ApiController < ApplicationController
     case data['type']
       when 'Glucose'
         k['value'] = data['value']
-        g = GlucoseMeasurement.new k
+        metric = GlucoseMeasurement.new k
 
       when 'Medication'
         k['dose'] = data['value']
         k['insulin'] = data['subtype'].downcase
-        g = MedicationEvent.new k
+        metric = MedicationEvent.new k
+
+      when 'Food'
+        k['weight'] = data['value']
+        metric = CarbohydrateIntake.new k
+
+      when 'Exercise'
+        k['duration'] = data['value']
+        k['description'] = data['subtype'].downcase
+        metric = PhysicalExercise.new k
     end
 
-    if g.save
-      render json: g, status: :ok and return
+    if metric.save
+      render json: metric, status: :ok and return
     else
       render json: k, status: 400 and return
     end

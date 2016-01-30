@@ -7,7 +7,7 @@ describe 'CarbohydrateIntake' do
 
       visit carbohydrate_intakes_url(as: user)
       expect(page).to have_content 'Carbs'
-      expect(page).to have_link 'Add carbs', href: '/carbs/new'
+      expect(page).to have_link 'Add Carbs', href: '/carbs/new'
     end
   end
 end

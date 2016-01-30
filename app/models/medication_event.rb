@@ -1,4 +1,8 @@
 class MedicationEvent < ActiveRecord::Base
+  def self.short_name
+    'Meds'
+  end
+
   def self.insulin_types
     [
       'humalog',

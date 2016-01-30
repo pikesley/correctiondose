@@ -1,5 +1,8 @@
 <h1>Add <%= title.titleize %></h1>
 
-<%= render 'form' %>
+<div class='row'>
+  <%= render 'form' %>
 
-<%= link_to 'Back', send("#{@metric.class.name.underscore}s_path".to_sym), class: 'btn btn-default' %>
+  <%= render partial: 'shared/back' %>
+  </div>
+</div>

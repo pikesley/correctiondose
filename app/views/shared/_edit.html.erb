@@ -1,6 +1,5 @@
 <h1><%= title.titleize %></h1>
 
-<div class='row'>
   <%= render 'form' %>
 
   <%= link_to 'Delete', send("#{@metric.class.name.underscore}_path".to_sym, @metric),
@@ -10,5 +9,3 @@
                                 confirm: 'Are you sure?'
                               } %>
     <%= render partial: 'shared/back' %>
-  </div>
-</div>

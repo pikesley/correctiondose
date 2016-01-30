@@ -3,6 +3,8 @@ describe 'MedicationEvents' do
     let(:user) { create :user }
 
     it 'adds an event and displays the results' do
+      DatabaseCleaner.clean
+
       visit new_medication_event_url(as: user)
       expect {
         fill_in 'Date and time', with: '2016-01-27 18:53:00'

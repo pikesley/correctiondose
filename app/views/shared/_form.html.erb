@@ -1,10 +1,12 @@
-<div class='col-xs-12'>
+<div class='row'>
+
 <%= form_for @metric do |f| %>
+<div class='col-xs-12'>
+
   <%= render partial: 'shared/form_errors' %>
     <%= f.label :datetime, 'Date and time' %><br>
     <%= f.text_field :datetime, class: 'form-control datetime' %>
-  </div>
-
+</div>
   <% @metric.class.fields.each do |field| %>
   <div class='col-xs-12'>
     <%= f.label field.to_sym %><br>
@@ -24,4 +26,6 @@
 
   <div class='col-xs-12 buttons'>
     <%= f.submit class: 'btn btn-success' %>
+  </div>
 <% end %>
+</div>

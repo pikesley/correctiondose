@@ -7,10 +7,6 @@ describe 'Welcome' do
 
       visit root_path(as: user)
 
-      within 'h1' do
-        expect(page).to have_content 'Correction Dose'
-      end
-
       within(:css, 'div#add-links') do
         expect(page.all('a').map { |link| link.text } ).to eq [
           'Add Glucose',

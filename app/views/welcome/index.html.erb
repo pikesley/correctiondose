@@ -5,7 +5,10 @@
 </div>
 
 <table class='table table-bordered table-striped' id=recent'>
-  <%= render partial: 'table_caption' %>
+  <caption>
+    <%= render partial: 'shared/hours_picker' %>
+    | <%= link_to 'Charts', "#{charts_path}?#{request.query_string}", title: 'Charts' %>
+  </caption>
 
   <% date_sift(@metrics).each_pair do |day, values| %>
     <tr>

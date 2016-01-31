@@ -1,3 +1,8 @@
+<div class='chart-hours'>
+  <%= render partial: 'shared/hours_picker' %>
+  | <%= link_to 'Data', "#{root_path}?#{request.query_string}", title: 'Home' %>
+</div>
+
 <div id='chart' class='chart'></div>
 
 <script>

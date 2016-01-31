@@ -1,3 +1,42 @@
-<% models.each do |model| %>
-  <%= link_to model.short_name, send("#{model.name.underscore}s_path"), class: 'btn btn-success' %>
-<% end %>
+<h1>Correction Dose</h1>
+<div id='add-links'>
+  <% models.each do |model| %>
+    <%= link_to "Add #{model.short_name}", send("new_#{model.name.underscore}_path"), class: 'btn btn-success' %>
+  <% end %>
+</div>
+
+<table class='table table-bordered table-striped'>
+  <caption>
+    Last <%= @hours %> hours
+  </caption>
+
+  <% date_sift(@metrics).each_pair do |day, values| %>
+    <tr>
+      <th colspan='<%= @widest + 2 %>'>
+        <% date = Time.parse(day) %>
+        <%= date.strftime "%A %B #{date.day.ordinalize}" %>
+      </th>
+    </tr>
+    <% values.each do |value| %>
+      <tr>
+        <td>
+          <%= link_to value.datetime.strftime('%H:%M'),
+            send("edit_#{value.class.name.underscore}_path".to_sym, value) %>
+        </td>
+        <td>
+          <%= class_name(value).short_name %>
+        </td>
+        <% count = 0 %>
+        <% class_name(value).fields.each do |field| %>
+          <td class='<%= "#{value.class.name.underscore.gsub('_', '-')}-#{field}" %>'>
+            <%= value.send(field) %>
+          </td>
+          <% count += 1 %>
+        <% end %>
+        <% (@widest - count).times do %>
+          <td class='filler'></td>
+        <% end %>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

@@ -6,9 +6,13 @@
 </div>
 
 <table class='table table-bordered table-striped'>
+  <caption>
+    Last <%= @hours %> hours
+  </caption>
+
   <% date_sift(@metrics).each_pair do |day, values| %>
     <tr>
-      <th colspan=64>
+      <th colspan='<%= @widest + 2 %>'>
         <% date = Time.parse(day) %>
         <%= date.strftime "%A %B #{date.day.ordinalize}" %>
       </th>
@@ -22,10 +26,15 @@
         <td>
           <%= class_name(value).short_name %>
         </td>
+        <% count = 0 %>
         <% class_name(value).fields.each do |field| %>
           <td class='<%= "#{value.class.name.underscore.gsub('_', '-')}-#{field}" %>'>
             <%= value.send(field) %>
           </td>
+          <% count += 1 %>
+        <% end %>
+        <% (@widest - count).times do %>
+          <td class='filler'></td>
         <% end %>
       </tr>
     <% end %>

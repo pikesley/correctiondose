@@ -59,6 +59,7 @@ group :development, :test do
   gem 'launchy'
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
+  gem 'timecop'
 end
 
 group :development do

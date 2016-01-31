@@ -77,10 +77,10 @@ describe PhysicalExercisesController, type: :controller do
         expect(test_exercise.duration).to eq 45
       end
 
-      it 'redirects to the index page' do
+      it 'redirects to the front page' do
         put :update, id: test_exercise, physical_exercise: attributes_for(:physical_exercise)
         expect(assigns :metric).to eq test_exercise
-        expect(response).to redirect_to physical_exercises_url
+        expect(response).to redirect_to root_url
       end
     end
 

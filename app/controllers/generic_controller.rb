@@ -30,7 +30,7 @@ class GenericController < ApplicationController
     @metric = find_class.find(params[:id])
 
     if @metric.update(acceptable_params)
-      redirect_to metrics_path
+      redirect_to root_path
     else
       render :edit
     end

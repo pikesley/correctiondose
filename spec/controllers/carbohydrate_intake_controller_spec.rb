@@ -76,10 +76,10 @@ describe CarbohydrateIntakesController, type: :controller do
         expect(test_carbs.weight).to eq 65
       end
 
-      it 'redirects to the index page' do
+      it 'redirects to the front page' do
         put :update, id: test_carbs, carbohydrate_intake: attributes_for(:glucose_measurement)
         expect(assigns :metric).to eq test_carbs
-        expect(response).to redirect_to carbohydrate_intakes_url
+        expect(response).to redirect_to root_url
       end
     end
 

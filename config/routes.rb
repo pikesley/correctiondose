@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :carbohydrate_intakes, path: 'carbs'
   resources :physical_exercises, path: 'exercise'
   resources :api
+  resources :charts
 
   root 'welcome#index'
 end

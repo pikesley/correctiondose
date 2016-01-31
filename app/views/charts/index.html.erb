@@ -1,0 +1,55 @@
+<div id='chart'></div>
+
+<div id='graph'></div>
+
+<script>
+  $.getJSON('/glucose.json', function(json) {
+    graph(json)
+  })
+
+  function ecks(json) {
+    'datetime'
+  }
+
+  function why(json) {
+    'value'
+  }
+
+  function mapPoints(json, axis) {
+    return json.map(function(item){ return item[axis(json)] })
+  }
+
+  function points(json) {
+    return {
+      x: 'datetime',
+      y: 'value'
+    }
+  }
+
+  function graph(json) {
+    var p = [
+      points(json)
+    ]
+    p[0]['type'] = 'scatter'
+
+    var layout = {
+      title: 'Glucose',
+      xaxis: {
+        tickformat: "%b %Y",
+        tickangle: 90
+      },
+      yaxis: {
+        title: why(json),
+        titlefont: {
+          size: 14,
+          color: '#7f7f7f'
+        }
+      },
+      margin: {
+       l: 50, r: 10
+      }
+    }
+
+    Plotly.newPlot('#graph', p, layout)
+  }
+</script>

@@ -1,4 +1,3 @@
-<h1>Correction Dose</h1>
 <div id='add-links'>
   <% models.each do |model| %>
     <%= link_to "Add #{model.short_name}", send("new_#{model.name.underscore}_path"), class: 'btn btn-success' %>
@@ -6,9 +5,7 @@
 </div>
 
 <table class='table table-bordered table-striped' id=recent'>
-  <caption>
-    Last <%= @hours %> hours
-  </caption>
+  <%= render partial: 'table_caption' %>
 
   <% date_sift(@metrics).each_pair do |day, values| %>
     <tr>

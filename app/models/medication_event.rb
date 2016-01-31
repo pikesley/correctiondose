@@ -21,4 +21,5 @@ class MedicationEvent < ActiveRecord::Base
   validates :dose, presence: true, numericality: { greater_than: 0 }
   validates :insulin, presence: true, inclusion: { in: insulin_types }
   validates_uniqueness_of :datetime
+  default_scope { order('datetime DESC') }
 end

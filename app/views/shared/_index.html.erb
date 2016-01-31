@@ -1,9 +1,9 @@
 <div class='row'>
   <div class='col-xs-6'>
-    <h1><%= @metrics.name.constantize.short_name %></h1>
+    <h1><%= class_name(@metrics).short_name %></h1>
   </div>
   <div class='col-xs-6'>
-    <%= link_to "Add #{@metrics.name.constantize.short_name}",
+    <%= link_to "Add #{class_name(@metrics).short_name}",
         send("new_#{@metrics.class.to_s.split('::')[0].underscore}_path".to_sym),
         class: 'btn btn-success pull-right' %>
   </div>

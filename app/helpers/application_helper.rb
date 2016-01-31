@@ -22,4 +22,11 @@ module ApplicationHelper
     ]
   end
 
+  def class_name instance
+    begin
+      return instance.name.constantize
+    rescue Exception => e
+      return instance.class.name.constantize if e.message.match /undefined method `name' for/
+    end
+  end
 end

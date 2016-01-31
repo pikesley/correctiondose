@@ -9,7 +9,7 @@
     <% values.each do |value| %>
       <%= render partial: 'shared/table_row', locals: {
         passed_value: value,
-        fields: @metrics.name.constantize.fields
+        fields: class_name(@metrics).fields
       } %>
     <% end %>
   <% end %>

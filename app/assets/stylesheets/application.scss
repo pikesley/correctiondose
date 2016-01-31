@@ -23,11 +23,13 @@ h1 {
 }
 
 .bg-high {
-  background-color: $warning-pink;
+  color: red;
+  font-weight: bold;
 }
 
 .bg-low {
-  background-color: $warning-blue;
+  color: blue;
+  font-weight: bold;
 }
 
 a {

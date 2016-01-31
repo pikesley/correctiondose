@@ -19,6 +19,8 @@ describe 'Welcome' do
           'Add Exercise'
         ]
       end
+
+      
     end
   end
 end

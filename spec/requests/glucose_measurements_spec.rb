@@ -60,7 +60,7 @@ describe 'GlucoseMeasurements' do
       expect(page).to have_field 'Date and time'
       expect(page).to have_selector 'input[type=submit][value="Update"]'
       expect(page).to have_link 'Delete', href: '/glucose/3'
-      expect(page).to have_link 'Back', href: '/glucose'
+      expect(page).to have_link 'Back', href: '/'
 
       click_link 'Delete'
       expect(GlucoseMeasurement.count).to eq 2

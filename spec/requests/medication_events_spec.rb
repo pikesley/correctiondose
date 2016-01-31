@@ -76,7 +76,7 @@ describe 'MedicationEvents' do
       expect(page).to have_select 'Insulin', options: ['humalog', 'lantus']
       expect(page).to have_selector 'input[type=submit][value="Update"]'
       expect(page).to have_link 'Delete', href: '/meds/2'
-      expect(page).to have_link 'Back', href: '/meds'
+      expect(page).to have_link 'Back', href: '/'
 
       click_link 'Delete'
       expect(MedicationEvent.count).to eq 2

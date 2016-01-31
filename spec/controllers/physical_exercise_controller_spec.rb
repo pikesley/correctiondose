@@ -37,9 +37,9 @@ describe PhysicalExercisesController, type: :controller do
         }.to change(PhysicalExercise, :count).by 1
       end
 
-      it 'redirects to the index page' do
+      it 'redirects to the front page' do
         post :create, physical_exercise: attributes_for(:physical_exercise)
-        expect(response).to redirect_to physical_exercises_url
+        expect(response).to redirect_to root_path
       end
     end
 
@@ -118,7 +118,7 @@ describe PhysicalExercisesController, type: :controller do
 
     it 'redirects to #index' do
       delete :destroy, id: test_exercise
-      expect(response).to redirect_to physical_exercises_url
+      expect(response).to redirect_to root_url
     end
   end
 end

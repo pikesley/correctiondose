@@ -20,7 +20,7 @@ class GenericController < ApplicationController
   def create
     @metric = find_class.new(acceptable_params)
     if @metric.save
-      redirect_to metrics_path
+      redirect_to root_path
     else
       render :new
     end
@@ -40,7 +40,7 @@ class GenericController < ApplicationController
     @metric = find_class.find(params[:id])
     @metric.destroy
 
-    redirect_to metrics_path
+    redirect_to root_path
   end
 
   private

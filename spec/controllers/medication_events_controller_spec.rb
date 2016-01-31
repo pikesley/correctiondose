@@ -37,9 +37,9 @@ describe MedicationEventsController, type: :controller do
         }.to change(MedicationEvent, :count).by 1
       end
 
-      it 'redirects to the index page' do
+      it 'redirects to the front page' do
         post :create, medication_event: attributes_for(:medication_event)
-        expect(response).to redirect_to medication_events_url
+        expect(response).to redirect_to root_path
       end
     end
 
@@ -118,7 +118,7 @@ describe MedicationEventsController, type: :controller do
 
     it 'redirects to #index' do
       delete :destroy, id: test_meds
-      expect(response).to redirect_to medication_events_url
+      expect(response).to redirect_to root_url
     end
   end
 end

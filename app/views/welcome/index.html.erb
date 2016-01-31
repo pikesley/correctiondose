@@ -18,7 +18,9 @@
       <tr>
         <td>
           <%= link_to value.datetime.strftime('%H:%M'),
-            send("edit_#{value.class.name.underscore}_path".to_sym, value) %>
+            send("edit_#{value.class.name.underscore}_path".to_sym, value),
+            title: 'Edit this metric'
+          %>
         </td>
         <td>
           <%= class_name(value).short_name %>
@@ -27,6 +29,11 @@
         <% class_name(value).fields.each do |field| %>
           <td class='<%= "#{value.class.name.underscore.gsub('_', '-')}-#{field}" %>'>
             <%= value.send(field) %>
+            <% if value.class.units[:applies_to] == field.to_sym %>
+              <span data-toggle='tooltip' data-placement='top' title='<%= value.send(field) %> <%= value.class.units[:full] %>'>
+                <%= value.class.units[:short] %>
+              </span>
+            <% end %>
           </td>
           <% count += 1 %>
         <% end %>

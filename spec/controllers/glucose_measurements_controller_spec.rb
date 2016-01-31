@@ -37,9 +37,9 @@ describe GlucoseMeasurementsController, type: :controller do
         }.to change(GlucoseMeasurement, :count).by 1
       end
 
-      it 'redirects to the index page' do
+      it 'redirects to the front page' do
         post :create, glucose_measurement: attributes_for(:glucose_measurement)
-        expect(response).to redirect_to glucose_measurements_url
+        expect(response).to redirect_to root_path
       end
     end
 
@@ -116,7 +116,7 @@ describe GlucoseMeasurementsController, type: :controller do
 
     it 'redirects to #index' do
       delete :destroy, id: test_measurement
-      expect(response).to redirect_to glucose_measurements_url
+      expect(response).to redirect_to root_url
     end
   end
 end

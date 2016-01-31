@@ -37,9 +37,9 @@ describe CarbohydrateIntakesController, type: :controller do
         }.to change(CarbohydrateIntake, :count).by 1
       end
 
-      it 'redirects to the index page' do
+      it 'redirects to the front page' do
         post :create, carbohydrate_intake: attributes_for(:carbohydrate_intake)
-        expect(response).to redirect_to carbohydrate_intakes_url
+        expect(response).to redirect_to root_path
       end
     end
 
@@ -116,7 +116,7 @@ describe CarbohydrateIntakesController, type: :controller do
 
     it 'redirects to #index' do
       delete :destroy, id: test_carbs
-      expect(response).to redirect_to carbohydrate_intakes_url
+      expect(response).to redirect_to root_url
     end
   end
 end

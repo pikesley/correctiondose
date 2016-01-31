@@ -6,6 +6,7 @@ describe 'Welcome' do
       DatabaseCleaner.clean
 
       visit root_path(as: user)
+
       within(:css, 'div#add-links') do
         expect(page.all('a').map { |link| link.text } ).to eq [
           'Add Glucose',

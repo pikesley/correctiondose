@@ -49,7 +49,7 @@ describe 'MedicationEvents' do
       select 'humalog', from: 'Insulin'
       click_button 'Add'
 
-      expect(page.all('td').map { |cell| cell.text }).to eq ['09:00', 'Meds', '10.5', 'humalog']
+      expect(page.all('td').map { |cell| cell.text }).to eq ['09:00', 'Meds', '10.5 u', 'humalog']
 
       visit new_medication_event_url(as: user)
       fill_in 'Date and time', with: Time.now - 86400

@@ -36,10 +36,10 @@ describe 'Welcome' do
     it 'has a table of datas' do
       visit root_path(as: user)
       within 'table' do
-        expect(page).to have_content '09:30	Carbs	70.0 pasta bolognese'
-        expect(page).to have_content '09:00	Glucose	6.0'
-        expect(page).to have_content '08:30	Meds 10.0	humalog'
-        expect(page).to have_content '08:00	Glucose	6.0'
+        expect(page).to have_content '09:30	Carbs	70.0 g pasta bolognese'
+        expect(page).to have_content '09:00	Glucose	6.0 mmol/L'
+        expect(page).to have_content '08:30	Meds 10.0	u humalog'
+        expect(page).to have_content '08:00	Glucose	6.0 mmol/L'
       end
     end
   end

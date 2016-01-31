@@ -3,6 +3,14 @@ class PhysicalExercise < ActiveRecord::Base
     'Exercise'
   end
 
+  def self.units
+    {
+      full: 'Minutes',
+      short: 'mins',
+      applies_to: :duration
+    }
+  end
+
   def self.fields
     [
       'duration',

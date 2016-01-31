@@ -26,7 +26,7 @@ def munge
     datum.each_pair do |k, v|
       datum[k] = v[0]
     end.to_json
-  end
+  end.reverse
 end
 
 def dispatch url

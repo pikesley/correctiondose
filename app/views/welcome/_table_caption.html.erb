@@ -1,10 +1,14 @@
 <caption>
   <% intervals = [24, 36, 48, 72] %>
+
   <% intervals.each do |interval| %>
     <% if @hours == interval %>
+      <span class='active'>
       <%= "Last #{interval} hours" %>
     <% else %>
+      <span>
       <%= link_to "Last #{interval} hours", "#{root_path}?hours=#{interval}" %>
     <% end %>
+    </span>
   <% end %>
 </caption>

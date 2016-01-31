@@ -41,19 +41,18 @@ a {
 }
 
 caption {
-  font-size: 1.2em;
+  font-size: 1em;
 
-  li {
-    padding: 0px;
-    margin: 0px;
-  }
-
-  li:before {
+  span:before {
     content: " | ";
   }
 
-  li:first-child:before {
+  span:first-child:before {
     content: none;
+  }
+
+  .active {
+    font-size: 1.2em;
   }
 }
 

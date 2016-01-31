@@ -15,4 +15,15 @@ describe ApplicationHelper do
       )
     end
   end
+
+  describe '#get_type' do
+    let (:metric) { create :medication_event }
+    it 'knows dose is a :float' do
+      expect(helper.get_type metric, 'dose').to eq :float
+    end
+
+    it 'knows insulin is a :string' do
+      expect(helper.get_type metric, 'insulin').to eq :string
+    end
+  end
 end

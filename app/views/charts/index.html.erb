@@ -3,8 +3,9 @@
 <div id='graph'></div>
 
 <script>
-  $.getJSON('/glucose.json', function(json) {
-    graph(json)
+  $.getJSON(document.URL, function(json) {
+    console.log(json['glucose'])
+    graph(json['glucose'])
   })
 
   function ecks(json) {

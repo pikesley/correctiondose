@@ -1,4 +1,3 @@
-class ChartsController < ApplicationController
-  def index
-  end
+class ChartsController < WelcomeController
+
 end

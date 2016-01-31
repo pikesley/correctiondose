@@ -7,7 +7,7 @@
       <%= "Last #{interval} hours" %>
     <% else %>
       <span>
-      <%= link_to "Last #{interval} hours", "#{root_path}?hours=#{interval}" %>
+      <%= link_to "Last #{interval} hours", "#{request.path}?hours=#{interval}" %>
     <% end %>
     </span>
   <% end %>

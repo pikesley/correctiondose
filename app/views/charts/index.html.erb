@@ -1,0 +1,63 @@
+<div class='chart-hours'>
+  <%= render partial: 'shared/hours_picker' %>
+  | <%= link_to 'Data', "#{root_path}?#{request.query_string}", title: 'Home' %>
+</div>
+
+<div id='chart' class='chart'></div>
+
+<script>
+  $.getJSON(document.URL, function(json) {
+    graph(json['glucose'])
+  })
+
+  function ecks(json) {
+    'datetime'
+  }
+
+  function why(json) {
+    'value'
+  }
+
+  function mapPoints(json, axis) {
+    return json.map(function(item){ return item[axis] })
+  }
+
+  function fixTimeStamps(data) {
+    return data.map(function(date){ return date.replace('T', ' ').replace('.000Z', '') })
+  }
+
+  function points(json) {
+    return {
+      x: fixTimeStamps(mapPoints(json, 'datetime')),
+      y: mapPoints(json, 'value')
+    }
+  }
+
+  function graph(json) {
+    var p = [
+      points(json)
+    ]
+    p[0]['type'] = 'scatter'
+
+    var layout = {
+      title: 'Glucose',
+      xaxis: {
+        type: 'datetime',
+        tickangle: 315,
+        tickformat: "%a %H:%M"
+      },
+      yaxis: {
+        title: 'mmol/L',
+        titlefont: {
+          size: 14,
+          color: '#7f7f7f'
+        }
+      },
+      margin: {
+       l: 50, r: 10
+      }
+    }
+
+    Plotly.newPlot('chart', p, layout, { displayModeBar: false })
+  }
+</script>

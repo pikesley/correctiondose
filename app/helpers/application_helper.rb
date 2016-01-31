@@ -39,4 +39,8 @@ module ApplicationHelper
       p.keys[0] == field
     }[0].values[0]
   end
+
+  def intervals
+    [ 36, 48, 72]
+  end
 end

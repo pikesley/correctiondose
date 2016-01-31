@@ -1,0 +1,3 @@
+class ChartsController < WelcomeController
+
+end

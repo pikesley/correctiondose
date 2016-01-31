@@ -47,6 +47,7 @@ gem 'httparty'
 gem 'dropbox-api'
 gem 'xml-simple', :require => 'xmlsimple'
 
+gem 'kaminari'
 
 group :development, :test do
   gem 'pry'

@@ -1,10 +1,7 @@
-<div id='chart'></div>
-
-<div id='graph'></div>
+<div id='chart' class='chart'></div>
 
 <script>
   $.getJSON(document.URL, function(json) {
-    console.log(json['glucose'])
     graph(json['glucose'])
   })
 
@@ -17,13 +14,13 @@
   }
 
   function mapPoints(json, axis) {
-    return json.map(function(item){ return item[axis(json)] })
+    return json.map(function(item){ return item[axis] })
   }
 
   function points(json) {
     return {
-      x: 'datetime',
-      y: 'value'
+      x: mapPoints(json, 'datetime'),
+      y: mapPoints(json, 'value')
     }
   }
 
@@ -51,6 +48,6 @@
       }
     }
 
-    Plotly.newPlot('#graph', p, layout)
+    Plotly.newPlot('chart', p, layout)
   }
 </script>

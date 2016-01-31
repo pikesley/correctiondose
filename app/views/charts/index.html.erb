@@ -7,7 +7,7 @@
 
 <script>
   $.getJSON(document.URL, function(json) {
-    graph(json['glucose'])
+    graph(json)
   })
 
   function ecks(json) {
@@ -26,21 +26,39 @@
     return data.map(function(date){ return date.replace('T', ' ').replace('.000Z', '') })
   }
 
-  function points(json) {
+  function points(json, y_field) {
     return {
       x: fixTimeStamps(mapPoints(json, 'datetime')),
-      y: mapPoints(json, 'value')
+      y: mapPoints(json, y_field)
     }
   }
 
   function graph(json) {
-    var p = [
-      points(json)
-    ]
-    p[0]['type'] = 'scatter'
+    var bg = {
+      x: points(json['glucose'], 'value')['x'],
+      y: points(json['glucose'], 'value')['y'],
+      type: 'scatter',
+      name: 'Glucose'
+    }
+
+    var meds = {
+      x: points(json['meds'], 'dose')['x'],
+      y: points(json['meds'], 'dose')['y'],
+      mode: 'markers', //+text',
+    //  textposition: 'top right',
+      name: 'Meds',
+      text: json['meds'].map(function(item){ return item['insulin'] } )
+    }
+
+    var carbs = {
+      x: points(json['carbs'], 'weight')['x'],
+      y: points(json['carbs'], 'weight')['y'],
+      mode: 'markers', //+text',
+    //  textposition: 'top right',
+      name: 'Carbs'
+    }
 
     var layout = {
-      title: 'Glucose',
       xaxis: {
         type: 'datetime',
         tickangle: 315,
@@ -54,10 +72,18 @@
         }
       },
       margin: {
-       l: 50, r: 10
+        l: 40, r: 10
+      },
+      legend: {
+        xanchor:"center",
+        yanchor:"top",
+        y:-0.3, // play with it
+        x:0.5   // play with it
       }
     }
 
-    Plotly.newPlot('chart', p, layout, { displayModeBar: false })
+    datas = [bg, meds, carbs]
+
+    Plotly.newPlot('chart', datas, layout, { displayModeBar: false })
   }
 </script>

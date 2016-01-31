@@ -29,4 +29,14 @@ module ApplicationHelper
       return instance.class.name.constantize if e.message.match /undefined method `name' for/
     end
   end
+
+  def get_type metric, field
+    metric.class.columns.map { |m|
+      {
+        m.name => m.type
+      }
+    }.select { |p|
+      p.keys[0] == field
+    }[0].values[0]
+  end
 end

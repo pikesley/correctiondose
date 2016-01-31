@@ -23,7 +23,7 @@ module Horrible
       dropbox_client.download dropbox_client.ls('ontrack').sort { |x, y| x[:revision] <=> y[:revision] }[-1].path
     end
 
-    def self.munge
+    def self.munge download
       data = XmlSimple.xml_in download
       r = data['record']
       r.sort! { |x, y| x['datetime'] <=> y['datetime'] }
@@ -36,7 +36,7 @@ module Horrible
     end
 
     def self.dispatch url
-      munge.each do |j|
+      munge(download).each do |j|
         puts "sending #{j}"
         HTTParty.post(
           url,

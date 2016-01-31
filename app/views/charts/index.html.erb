@@ -22,9 +22,13 @@
     return json.map(function(item){ return item[axis] })
   }
 
+  function fixTimeStamps(data) {
+    return data.map(function(date){ return date.replace('T', ' ').replace('.000Z', '') })
+  }
+
   function points(json) {
     return {
-      x: mapPoints(json, 'datetime'),
+      x: fixTimeStamps(mapPoints(json, 'datetime')),
       y: mapPoints(json, 'value')
     }
   }
@@ -38,11 +42,12 @@
     var layout = {
       title: 'Glucose',
       xaxis: {
-        tickformat: "%b %Y",
-        tickangle: 90
+        type: 'datetime',
+        tickangle: 315,
+        tickformat: "%a %H:%M"
       },
       yaxis: {
-        title: why(json),
+        title: 'mmol/L',
         titlefont: {
           size: 14,
           color: '#7f7f7f'

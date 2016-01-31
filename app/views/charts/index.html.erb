@@ -1,3 +1,5 @@
+<%= render partial: 'shared/add_links' %>  
+
 <div class='chart-hours'>
   <%= render partial: 'shared/hours_picker' %>
   | <%= link_to 'Data', "#{root_path}?#{request.query_string}", title: 'Home' %>

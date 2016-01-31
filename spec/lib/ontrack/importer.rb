@@ -1,13 +1,9 @@
-load File.expand_path('../../../lib/dirty_hacky_mess.rb', __FILE__)
+load File.expand_path('../../../../lib/ontrack/importer.rb', __FILE__)
 
-module Horrible
-  describe Hacks do
-    it 'says FOO' do
-      expect(described_class.foo).to eq 'FOO'
-    end
-
+module Ontrack
+  describe Importer do
     it 'parses an XML file' do
-      xml = File.read(File.expand_path '../../../spec/support/fixtures/incoming.xml', __FILE__)
+      xml = File.read(File.expand_path '../../../../spec/support/fixtures/incoming.xml', __FILE__)
       expect(described_class.munge xml).to be_an Array
       expect(described_class.munge(xml).count).to eq 9
       expect(described_class.munge(xml).first).to eq (

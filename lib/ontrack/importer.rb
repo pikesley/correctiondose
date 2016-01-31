@@ -5,8 +5,8 @@ require 'dotenv'
 require 'dropbox-api'
 require 'dropbox-api/tasks'
 
-module Horrible
-  class Hacks
+module Ontrack
+  class Importer
     def self.foo
       'FOO'
     end
@@ -26,13 +26,13 @@ module Horrible
     def self.munge download
       data = XmlSimple.xml_in download
       r = data['record']
-      r.sort! { |x, y| x['datetime'] <=> y['datetime'] }
+      r.sort! { |x, y| y['datetime'] <=> x['datetime'] }
 
       r.each do |datum|
         datum.each_pair do |k, v|
           datum[k] = v[0]
         end.to_json
-      end.reverse
+      end
     end
 
     def self.dispatch url

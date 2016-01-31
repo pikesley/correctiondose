@@ -77,10 +77,10 @@ describe MedicationEventsController, type: :controller do
         expect(test_meds.dose).to eq 16.0
       end
 
-      it 'redirects to the index page' do
+      it 'redirects to the front page' do
         put :update, id: test_meds, medication_event: attributes_for(:medication_event)
         expect(assigns :metric).to eq test_meds
-        expect(response).to redirect_to medication_events_url
+        expect(response).to redirect_to root_url
       end
     end
 

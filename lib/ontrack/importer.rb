@@ -23,20 +23,27 @@ module Ontrack
       dropbox_client.download dropbox_client.ls('ontrack').sort { |x, y| x[:revision] <=> y[:revision] }[-1].path
     end
 
-    def self.munge download
-      data = XmlSimple.xml_in download
-      r = data['record']
-      r.sort! { |x, y| y['datetime'] <=> x['datetime'] }
+    def self.arrayify xml
+      XmlSimple.xml_in(xml)['record'].sort do |x, y|
+        y['datetime'] <=> x['datetime']
+      end
+    end
 
+    def self.fix_weirdness weird
+      weird.each_pair do |key, list|
+        weird[key] = list.first
+      end
+    end
+
+    def self.make_json download
+      r = arrayify download
       r.each do |datum|
-        datum.each_pair do |k, v|
-          datum[k] = v[0]
-        end.to_json
+        fix_weirdness(datum).to_json
       end
     end
 
     def self.dispatch url
-      munge(download).each do |j|
+      make_json(download).each do |j|
         puts "sending #{j}"
         HTTParty.post(
           url,

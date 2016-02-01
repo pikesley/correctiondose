@@ -40,8 +40,8 @@ a {
   padding-top: $padding-large-vertical;
 }
 
-caption, .chart-hours {
-  font-size: 1em;
+#hours-picker {
+  font-size: 1.2em;
 
   span:before {
     content: " | ";
@@ -78,8 +78,4 @@ caption, .chart-hours {
 
 .field_with_errors {
 
-}
-
-.chart-hours {
-  padding-top: 8px;
 }

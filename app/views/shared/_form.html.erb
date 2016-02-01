@@ -18,7 +18,7 @@
                      %>
       <% else %>
         <% if get_type(@metric, field) == :float %>
-          <%= f.number_field field.to_sym, class: 'form-control' %>
+          <%= f.number_field field.to_sym, class: 'form-control', step: 0.1, min: 0 %>
         <% else %>
           <%= f.text_field field.to_sym, class: 'form-control' %>
         <% end %>

@@ -46,6 +46,7 @@
     var meds = {
       x: points(json['meds'], 'dose')['x'],
       y: points(json['meds'], 'dose')['y'],
+      yaxis: 'y2',
       mode: 'markers', //+text',
     //  textposition: 'top right',
       name: 'Meds',
@@ -67,14 +68,23 @@
         tickformat: "%a %H:%M"
       },
       yaxis: {
-        title: 'mmol/L',
+        title: 'Glucose (mmol/L)',
+        titlefont: {
+          size: 14,
+          color: '#7f7f7f'
+        }
+      },
+      yaxis2: {
+        overlaying: 'y',
+        side: 'right',
+        title: 'Insulin (Units)',
         titlefont: {
           size: 14,
           color: '#7f7f7f'
         }
       },
       margin: {
-        l: 40, r: 10
+        l: 50, r: 40
       },
       legend: {
         xanchor:"center",

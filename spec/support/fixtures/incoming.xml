@@ -71,4 +71,28 @@
       <category>Dinner</category>
       <value>180.0</value>
   </record>
+  <record>
+      <id>1487</id>
+      <datetime>2012-10-29T09:31:54+00:00</datetime>
+      <type>HbA1c</type>
+      <subtype></subtype>
+      <category>After Breakfast</category>
+      <value>6.0</value>
+  </record>
+  <record>
+      <id>191</id>
+      <datetime>2012-06-21T11:29:47+01:00</datetime>
+      <type>Blood Pressure</type>
+      <subtype></subtype>
+      <category>After Breakfast</category>
+      <value>130/82</value>
+  </record>
+  <record>
+       <id>8</id>
+       <datetime>2012-05-31T07:30:15+01:00</datetime>
+       <type>Weight</type>
+       <subtype></subtype>
+       <category>Breakfast</category>
+       <value>55.0</value>
+  </record>
 </ontrack>

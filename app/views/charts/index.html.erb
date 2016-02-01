@@ -1,4 +1,4 @@
-<%= render partial: 'shared/add_links' %>  
+<%= render partial: 'shared/add_links' %>
 
 <div class='chart-hours'>
   <%= render partial: 'shared/hours_picker' %>
@@ -84,7 +84,7 @@
       }
     }
 
-    datas = [bg, meds, carbs]
+    datas = [bg, meds] //, carbs]
 
     Plotly.newPlot('chart', datas, layout, { displayModeBar: false })
   }

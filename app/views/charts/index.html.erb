@@ -36,6 +36,8 @@
   }
 
   function graph(json) {
+    // https://plot.ly/javascript/reference/#scatter-hoverinfo
+    // https://plot.ly/javascript/reference/#scatter-marker-sizemode
     var bg = {
       x: points(json['glucose'], 'value')['x'],
       y: points(json['glucose'], 'value')['y'],
@@ -72,16 +74,19 @@
         titlefont: {
           size: 14,
           color: '#7f7f7f'
-        }
+        },
       },
       yaxis2: {
         overlaying: 'y',
         side: 'right',
         title: 'Insulin (Units)',
+        color: '#fa8100',
         titlefont: {
           size: 14,
           color: '#7f7f7f'
-        }
+        },
+        // https://plot.ly/python/overview/
+        tickcolor: '#f00' # close
       },
       margin: {
         l: 50, r: 40

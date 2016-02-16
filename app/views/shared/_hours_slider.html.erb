@@ -1,4 +1,4 @@
-<span id='legend'></span>: <div id='slider' data-slider-handle='round' data-slider-id='hours'></div>
+<span id='legend'></span> | <div id='slider' data-slider-handle='round' data-slider-id='hours'></div>
 
 <script>
   $('#slider').slider({
@@ -8,7 +8,7 @@
     ticks_snap_bounds: 24,
     value: parseInt(getParam('hours')),
     formatter: function(value) {
-      return lastDays(value)
+      return period(value)
     },
     tooltip_position: 'bottom'
   })
@@ -17,7 +17,7 @@
     window.location.href = '?hours=' + $('#slider').data('slider').getValue()
   })
 
-  $('#legend').text(lastDays(getParam('hours')))
+  $('#legend').text(period(getParam('hours')))
 
   function getParam(sParam) {
     var sPageURL = window.location.search.substring(1);
@@ -30,9 +30,9 @@
     }
   }
 
-  function lastDays(hours) {
+  function period(hours) {
     var days = Math.round(hours / 24)
-    var string = (days == 1) ? '24 hours' : days + ' days'
+    var string = (days == 1) ? '24 hrs' : days + ' days'
 
     return 'last ' + string
   }

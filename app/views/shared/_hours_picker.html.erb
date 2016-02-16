@@ -1,11 +1,7 @@
-
-<% intervals.each do |interval| %>
-  <% if @hours == interval %>
-    <span class='active'>
-    <%= "Last #{interval} hours" %>
-  <% else %>
-    <span>
-    <%= link_to "Last #{interval} hours", "#{request.path}?hours=#{interval}" %>
-  <% end %>
-</span>
-<% end %>
+<div id='hours-picker' class='row'>
+  <div class='col-xs-12'>
+    <%= render partial: 'shared/hours_slider' %>
+    |
+    <%= link_to label, "#{path}?#{request.query_string}", title: label %>
+  </div>
+</div>

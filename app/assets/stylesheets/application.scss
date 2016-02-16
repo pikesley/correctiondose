@@ -56,6 +56,21 @@ a {
   }
 }
 
+#hours {
+  margin: $padding-small-horizontal;
+  .slider-handle {
+    background: $brand-primary;
+  }
+
+  .slider-selection {
+    background: $gray-lighter;
+  }
+
+  .slider-tick {
+    background: $orange-faded;
+  }
+}
+
 .filler {
   //background-image: image-url('confectionary.png');
 }

@@ -1,0 +1,39 @@
+<span id='legend'></span> | <div id='slider' data-slider-handle='round' data-slider-id='hours'></div>
+
+<script>
+  $('#slider').slider({
+    min: 24,
+    max: 168,
+    ticks: [24, 48, 72, 96, 120, 144, 168],
+    ticks_snap_bounds: 24,
+    value: parseInt(getParam('hours')),
+    formatter: function(value) {
+      return period(value)
+    },
+    tooltip_position: 'bottom'
+  })
+
+  $('#slider').slider().on('slideStop', function(ev) {
+    window.location.href = '?hours=' + $('#slider').data('slider').getValue()
+  })
+
+  $('#legend').text(period(getParam('hours')))
+
+  function getParam(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+      var sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] == sParam) {
+        return sParameterName[1];
+      }
+    }
+  }
+
+  function period(hours) {
+    var days = Math.round(hours / 24)
+    var string = (days == 1) ? '24 hrs' : days + ' days'
+
+    return 'last ' + string
+  }
+</script>

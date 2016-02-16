@@ -27,7 +27,7 @@
   <% end %>
 
   <div class='col-xs-12 buttons'>
-    <%= f.submit class: 'btn btn-success' %>
+    <%= f.submit class: "btn btn-#{@metric.class.short_name.downcase}" %>
     <%= render partial: 'shared/back' %>
     <%= render partial: 'shared/delete' %>
   </div>

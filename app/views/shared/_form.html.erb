@@ -12,7 +12,7 @@
 
       <% if field == 'insulin' %>
         <%= f.select field.to_sym,
-                     options_for_select(@metric.class.send("#{field}_types".to_sym)),
+                     options_for_select(@metric.class.send("#{field}_types".to_sym), insulin_for_time),
                      {},
                      {class: 'form-control'}
                      %>

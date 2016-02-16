@@ -53,4 +53,8 @@ module ApplicationHelper
     end
     'humalog'
   end
+
+  def class_for_table_cell metric, field
+    "#{metric.class.name.underscore.gsub('_', '-')}-#{field}"
+  end
 end

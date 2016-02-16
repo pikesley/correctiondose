@@ -26,7 +26,7 @@
         </td>
         <% count = 0 %>
         <% class_name(value).fields.each do |field| %>
-          <td class='<%= "#{value.class.name.underscore.gsub('_', '-')}-#{field}" %>'>
+          <td class='<%= class_for_table_cell value, field %>'>
             <% if value.class.units[:applies_to] == field.to_sym %>
               <span class='value' data-toggle='tooltip' data-placement='top' title='<%= value.send(field) %> <%= value.class.units[:full] %>'>
                 <%= value.send(field) %> <%= value.class.units[:short] %>

@@ -29,21 +29,28 @@ describe ApplicationHelper do
 
   describe '#insulin_for_time' do
     it 'defaults to humalog' do
-      Timecop.freeze 2016, 02, 16, 12, 00
-      expect(helper.insulin_for_time).to eq 'humalog'
-      Timecop.return
+      Timecop.freeze 2016, 02, 16, 12, 00 do
+        expect(helper.insulin_for_time).to eq 'humalog'
+      end
     end
-    
+
     it 'knows lantus is for bedtime' do
-      Timecop.freeze 2016, 02, 16, 22, 00
+      Timecop.freeze 2016, 02, 16, 22, 00 do
         expect(helper.insulin_for_time).to eq 'lantus'
-      Timecop.return
+      end
     end
 
     it 'thinks bedtime lasts until 06:00' do
-      Timecop.freeze 2016, 02, 16, 06, 00
-      expect(helper.insulin_for_time).to eq 'lantus'
-      Timecop.return
+      Timecop.freeze 2016, 02, 16, 06, 00 do
+        expect(helper.insulin_for_time).to eq 'lantus'
+      end
+    end
+  end
+
+  describe '#class_for_table_cell' do
+    let(:metric) { build :medication_event }
+    it 'generates the correct class' do
+      expect(helper.class_for_table_cell metric, 'insulin').to eq 'medication-event-insulin'
     end
   end
 end

@@ -17,3 +17,4 @@
 //= require_tree .
 //= require moment
 //= require bootstrap-datetimepicker
+//= require bootstrap-slider

@@ -5,6 +5,8 @@
   | <%= link_to 'Charts', "#{charts_path}?#{request.query_string}", title: 'Charts' %>
 </div>
 
+
+
 <table class='table table-bordered table-striped' id=recent'>
   <% date_sift(@metrics).each_pair do |day, values| %>
     <tr>

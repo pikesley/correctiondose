@@ -1,5 +1,5 @@
 
-<% intervals.each do |interval| %>
+<!--<% intervals.each do |interval| %>
   <% if @hours == interval %>
     <span class='active'>
     <%= "Last #{interval} hours" %>
@@ -9,3 +9,6 @@
   <% end %>
 </span>
 <% end %>
+-->
+
+<%= render partial: 'shared/slider' %>

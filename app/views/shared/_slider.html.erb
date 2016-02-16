@@ -1,0 +1,24 @@
+<div id='slider'></div>
+
+<script>
+  $('#slider').slider({
+    min: 1,
+    max: 14,
+    value: (getParam('hours') / 24)
+  })
+
+  $('#slider').slider().on('slideStop', function(ev) {
+    window.location.href = '?hours=' + ($('#slider').data('slider').getValue() * 24)
+  })
+
+  function getParam(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+      var sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] == sParam) {
+        return sParameterName[1];
+    }
+  }
+}
+</script>

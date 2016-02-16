@@ -43,4 +43,14 @@ module ApplicationHelper
   def intervals
     [ 36, 48, 72]
   end
+
+  def insulin_for_time
+    bedtime = 22
+    morning = 06
+
+    if Time.now.hour >= bedtime || Time.now.hour <= morning
+      return 'lantus'
+    end
+    'humalog'
+  end
 end

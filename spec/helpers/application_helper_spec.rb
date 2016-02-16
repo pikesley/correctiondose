@@ -26,4 +26,24 @@ describe ApplicationHelper do
       expect(helper.get_type metric, 'insulin').to eq :string
     end
   end
+
+  describe '#insulin_for_time' do
+    it 'defaults to humalog' do
+      Timecop.freeze 2016, 02, 16, 12, 00
+      expect(helper.insulin_for_time).to eq 'humalog'
+      Timecop.return
+    end
+    
+    it 'knows lantus is for bedtime' do
+      Timecop.freeze 2016, 02, 16, 22, 00
+        expect(helper.insulin_for_time).to eq 'lantus'
+      Timecop.return
+    end
+
+    it 'thinks bedtime lasts until 06:00' do
+      Timecop.freeze 2016, 02, 16, 06, 00
+      expect(helper.insulin_for_time).to eq 'lantus'
+      Timecop.return
+    end
+  end
 end

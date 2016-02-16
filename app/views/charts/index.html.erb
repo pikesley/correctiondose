@@ -42,7 +42,10 @@
       x: points(json['glucose'], 'value')['x'],
       y: points(json['glucose'], 'value')['y'],
       type: 'scatter',
-      name: 'Glucose'
+      name: 'Glucose',
+      line: {
+        color: '#fa5100'
+      }
     }
 
     var meds = {
@@ -76,7 +79,7 @@
           color: '#7f7f7f'
         },
       },
-      yaxis2: {
+    /*  yaxis2: {
         overlaying: 'y',
         side: 'right',
         title: 'Insulin (Units)',
@@ -86,8 +89,8 @@
           color: '#7f7f7f'
         },
         // https://plot.ly/python/overview/
-        tickcolor: '#f00' # close
-      },
+        tickcolor: '#f00'
+      },*/
       margin: {
         l: 50, r: 40
       },
@@ -99,7 +102,7 @@
       }
     }
 
-    datas = [bg, meds] //, carbs]
+    datas = [bg] //,meds, carbs]
 
     Plotly.newPlot('chart', datas, layout, { displayModeBar: false })
   }

@@ -1,11 +1,9 @@
 <%= render partial: 'shared/add_links' %>
 
-<div id='hours-picker'>
-  <%= render partial: 'shared/hours_picker' %>
-  | <%= link_to 'Charts', "#{charts_path}?#{request.query_string}", title: 'Charts' %>
-</div>
-
-
+<%= render partial: 'shared/hours_picker', locals: {
+  label: 'Charts',
+  path: charts_path
+}%>
 
 <table class='table table-bordered table-striped' id=recent'>
   <% date_sift(@metrics).each_pair do |day, values| %>

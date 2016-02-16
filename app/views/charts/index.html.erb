@@ -1,9 +1,9 @@
 <%= render partial: 'shared/add_links' %>
 
-<div id='hours-picker'>
-  <%= render partial: 'shared/hours_picker' %>
-  | <%= link_to 'Data', "#{root_path}?#{request.query_string}", title: 'Home' %>
-</div>
+<%= render partial: 'shared/hours_picker', locals: {
+  label: 'Data',
+  path: root_path
+}%>
 
 <div id='chart'></div>
 

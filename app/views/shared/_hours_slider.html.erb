@@ -1,7 +1,10 @@
-<span id='legend'></span> | <div id='slider' data-slider-handle='round' data-slider-id='hours'></div>
+<span id='legend'></span> | <div id='slider'
+                                 data-slider-handle='round'
+                                 data-slider-id='hours'>
+                            </div>
 
 <script>
-  var maxdays = 10
+  var maxdays = 7
   var ticks = []
   for(var i = 1; i <= maxdays; i++) {
     ticks.push(i * 24)
@@ -19,6 +22,10 @@
 
   $('#slider').slider().on('slideStop', function(ev) {
     window.location.href = '?hours=' + $('#slider').data('slider').getValue()
+  })
+
+  $('#slider').slider().on('slide', function(event) {
+    $('#legend').text(period(event.value))
   })
 
   $('#legend').text(period(<%= @hours %>))

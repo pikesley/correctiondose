@@ -61,6 +61,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
   gem 'timecop'
+  gem 'jasmine'
 end
 
 group :development do

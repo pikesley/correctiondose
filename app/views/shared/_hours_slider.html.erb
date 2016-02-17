@@ -6,7 +6,7 @@
     max: 168,
     ticks: [24, 48, 72, 96, 120, 144, 168],
     ticks_snap_bounds: 24,
-    value: parseInt(getParam('hours')),
+    value: <%= @hours %>,
     formatter: function(value) {
       return period(value)
     },
@@ -17,27 +17,10 @@
     window.location.href = '?hours=' + $('#slider').data('slider').getValue()
   })
 
-  $('#legend').text(period(getParam('hours')))
-
-  function getParam(sParam) {
-    param = undefined
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) {
-      var sParameterName = sURLVariables[i].split('=');
-      if (sParameterName[0] == sParam) {
-        param = sParameterName[1];
-      }
-      if(param === undefined) {
-        return 72
-      }
-      return param
-    }
-  }
+  $('#legend').text(period(<%= @hours %>))
 
   function period(hours) {
-    var days = Math.round(hours / 24)
-    var string = (days == 1) ? '24 hrs' : days + ' days'
+    var string = (hours <= 48) ? hours + ' hrs' : Math.round(hours / 24) + ' days'
 
     return 'last ' + string
   }

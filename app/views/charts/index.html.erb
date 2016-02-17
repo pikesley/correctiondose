@@ -12,29 +12,6 @@
     graph(json)
   })
 
-  function ecks(json) {
-    'datetime'
-  }
-
-  function why(json) {
-    'value'
-  }
-
-  function mapPoints(json, axis) {
-    return json.map(function(item){ return item[axis] })
-  }
-
-  function fixTimeStamps(data) {
-    return data.map(function(date){ return date.replace('T', ' ').replace('.000Z', '') })
-  }
-
-  function points(json, y_field) {
-    return {
-      x: fixTimeStamps(mapPoints(json, 'datetime')),
-      y: mapPoints(json, y_field)
-    }
-  }
-
   function graph(json) {
     // https://plot.ly/javascript/reference/#scatter-hoverinfo
     // https://plot.ly/javascript/reference/#scatter-marker-sizemode
@@ -100,8 +77,8 @@
       legend: {
         xanchor:"center",
         yanchor:"top",
-        y:-0.3, // play with it
-        x:0.5   // play with it
+        y:-0.3, 
+        x:0.5
       }
     }
 

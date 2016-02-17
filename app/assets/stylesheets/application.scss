@@ -4,6 +4,8 @@
 @import 'bootstrap';
 @import 'plugins';
 @import 'nav';
+@import 'slider';
+@import 'buttons';
 
 html {
   position: relative;
@@ -16,10 +18,6 @@ body {
 
 h1 {
   margin: 0;
-}
-
-.btn {
-  text-transform: lowercase;
 }
 
 .bg-high {
@@ -40,42 +38,6 @@ a {
   padding-top: $padding-large-vertical;
 }
 
-#hours-picker {
-  font-size: 1.2em;
-
-  span:before {
-    content: " | ";
-  }
-
-  span:first-child:before {
-    content: none;
-  }
-
-  .active {
-    font-size: 1.2em;
-  }
-}
-
-#hours {
-  margin: $padding-small-horizontal;
-  
-  .slider-handle {
-    background: $brand-primary;
-  }
-
-  .slider-selection {
-    background: $gray-lighter;
-  }
-
-  .slider-tick {
-    background: $orange-faded;
-  }
-}
-
-.filler {
-  //background-image: image-url('confectionary.png');
-}
-
 // from http://stackoverflow.com/questions/15155890/styling-form-error-message-bootstrap-rails
 #error_explanation {
   padding: $padding-small-horizontal;
@@ -94,34 +56,4 @@ a {
 
 .field_with_errors {
 
-}
-
-#add-links, .buttons {
-  .btn {
-    color: white;
-  }
-}
-
-.btn-glucose {
-  background-color: $glucose;
-}
-
-.btn-carbs {
-  background-color: $carbs;
-}
-
-.btn-meds {
-  background-color: $meds;
-}
-
-.btn-exercise {
-  background-color: $exercise;
-}
-
-.btn-back {
-  background-color: $gray-light;
-}
-
-.btn-delete {
-  background-color: $gray-dark;
 }

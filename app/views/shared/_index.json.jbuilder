@@ -5,5 +5,5 @@ json.array! @metrics[0..100] do |metric|
   metric.class.fields.each do |field|
     json.(metric, field.to_sym )
   end
-  json.url send("#{class_name(metric).name.underscore}_url".to_sym, metric.id) + '.json'
+  json.url send(model_path(metric), metric.id) + '.json'
 end

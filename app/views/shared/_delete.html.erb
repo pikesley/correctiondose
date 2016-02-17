@@ -1,5 +1,5 @@
 <% if @metric.id %>
-  <%= link_to 'Delete', send("#{@metric.class.name.underscore}_path".to_sym, @metric),
+  <%= link_to 'Delete', send(model_path(@metric), @metric),
                             class: 'btn btn-delete',
                             method: :delete,
                             data: {

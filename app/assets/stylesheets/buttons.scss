@@ -1,0 +1,33 @@
+.btn {
+  text-transform: lowercase;
+}
+
+#add-links, .buttons {
+  .btn {
+    color: white;
+  }
+}
+
+.btn-glucose {
+  background-color: $glucose;
+}
+
+.btn-carbs {
+  background-color: $carbs;
+}
+
+.btn-meds {
+  background-color: $meds;
+}
+
+.btn-exercise {
+  background-color: $exercise;
+}
+
+.btn-back {
+  background-color: $gray-light;
+}
+
+.btn-delete {
+  background-color: $gray-dark;
+}

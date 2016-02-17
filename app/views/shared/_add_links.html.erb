@@ -1,8 +1,8 @@
 <div id='add-links'>
   <% models.each do |model| %>
     <%= link_to "Add #{model.short_name}",
-      send("new_#{model.name.underscore}_path"),
-      class: "btn btn-#{model.short_name.downcase}"
+      send(new_path model),
+      class: "btn #{button_name model}"
     %>
   <% end %>
 </div>

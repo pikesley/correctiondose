@@ -22,9 +22,4 @@
   })
 
   $('#legend').text(period(<%= @hours %>))
-
-  function period(hours) {
-    var string = (hours <= 72) ? hours + ' hrs' : Math.round(hours / 24) + ' days'
-    return 'last ' + string
-  }
 </script>

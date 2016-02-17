@@ -18,3 +18,4 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require bootstrap-slider
+//= require correctiondose

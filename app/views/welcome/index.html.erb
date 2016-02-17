@@ -5,10 +5,10 @@
   path: charts_path
 }%>
 
-<table class='table table-bordered table-striped' id='recent'>
+<table class='table table-bordered table-hover' id='recent'>
   <% date_sift(@metrics).each_pair do |day, values| %>
     <tr>
-      <th colspan='<%= @widest + 2 %>'>
+      <th colspan='<%= @widest + 2 %>' class='day-marker'>
         <% date = Time.parse(day) %>
         <%= date.strftime "%A %B #{date.day.ordinalize}" %>
       </th>

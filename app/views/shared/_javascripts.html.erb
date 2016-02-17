@@ -1,12 +1,6 @@
 <script>
-$('.glucose-measurement-value .value').each(function() {
-  var value = $(this).text().trim().split(' ')[0]
-  if(value > 8.0) {
-    $(this).addClass('bg-high')
-  }
-  if(value < 4.0) {
-    $(this).addClass('bg-low')
-  }
+$('.glucose-measurement-value .value .number').each(function() {
+  $(this).parents('td').addClass(classForBG($(this).text()))
 })
 
 $(function () {

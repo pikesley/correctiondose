@@ -5,10 +5,10 @@
   path: charts_path
 }%>
 
-<table class='table table-bordered table-striped' id='recent'>
+<table class='table table-bordered table-hover' id='recent'>
   <% date_sift(@metrics).each_pair do |day, values| %>
     <tr>
-      <th colspan='<%= @widest + 2 %>'>
+      <th colspan='<%= @widest + 2 %>' class='day-marker'>
         <% date = Time.parse(day) %>
         <%= date.strftime "%A %B #{date.day.ordinalize}" %>
       </th>
@@ -28,13 +28,13 @@
         <% class_name(value).fields.each do |field| %>
           <td class='<%= class_for_table_cell value, field %>'>
             <% if value.class.units[:applies_to] == field.to_sym %>
-              <span class='value'
+              <div class='value'
                     data-toggle='tooltip'
                     data-placement='top'
                     title='<%= value.send(field) %> <%= value.class.units[:full] %>'>
-                <%= value.send(field) %>
-                <%= value.class.units[:short] %>
-              </span>
+                <span class='number'><%= value.send(field) %></span>
+                <span class='units'><%= value.class.units[:short] %></span>
+              </div>
             <% else %>
               <%= value.send(field) %>
             <% end %>

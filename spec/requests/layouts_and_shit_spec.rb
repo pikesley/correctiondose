@@ -9,8 +9,8 @@ describe 'Layout' do
         within 'ul' do
           expect(page.all('a').map { |link| link.text}).to eq [
             'Glucose',
-            'Carbs',
             'Meds',
+            'Carbs',
             'Exercise'
           ]
         end

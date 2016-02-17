@@ -16,8 +16,8 @@ module ApplicationHelper
   def models
     [
       GlucoseMeasurement,
-      CarbohydrateIntake,
       MedicationEvent,
+      CarbohydrateIntake,
       PhysicalExercise
     ]
   end

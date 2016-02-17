@@ -56,6 +56,18 @@ module ApplicationHelper
   end
 
   def class_for_table_cell metric, field
-    "#{metric.class.name.underscore.gsub('_', '-')}-#{field}"
+    "#{class_name(metric).name.underscore.gsub('_', '-')}-#{field}"
+  end
+
+  def new_path model
+    "new_#{class_name(model).name.underscore}_path".to_sym
+  end
+
+  def model_path instance
+    "#{class_name(instance).name.underscore}_path".to_sym
+  end
+
+  def button_name model
+    "btn-#{class_name(model).short_name.downcase}"
   end
 end

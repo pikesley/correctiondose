@@ -63,8 +63,12 @@ module ApplicationHelper
     "new_#{class_name(model).name.underscore}_path".to_sym
   end
 
-  def model_path instance
-    "#{class_name(instance).name.underscore}_path".to_sym
+  def model_path model
+    "#{class_name(model).name.underscore}_path".to_sym
+  end
+
+  def edit_path model
+    "edit_#{class_name(model).name.underscore}_path".to_sym
   end
 
   def button_name model

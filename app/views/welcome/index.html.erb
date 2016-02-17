@@ -5,7 +5,7 @@
   path: charts_path
 }%>
 
-<table class='table table-bordered table-striped' id=recent'>
+<table class='table table-bordered table-striped' id='recent'>
   <% date_sift(@metrics).each_pair do |day, values| %>
     <tr>
       <th colspan='<%= @widest + 2 %>'>
@@ -17,7 +17,7 @@
       <tr>
         <td>
           <%= link_to value.datetime.strftime('%H:%M'),
-            send("edit_#{value.class.name.underscore}_path".to_sym, value),
+            send(edit_path(value), value),
             title: 'Edit this metric'
           %>
         </td>
@@ -28,8 +28,12 @@
         <% class_name(value).fields.each do |field| %>
           <td class='<%= class_for_table_cell value, field %>'>
             <% if value.class.units[:applies_to] == field.to_sym %>
-              <span class='value' data-toggle='tooltip' data-placement='top' title='<%= value.send(field) %> <%= value.class.units[:full] %>'>
-                <%= value.send(field) %> <%= value.class.units[:short] %>
+              <span class='value'
+                    data-toggle='tooltip'
+                    data-placement='top'
+                    title='<%= value.send(field) %> <%= value.class.units[:full] %>'>
+                <%= value.send(field) %>
+                <%= value.class.units[:short] %>
               </span>
             <% else %>
               <%= value.send(field) %>

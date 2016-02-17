@@ -67,6 +67,13 @@ describe ApplicationHelper do
         expect(model_path carbs).to eq :carbohydrate_intake_path
       end
     end
+
+    describe '#edit_path' do
+      let(:meds) { build :medication_event }
+      it 'generates the _edit_ path' do
+        expect(helper.edit_path meds).to eq :edit_medication_event_path
+      end
+    end
   end
 
   describe '#button_name' do

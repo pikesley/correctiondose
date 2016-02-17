@@ -6,6 +6,7 @@
         <%= date.strftime "%A %B #{date.day.ordinalize}" %>
       </th>
     </tr>
+
     <% values.each do |value| %>
       <%= render partial: 'shared/table_row', locals: {
         passed_value: value,

@@ -1,7 +1,6 @@
 <script>
-$('.glucose-measurement-value .value').each(function() {
-  var value = $(this).text().trim().split(' ')[0]
-  $(this).parent().addClass(classForBG(value))
+$('.glucose-measurement-value .value .number').each(function() {
+  $(this).parents('td').addClass(classForBG($(this).text()))
 })
 
 $(function () {

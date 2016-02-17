@@ -28,13 +28,13 @@
         <% class_name(value).fields.each do |field| %>
           <td class='<%= class_for_table_cell value, field %>'>
             <% if value.class.units[:applies_to] == field.to_sym %>
-              <span class='value'
+              <div class='value'
                     data-toggle='tooltip'
                     data-placement='top'
                     title='<%= value.send(field) %> <%= value.class.units[:full] %>'>
-                <%= value.send(field) %>
-                <%= value.class.units[:short] %>
-              </span>
+                <span class='number'><%= value.send(field) %></span>
+                <span class='units'><%= value.class.units[:short] %></span>
+              </div>
             <% else %>
               <%= value.send(field) %>
             <% end %>

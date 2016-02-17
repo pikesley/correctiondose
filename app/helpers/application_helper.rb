@@ -45,13 +45,14 @@ module ApplicationHelper
   end
 
   def insulin_for_time
+    nighttime? ? 'lantus' : 'humalog'
+  end
+
+  def nighttime?
     bedtime = 22
     morning = 06
 
-    if Time.now.hour >= bedtime || Time.now.hour <= morning
-      return 'lantus'
-    end
-    'humalog'
+    Time.now.hour >= bedtime || Time.now.hour <= morning
   end
 
   def class_for_table_cell metric, field

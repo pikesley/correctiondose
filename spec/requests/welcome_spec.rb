@@ -10,8 +10,8 @@ describe 'Welcome' do
       within(:css, 'div#add-links') do
         expect(page.all('a').map { |link| link.text } ).to eq [
           'Add Glucose',
-          'Add Carbs',
           'Add Meds',
+          'Add Carbs',
           'Add Exercise'
         ]
       end

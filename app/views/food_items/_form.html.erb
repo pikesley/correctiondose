@@ -1,0 +1,22 @@
+<div class='row'>
+<%= form_for @metric do |f| %>
+  <div class='col-xs-12'>
+    <%= render partial: 'shared/form_errors' %>
+  </div>
+  <% [:source, :name].each do |field| %>
+    <div class='col-xs-12'>
+      <%= f.label field.to_sym %><br>
+      <%= f.text_field field.to_sym, class: 'form-control' %>
+    </div>
+  <% end %>
+  <div class='col-xs-12'>
+    <%= f.label 'Carbs' %><br>
+    <%= f.number_field :carbohydrate, class: 'form-control', step: 0.1, min: 0 %>
+  </div>
+  <div class='col-xs-12 buttons'>
+    <%= f.submit class: 'btn btn-success' %>
+    <%= render partial: 'shared/back' %>
+    <%= render partial: 'shared/delete' %>
+  </div>
+<% end %>
+</div>

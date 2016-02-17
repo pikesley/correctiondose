@@ -26,7 +26,7 @@ module ApplicationHelper
     begin
       return instance.name.constantize
     rescue Exception => e
-      return instance.class.name.constantize if e.message.match /undefined method `name' for/
+      return instance.class.name.constantize if e.message.match /undefined method/
     end
   end
 

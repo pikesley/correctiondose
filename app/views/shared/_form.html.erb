@@ -1,11 +1,10 @@
 <div class='row'>
 <%= form_for @metric do |f| %>
-<div class='col-xs-12'>
-
   <%= render partial: 'shared/form_errors' %>
+  <div class='col-xs-12'>
     <%= f.label :datetime, 'Date and time' %><br>
     <%= f.text_field :datetime, class: 'form-control datetime' %>
-</div>
+  </div>
   <% @metric.class.fields.each do |field| %>
     <div class='col-xs-12'>
       <%= f.label field.to_sym %><br>

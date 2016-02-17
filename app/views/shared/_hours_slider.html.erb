@@ -9,7 +9,7 @@
 
   $('#slider').slider({
     ticks: ticks,
-    ticks_snap_bounds: 12,
+    ticks_snap_bounds: 24,
     value: <%= @hours %>,
     formatter: function(value) {
       return period(value)

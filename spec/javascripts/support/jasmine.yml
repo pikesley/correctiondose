@@ -38,6 +38,8 @@ stylesheets:
 #   - helpers/**/*.js
 #
 helpers:
+  - 'helpers/jquery-1.12.0.min.js'
+  - 'helpers/jasmine-jquery.js'
   - 'helpers/**/*.js'
 
 # spec_files
@@ -132,4 +134,3 @@ boot_files:
 # random: true
 #
 random:
-

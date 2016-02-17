@@ -1,11 +1,15 @@
 <span id='legend'></span> | <div id='slider' data-slider-handle='round' data-slider-id='hours'></div>
 
 <script>
+  var maxdays = 10
+  var ticks = []
+  for(var i = 1; i <= maxdays; i++) {
+    ticks.push(i * 24)
+  }
+
   $('#slider').slider({
-    min: 24,
-    max: 168,
-    ticks: [24, 48, 72, 96, 120, 144, 168],
-    ticks_snap_bounds: 24,
+    ticks: ticks,
+    ticks_snap_bounds: 12,
     value: <%= @hours %>,
     formatter: function(value) {
       return period(value)
@@ -21,7 +25,6 @@
 
   function period(hours) {
     var string = (hours <= 48) ? hours + ' hrs' : Math.round(hours / 24) + ' days'
-
     return 'last ' + string
   }
 </script>

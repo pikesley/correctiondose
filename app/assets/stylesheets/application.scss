@@ -21,12 +21,14 @@ h1 {
 }
 
 .bg-high {
-  color: red;
+  color: $bg-high;
+  background-color: $bg-high-back;
   font-weight: bold;
 }
 
 .bg-low {
-  color: blue;
+  color: $bg-low;
+  background-color: $bg-low-back;
   font-weight: bold;
 }
 

@@ -2,13 +2,20 @@ $orange: #fa5100;
 $yellow: #fa9400;
 $blue: #0c58a2;
 $green: #00a86d;
-$orange-faded: #FABFA2;
+$orange-faded: #fabfa2;
+$purple: #7f2a68;
+$purple-faded: #f0d1e7;
+$olive: #729c34;
+$olive-faded: #edfada;
 
 $brand-primary: $orange;
-$warning-pink: #ffe6e6;
-$warning-blue: #ece6ff;
 
 $glucose: $orange;
 $meds: $blue;
 $carbs: $yellow;
 $exercise: $green;
+
+$bg-high: $purple;
+$bg-high-back: $purple-faded;
+$bg-low: $olive;
+$bg-low-back: $olive-faded;

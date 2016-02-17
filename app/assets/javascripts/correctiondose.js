@@ -25,3 +25,15 @@ function points(json, y_field) {
     y: mapPoints(json, y_field)
   }
 }
+
+function classForBG(value) {
+  if(value > 8) {
+    return 'bg-high'
+  }
+
+  if(value < 4.5) {
+    return 'bg-low'
+  }
+
+  return 'bg-ok'
+}

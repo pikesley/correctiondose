@@ -98,3 +98,17 @@ describe ('ChartWrangler', function() {
     })
   })
 })
+
+describe('classForBG()', function() {
+  it('gives the class for a high reading', function() {
+    expect(classForBG(9)).toEqual('bg-high')
+  })
+
+  it('gives the class for a low reading', function() {
+    expect(classForBG(4.1)).toEqual('bg-low')
+  })
+
+  it('does nothing for an in-range reading', function() {
+    expect(classForBG(6)).toEqual('bg-ok')
+  })
+})

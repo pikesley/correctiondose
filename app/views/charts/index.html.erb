@@ -13,8 +13,6 @@
   })
 
   function graph(json) {
-    // https://plot.ly/javascript/reference/#scatter-hoverinfo
-    // https://plot.ly/javascript/reference/#scatter-marker-sizemode
     var bg = {
       x: points(json['glucose'], 'value')['x'],
       y: points(json['glucose'], 'value')['y'],
@@ -29,19 +27,30 @@
       x: points(json['meds'], 'dose')['x'],
       y: points(json['meds'], 'dose')['y'],
       yaxis: 'y2',
-      mode: 'markers', //+text',
-    //  textposition: 'top right',
+      mode: 'markers',
       name: 'Meds',
       text: json['meds'].map(function(item){ return item['insulin'] } )
     }
 
-    var carbs = {
-      x: points(json['carbs'], 'weight')['x'],
-      y: points(json['carbs'], 'weight')['y'],
-      mode: 'markers', //+text',
-    //  textposition: 'top right',
-      name: 'Carbs'
-    }
+    shapes = [
+      {
+        type: 'rect',
+        xref: 'x',
+        yref: 'y',
+
+        x0: bg['x'][bg['x'].length - 1],
+        x1: bg['x'][0],
+
+        y0: 4.5,
+        y1: 8,
+
+        fillcolor: '#fabfa2',
+        opacity: 0.2,
+        line: {
+          width: 0
+        }
+      }
+    ]
 
     var layout = {
       xaxis: {
@@ -77,12 +86,13 @@
       legend: {
         xanchor:"center",
         yanchor:"top",
-        y:-0.3, 
+        y:-0.3,
         x:0.5
-      }
+      },
+      shapes: shapes
     }
 
-    datas = [bg] //,meds, carbs]
+    datas = [bg] //,meds]
 
     Plotly.newPlot('chart', datas, layout, { displayModeBar: false })
   }

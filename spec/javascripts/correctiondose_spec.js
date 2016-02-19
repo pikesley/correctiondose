@@ -99,16 +99,31 @@ describe ('ChartWrangler', function() {
   })
 })
 
+describe('isBreakfastTime()', function() {
+  it('knows when it is breakfast-time', function() {
+    expect(isBreakfastTime('08:00')).toEqual(true)
+  })
+
+  it('knows when it is not breakfast-time', function() {
+    expect(isBreakfastTime('06:15')).toEqual(false)
+    expect(isBreakfastTime('11:30')).toEqual(false)
+  })
+})
+
 describe('classForBG()', function() {
   it('gives the class for a high reading', function() {
-    expect(classForBG(9)).toEqual('bg-high')
+    expect(classForBG(9, '12:00')).toEqual('bg-high')
   })
 
   it('gives the class for a low reading', function() {
-    expect(classForBG(4.1)).toEqual('bg-low')
+    expect(classForBG(4.1, '12:00')).toEqual('bg-low')
   })
 
   it('does nothing for an in-range reading', function() {
-    expect(classForBG(6)).toEqual('bg-ok')
+    expect(classForBG(6, '12:00')).toEqual('bg-ok')
+  })
+
+  it('knows that breakfast-time is a special case', function() {
+    expect(classForBG(7.5, '07:30')).toEqual('bg-high')
   })
 })

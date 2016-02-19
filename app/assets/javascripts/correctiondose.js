@@ -26,7 +26,18 @@ function points(json, y_field) {
   }
 }
 
-function classForBG(value) {
+function isBreakfastTime(time) {
+  if(time >= '06:30' && time <= '11:00') {
+    return true
+  }
+  return false
+}
+
+function classForBG(value, time) {
+  if(isBreakfastTime(time) && value > 7) {
+    return 'bg-high'
+  }
+
   if(value > 8) {
     return 'bg-high'
   }

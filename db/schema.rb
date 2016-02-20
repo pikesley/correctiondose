@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131002849) do
+ActiveRecord::Schema.define(version: 20160220171112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20160131002849) do
   create_table "glucose_measurements", force: :cascade do |t|
     t.datetime "datetime"
     t.float    "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "glycated_haemoglobins", force: :cascade do |t|
+    t.datetime "datetime"
+    t.float    "percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -3,7 +3,11 @@
     <tr>
       <th colspan='4' class='day-marker'> <!-- bootstrap ignores this maybe? -->
         <% date = Time.parse(day) %>
-        <%= date.strftime "%A %B #{date.day.ordinalize}" %>
+        <% header = date.strftime "%A %B #{date.day.ordinalize}" %>
+        <% if with_year %>
+          <% header = date.strftime "%A %B #{date.day.ordinalize} %Y" %>
+        <% end %>
+        <%= header %>
       </th>
     </tr>
 

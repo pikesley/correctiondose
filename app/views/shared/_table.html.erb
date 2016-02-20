@@ -1,7 +1,7 @@
-<table class='table table-bordered table-striped'>
+<table class='table table-bordered table-hover' id='metric'>
   <% date_sift(metrics).each_pair do |day, values| %>
     <tr>
-      <th colspan=64> <!-- bootstrap ignores this maybe? -->
+      <th colspan='4' class='day-marker'> <!-- bootstrap ignores this maybe? -->
         <% date = Time.parse(day) %>
         <%= date.strftime "%A %B #{date.day.ordinalize}" %>
       </th>
@@ -9,8 +9,7 @@
 
     <% values.each do |value| %>
       <%= render partial: 'shared/table_row', locals: {
-        passed_value: value,
-        fields: class_name(@metrics).fields
+        value: value
       } %>
     <% end %>
   <% end %>

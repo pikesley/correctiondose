@@ -26,6 +26,10 @@ class ApiController < ApplicationController
         k['duration'] = data['value']
         k['description'] = data['subtype'].downcase
         metric = PhysicalExercise.new k
+
+      when 'HbA1c'
+        k['percentage'] = data['value']
+        metric = GlycatedHaemoglobin.new k
     end
 
     if metric.save

@@ -76,6 +76,19 @@ describe ApiController, type: :controller do
         }.to change(PhysicalExercise, :count).by 1
       end
 
+      it 'creates a new hba1c' do
+        expect {
+          post :create, data: {
+            "id":"1487",
+            "datetime":"2012-10-29T09:31:54+00:00",
+            "type":"HbA1c",
+            "subtype":{},
+            "category":"After Breakfast",
+            "value":"6.0"
+          }.to_json
+        }.to change(GlycatedHaemoglobin, :count).by 1
+      end
+
       it 'does not create duplicates' do
         expect {
           2.times do

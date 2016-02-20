@@ -20,6 +20,8 @@ describe 'CarbohydrateIntake' do
       within ('//label[@for="carbohydrate_intake_description"]') do
         expect(page).to_not have_xpath('.//input[@autofocus="autofocus"]')
       end
+
+      expect(page).to have_xpath('.//input[@autofocus="autofocus"]', count: 1)
     end
   end
 end

@@ -21,7 +21,7 @@ module ApplicationHelper
       PhysicalExercise
     ]
   end
-  
+
   def longterms
     [
       GlycatedHaemoglobin,

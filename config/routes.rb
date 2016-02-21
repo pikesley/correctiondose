@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :api
   resources :charts
 
+  resources :longterm, path: 'long-term'
+
   root 'welcome#index'
 end

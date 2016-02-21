@@ -2,6 +2,7 @@
 
 <%= render partial: 'shared/hours_picker', locals: {
   label: 'Data',
+  fontawesome: 'fa-list-ul',
   path: root_path
 }%>
 
@@ -56,7 +57,8 @@
       xaxis: {
         type: 'datetime',
         tickangle: 315,
-        tickformat: "%a %H:%M"
+        tickformat: "%a %H:%M",
+        color: '#abcdef'
       },
       yaxis: {
         title: 'Glucose (mmol/L)',

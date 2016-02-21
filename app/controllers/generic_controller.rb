@@ -17,20 +17,20 @@ class GenericController < ApplicationController
     @metric = find_class.find(params[:id])
   end
 
-  def create
+  def create redirect_path = root_path
     @metric = find_class.new(acceptable_params)
     if @metric.save
-      redirect_to root_path
+      redirect_to redirect_path
     else
       render :new
     end
   end
 
-  def update
+  def update redirect_path = root_path
     @metric = find_class.find(params[:id])
 
     if @metric.update(acceptable_params)
-      redirect_to root_path
+      redirect_to redirect_path
     else
       render :edit
     end

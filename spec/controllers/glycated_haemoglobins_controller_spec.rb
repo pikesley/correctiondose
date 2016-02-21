@@ -39,8 +39,7 @@ describe GlycatedHaemoglobinsController, type: :controller do
 
       it 'redirects to the front page' do
         post :create, glycated_haemoglobin: attributes_for(:glycated_haemoglobin)
-        # FIX THIS: Redirect to long_term_things_path
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to longterm_index_path
       end
     end
 
@@ -80,8 +79,7 @@ describe GlycatedHaemoglobinsController, type: :controller do
       it 'redirects to the front page' do
         put :update, id: test_hba1c, glycated_haemoglobin: attributes_for(:glycated_haemoglobin)
         expect(assigns :metric).to eq test_hba1c
-        # FIX THIS: Redirect to long_term_things_path
-        expect(response).to redirect_to root_url
+        expect(response).to redirect_to longterm_index_path
       end
     end
 

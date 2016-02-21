@@ -9,8 +9,8 @@
         class: "btn #{button_name metric} pull-right" %>
   </div>
 </div>
-<%= render partial: 'shared/accordion_table', locals: {
-  metrics: metric,
+<%= render partial: 'shared/table', locals: {
+  metrics: [metric.last],
   with_year: true
 } %>
 <% end %>

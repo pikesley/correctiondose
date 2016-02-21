@@ -6,7 +6,7 @@
   <div class='col-xs-4'>
     <%= link_to "Add #{class_name(metric).short_name}",
         send("new_#{metric.class.to_s.split('::')[0].underscore}_path".to_sym),
-        class: 'btn btn-success pull-right' %>
+        class: "btn #{button_name metric} pull-right" %>
   </div>
 </div>
 <%= render partial: 'shared/table', locals: {

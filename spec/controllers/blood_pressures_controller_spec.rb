@@ -39,8 +39,7 @@ describe BloodPressuresController, type: :controller do
 
       it 'redirects to the front page' do
         post :create, blood_pressure: attributes_for(:blood_pressure)
-        # FIX THIS: Redirect to long_term_things_path
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to longterm_index_path
       end
     end
 
@@ -80,8 +79,7 @@ describe BloodPressuresController, type: :controller do
       it 'redirects to the front page' do
         put :update, id: test_bp, blood_pressure: attributes_for(:blood_pressure)
         expect(assigns :metric).to eq test_bp
-        # FIX THIS: Redirect to long_term_things_path
-        expect(response).to redirect_to root_url
+        expect(response).to redirect_to longterm_index_path
       end
     end
 

@@ -2,10 +2,8 @@
   text-transform: lowercase;
 }
 
-#add-links, .buttons {
-  .btn {
-    color: white;
-  }
+.btn {
+  color: white;
 }
 
 .btn-glucose {
@@ -22,6 +20,14 @@
 
 .btn-exercise {
   background-color: $exercise;
+}
+
+.btn-hba1c {
+  background-color: $hba1c;
+}
+
+.btn-blood-pressure {
+  background-color: $bp;
 }
 
 .btn-back {

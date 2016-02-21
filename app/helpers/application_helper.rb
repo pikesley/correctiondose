@@ -72,6 +72,6 @@ module ApplicationHelper
   end
 
   def button_name model
-    "btn-#{class_name(model).short_name.downcase}"
+    "btn-#{class_name(model).short_name.downcase.gsub(' ', '-')}"
   end
 end

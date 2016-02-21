@@ -2,6 +2,8 @@
   <div class='col-xs-12'>
     <%= render partial: 'shared/hours_slider' %>
     |
-    <%= link_to label, "#{path}?#{request.query_string}", title: label %>
+    <%= link_to "#{path}?#{request.query_string}", title: label do %>
+       <i class='fa <%= fontawesome %>'></i>
+    <% end %>
   </div>
 </div>

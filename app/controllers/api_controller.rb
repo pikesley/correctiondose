@@ -30,6 +30,10 @@ class ApiController < ApplicationController
       when 'HbA1c'
         k['percentage'] = data['value']
         metric = GlycatedHaemoglobin.new k
+
+      when 'Blood Pressure'
+        k['reading'] = data['value']
+        metric = BloodPressure.new k
     end
 
     if metric.save

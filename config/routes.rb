@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :carbohydrate_intakes, path: 'carbs'
   resources :physical_exercises, path: 'exercise'
   resources :glycated_haemoglobins, path: 'hba1c'
+  resources :blood_pressures, path: 'bp'
   resources :api
   resources :charts
 

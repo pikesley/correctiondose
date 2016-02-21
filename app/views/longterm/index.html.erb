@@ -10,7 +10,7 @@
   </div>
 </div>
 <%= render partial: 'shared/table', locals: {
-  metrics: metric,
+  metrics: [metric.last],
   with_year: true
 } %>
 <% end %>

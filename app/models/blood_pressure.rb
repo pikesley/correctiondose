@@ -1,6 +1,6 @@
 class BloodPressure < ActiveRecord::Base
   def self.short_name
-    'BP'
+    'blood pressure'
   end
 
   def self.units

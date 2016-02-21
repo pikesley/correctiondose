@@ -21,6 +21,13 @@ module ApplicationHelper
       PhysicalExercise
     ]
   end
+  
+  def longterms
+    [
+      GlycatedHaemoglobin,
+      BloodPressure
+    ]
+  end
 
   def class_name instance
     begin

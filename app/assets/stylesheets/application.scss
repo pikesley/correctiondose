@@ -61,3 +61,11 @@ table {
     background-color: $gray-lighter;
   }
 }
+
+#hours-picker {
+  i {
+    font-size: 1.2em;
+    position: relative;
+    bottom: -3px;
+  }
+}

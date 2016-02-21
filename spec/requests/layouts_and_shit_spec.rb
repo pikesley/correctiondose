@@ -7,11 +7,12 @@ describe 'Layout' do
       within 'nav' do
         within(:xpath, '//ul[@id="main-menu"]') do
           expect(page.all('a').map { |link| link.text}).to eq [
+            'Long-term metrics', 
+            'All Metrics',
             'Glucose',
             'Meds',
             'Carbs',
             'Exercise',
-            'Others',
             'HbA1c',
             'Blood Pressure'
           ]

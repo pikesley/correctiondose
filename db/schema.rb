@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220171112) do
+ActiveRecord::Schema.define(version: 20160221155315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blood_pressures", force: :cascade do |t|
+    t.datetime "datetime"
+    t.string   "reading"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "carbohydrate_intakes", force: :cascade do |t|
     t.datetime "datetime"

@@ -89,6 +89,19 @@ describe ApiController, type: :controller do
         }.to change(GlycatedHaemoglobin, :count).by 1
       end
 
+      it 'creates a new bp' do
+        expect {
+          post :create, data: {
+            "id":"191",
+            "datetime":"2012-06-21T11:29:47+01:00",
+            "type":"Blood Pressure",
+            "subtype":{},
+            "category":"After Breakfast",
+            "value":"130/82"
+          }.to_json
+        }.to change(BloodPressure, :count).by 1
+      end
+
       it 'does not create duplicates' do
         expect {
           2.times do

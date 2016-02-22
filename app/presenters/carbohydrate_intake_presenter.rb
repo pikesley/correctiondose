@@ -1,8 +1,6 @@
 class CarbohydrateIntakePresenter < GenericPresenter
   def edit_cell
-    cell(link_to model.datetime.strftime('%H:%M'),
-    url_helpers.edit_carbohydrate_intake_path(model),
-    title: 'Edit carbs')
+    super :edit_carbohydrate_intake_path
   end
 
   def measurement_cell

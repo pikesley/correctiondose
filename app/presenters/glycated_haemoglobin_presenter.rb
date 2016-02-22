@@ -1,18 +1,18 @@
-class GlucoseMeasurementPresenter < GenericPresenter
+class GlycatedHaemoglobinPresenter < GenericPresenter
   def edit_cell
-    super :edit_glucose_measurement_path
+    super :edit_glycated_haemoglobin_path
   end
 
   def measurement_cell
-    cell value_div, 'glucose-measurement-value'
+    cell value_div, 'glycated-haemoglobin-percentage'
   end
 
   def number_span
-    super :value
+    super :percentage
   end
 
   def value_div
-    super :value
+    super :percentage, space: false
   end
 
   def to_tr padding: 0
@@ -25,8 +25,8 @@ class GlucoseMeasurementPresenter < GenericPresenter
 
   def units
     {
-      full: 'millimoles per Litre',
-      short: 'mmol/L'
+      full: 'percent',
+      short: '%'
     }
   end
 end

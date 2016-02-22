@@ -1,8 +1,6 @@
 class MedicationEventPresenter < GenericPresenter
   def edit_cell
-    cell(link_to model.datetime.strftime('%H:%M'),
-    url_helpers.edit_medication_event_path(model),
-    title: 'Edit meds')
+    super :edit_medication_event_path
   end
 
   def number_span

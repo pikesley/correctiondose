@@ -7,7 +7,7 @@ describe GlucoseMeasurementPresenter do
   let(:decorated_bg) { GlucoseMeasurementPresenter.new bg }
 
   it 'has an Edit cell' do
-    expect(decorated_bg.edit_cell).to eq '<td><a title="Edit measurement" href="/glucose/1/edit">21:42</a></td>'
+    expect(decorated_bg.edit_cell).to eq '<td><a title="Edit Glucose" href="/glucose/1/edit">21:42</a></td>'
   end
 
   it 'has a Label cell' do
@@ -34,13 +34,13 @@ describe GlucoseMeasurementPresenter do
 
   it 'presents as a whole table row' do
     expect(decorated_bg.to_tr).to eq (
-      "<tr><td><a title=\"Edit measurement\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6.0</span> <span class='units'>mmol/L</span></div></td></tr>"
+      "<tr><td><a title=\"Edit Glucose\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6.0</span> <span class='units'>mmol/L</span></div></td></tr>"
     )
   end
 
   it 'pads the row if required' do
     expect(decorated_bg.to_tr padding: 1).to eq (
-      "<tr><td><a title=\"Edit measurement\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6.0</span> <span class='units'>mmol/L</span></div></td><td class='filler'></td></tr>"
+      "<tr><td><a title=\"Edit Glucose\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6.0</span> <span class='units'>mmol/L</span></div></td><td class='filler'></td></tr>"
     )
   end
 end

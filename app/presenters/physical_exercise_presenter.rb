@@ -1,8 +1,6 @@
 class PhysicalExercisePresenter < GenericPresenter
   def edit_cell
-    cell(link_to model.datetime.strftime('%H:%M'),
-    url_helpers.edit_physical_exercise_path(model),
-    title: 'Edit exercise')
+    super :edit_physical_exercise_path
   end
 
   def measurement_cell

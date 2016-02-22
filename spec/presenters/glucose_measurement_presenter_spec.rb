@@ -28,6 +28,10 @@ describe GlucoseMeasurementPresenter do
     )
   end
 
+  it 'has a Measurement cell' do
+    expect(decorated_bg.measurement_cell).to eq "<td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6.0</span> <span class='units'>mmol/L</span></div></td>"
+  end
+
   it 'presents as a whole table row' do
     expect(decorated_bg.to_tr).to eq (
       "<tr><td><a title=\"Edit this measurement\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6.0</span> <span class='units'>mmol/L</span></div></td></tr>"
@@ -38,9 +42,5 @@ describe GlucoseMeasurementPresenter do
     expect(decorated_bg.to_tr padding: 1).to eq (
       "<tr><td><a title=\"Edit this measurement\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6.0</span> <span class='units'>mmol/L</span></div></td><td class='filler'></td></tr>"
     )
-  end
-
-  it 'has a Measurement cell' do
-    expect(decorated_bg.measurement_cell).to eq "<td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6.0</span> <span class='units'>mmol/L</span></div></td>"
   end
 end

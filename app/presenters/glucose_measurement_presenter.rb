@@ -12,7 +12,15 @@ class GlucoseMeasurementPresenter < GenericPresenter
   def number_span
     "<span class='number'>#{model.value}</span>"
   end
-  
+
+  def value_div
+    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{model.value} #{units[:full]}'>#{number_span} #{units_span}</div>"
+  end
+
+  def measurement_cell
+    cell value_div, 'glucose-measurement-value'
+  end
+
   def to_tr padding: 0
     s = "<tr>#{edit_cell}#{label_cell}#{measurement_cell}"
 

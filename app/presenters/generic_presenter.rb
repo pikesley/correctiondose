@@ -7,12 +7,6 @@ class GenericPresenter < SimpleDelegator
   # https://christoph.luppri.ch/articles/2015/07/04/handmade-rails-presenters/
   include ActionView::Helpers::UrlHelper
 
-  def edit_cell
-    cell(link_to model.datetime.strftime('%H:%M'),
-    url_helpers.edit_glucose_measurement_path(model),
-    title: 'Edit this measurement')
-  end
-
   def label_cell
     cell model.class.short_name
   end
@@ -21,29 +15,8 @@ class GenericPresenter < SimpleDelegator
     "<span class='units'>#{units[:short]}</span>"
   end
 
-  def value_div
-    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{model.value} #{units[:full]}'>#{number_span} #{units_span}</div>"
-  end
-
-  def measurement_cell
-    cell value_div, 'glucose-measurement-value'
-  end
-
   def filler_cell
     cell '', 'filler'
-  end
-
-  def to_tr padding: 0
-    call super here!
-    s = "<tr>#{edit_cell}#{label_cell}#{measurement_cell}"
-
-    padding.times do
-      s += filler_cell
-    end
-
-    s += "</tr>"
-
-    s
   end
 
   def cell content, css_class = nil

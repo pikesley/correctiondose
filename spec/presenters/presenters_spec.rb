@@ -42,3 +42,18 @@ describe GlycatedHaemoglobinPresenter do
     )
   end
 end
+
+describe BloodPressurePresenter do
+  before :each do
+    DatabaseCleaner.clean
+  end
+
+  let(:bp) { create :blood_pressure }
+  let(:decorated_bp) { BloodPressurePresenter.new bp }
+
+  it 'presents as a whole table row' do
+    expect(decorated_bp.to_tr padding: 1).to eq (
+      "<tr><td><a title=\"Edit Blood Pressure\" href=\"/bp/1/edit\">15:53</a></td><td>Blood Pressure</td><td class='blood-pressure-reading'><div class='value' data-toggle='tooltip' data-placement='top' title='130/82 Systolic/Diastolic'><span class='number'>130/82</span> <span class='units'>mmHg</span></div></td><td class='filler'></td></tr>"
+    )
+  end
+end

@@ -3,14 +3,6 @@ class CarbohydrateIntake < ActiveRecord::Base
     'Carbs'
   end
 
-  def self.units
-    {
-      full: 'Grams',
-      short: 'g',
-      applies_to: :weight
-    }
-  end
-
   def self.fields
     [
       'weight',

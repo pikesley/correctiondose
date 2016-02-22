@@ -58,8 +58,10 @@ class GenericPresenter < SimpleDelegator
 
     s += cells.map { |c| "#{c}" }.join
 
-    padding.times do
-      s += filler_cell
+    if padding
+      padding.times do
+        s += filler_cell
+      end
     end
 
     s += '</tr>'

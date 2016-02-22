@@ -3,14 +3,6 @@ class GlucoseMeasurement < ActiveRecord::Base
     'Glucose'
   end
 
-  def self.units
-    {
-      full: 'millimoles per Litre',
-      short: 'mmol/L',
-      applies_to: :value
-    }
-  end
-
   def self.fields
     [
       'value'

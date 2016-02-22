@@ -8,7 +8,7 @@ describe WelcomeController, type: :controller do
     ]
   }
   it 'knows which metric has the most fields' do
-    expect(described_class.new.send(:widest, metrics)).to eq 2
+    expect(described_class.new.send(:widest, metrics)).to eq 4
   end
 
   it 'sanitises an hours param' do

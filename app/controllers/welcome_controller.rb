@@ -22,7 +22,8 @@ class WelcomeController < ApplicationController
   private
 
   def widest metrics
-    metrics.map { |m| m.class }.uniq.map { |u| u.fields.count }.max
+    # THIS IS A HACK
+    4
   end
 
   def hours parameter

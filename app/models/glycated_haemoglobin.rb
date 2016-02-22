@@ -3,14 +3,6 @@ class GlycatedHaemoglobin < ActiveRecord::Base
     'HbA1c'
   end
 
-  def self.units
-    {
-      full: 'percent',
-      short: '%',
-      applies_to: :percentage
-    }
-  end
-
   def self.fields
     [
       'percentage'

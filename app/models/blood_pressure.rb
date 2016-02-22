@@ -3,19 +3,11 @@ class BloodPressure < ActiveRecord::Base
     'Blood Pressure'
   end
 
-  def self.units
-    {
-      full: 'Systolic/Diastolic',
-      short: 'mmHg',
-      applies_to: :reading
-    }
-  end
-
   def self.fields
-    [
-      'reading'
-    ]
-  end
+  [
+    'reading'
+  ]
+end
 
   validates :datetime, presence: true
   validates :reading, presence: true

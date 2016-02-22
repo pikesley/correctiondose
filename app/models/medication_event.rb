@@ -3,14 +3,6 @@ class MedicationEvent < ActiveRecord::Base
     'Meds'
   end
 
-  def self.units
-    {
-      full: 'Insulin units',
-      short: 'u',
-      applies_to: :dose
-    }
-  end
-
   def self.insulin_types
     [
       'humalog',

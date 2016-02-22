@@ -32,6 +32,10 @@ describe MedicationEventPresenter do
     expect(decorated_meds.measurement_cell).to eq "<td class='medication-event-dose'><div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10.0</span> <span class='units'>u</span></div></td>"
   end
 
+  it 'has a Medication cell' do
+    expect(decorated_meds.meds_cell).to eq "<td class='medication-event-insulin'>humalog</td>"
+  end
+
   it 'presents as a whole table row' do
     expect(decorated_meds.to_tr).to eq (
       "<tr><td><a title=\"Edit this meds\" href=\"/meds/1/edit\">19:44</a></td><td>Meds</td><td class='medication-event-dose'><div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10.0</span> <span class='units'>u</span></div></td></tr>"

@@ -2,7 +2,7 @@ class GlucoseMeasurementPresenter < GenericPresenter
   def edit_cell
     cell(link_to model.datetime.strftime('%H:%M'),
     url_helpers.edit_glucose_measurement_path(model),
-    title: 'Edit this measurement')
+    title: 'Edit measurement')
   end
 
   def measurement_cell
@@ -15,10 +15,6 @@ class GlucoseMeasurementPresenter < GenericPresenter
 
   def value_div
     super :value
-  end
-
-  def measurement_cell
-    cell value_div, 'glucose-measurement-value'
   end
 
   def to_tr padding: 0

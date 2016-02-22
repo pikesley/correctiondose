@@ -2,11 +2,7 @@ class MedicationEventPresenter < GenericPresenter
   def edit_cell
     cell(link_to model.datetime.strftime('%H:%M'),
     url_helpers.edit_medication_event_path(model),
-    title: 'Edit this meds')
-  end
-
-  def measurement_cell
-    cell value_div, 'glucose-measurement-value'
+    title: 'Edit meds')
   end
 
   def number_span

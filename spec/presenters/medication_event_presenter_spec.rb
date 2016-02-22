@@ -7,7 +7,7 @@ describe MedicationEventPresenter do
   let(:decorated_meds) { MedicationEventPresenter.new meds }
 
   it 'has an Edit cell' do
-    expect(decorated_meds.edit_cell).to eq '<td><a title="Edit this meds" href="/meds/1/edit">19:44</a></td>'
+    expect(decorated_meds.edit_cell).to eq '<td><a title="Edit meds" href="/meds/1/edit">19:44</a></td>'
   end
 
   it 'has a Label cell' do
@@ -38,7 +38,7 @@ describe MedicationEventPresenter do
 
   it 'presents as a whole table row' do
     expect(decorated_meds.to_tr).to eq (
-      "<tr><td><a title=\"Edit this meds\" href=\"/meds/1/edit\">19:44</a></td><td>Meds</td><td class='medication-event-dose'><div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10.0</span> <span class='units'>u</span></div></td><td class='medication-event-insulin'>humalog</td></tr>"
+      "<tr><td><a title=\"Edit meds\" href=\"/meds/1/edit\">19:44</a></td><td>Meds</td><td class='medication-event-dose'><div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10.0</span> <span class='units'>u</span></div></td><td class='medication-event-insulin'>humalog</td></tr>"
     )
   end
 end

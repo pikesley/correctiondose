@@ -11,8 +11,16 @@ class GenericPresenter < SimpleDelegator
     cell model.class.short_name
   end
 
+  def number_span attribute
+    "<span class='number'>#{model.send attribute}</span>"
+  end
+
   def units_span
     "<span class='units'>#{units[:short]}</span>"
+  end
+
+  def value_div attribute
+    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{model.send attribute} #{units[:full]}'>#{number_span} #{units_span}</div>"
   end
 
   def filler_cell
@@ -26,6 +34,20 @@ class GenericPresenter < SimpleDelegator
     end
 
     "<td#{s}>#{content}</td>"
+  end
+
+  def to_tr content, padding: 0
+    s = '<tr>'
+
+    s += content.map { |c| "#{c}" }.join
+
+    padding.times do
+      s += filler_cell
+    end
+
+    s += '</tr>'
+
+    s
   end
 
   def model

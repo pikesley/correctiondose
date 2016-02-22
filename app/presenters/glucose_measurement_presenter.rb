@@ -10,11 +10,11 @@ class GlucoseMeasurementPresenter < GenericPresenter
   end
 
   def number_span
-    "<span class='number'>#{model.value}</span>"
+    super :value
   end
 
   def value_div
-    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{model.value} #{units[:full]}'>#{number_span} #{units_span}</div>"
+    super :value
   end
 
   def measurement_cell
@@ -22,15 +22,11 @@ class GlucoseMeasurementPresenter < GenericPresenter
   end
 
   def to_tr padding: 0
-    s = "<tr>#{edit_cell}#{label_cell}#{measurement_cell}"
-
-    padding.times do
-      s += filler_cell
-    end
-
-    s += "</tr>"
-
-    s
+    super [
+      edit_cell,
+      label_cell,
+      measurement_cell
+    ], padding: padding
   end
 
   def units

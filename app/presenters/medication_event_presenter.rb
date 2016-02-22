@@ -26,7 +26,7 @@ class MedicationEventPresenter < GenericPresenter
   end
 
   def to_tr padding: 0
-    s = "<tr>#{edit_cell}#{label_cell}#{measurement_cell}"
+    s = "<tr>#{edit_cell}#{label_cell}#{measurement_cell}#{meds_cell}"
 
     padding.times do
       s += filler_cell

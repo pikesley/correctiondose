@@ -45,10 +45,18 @@ class GenericPresenter < SimpleDelegator
     "<td#{s}>#{content}</td>"
   end
 
-  def to_tr content, padding: 0
+  def cells
+    [
+      edit_cell,
+      label_cell,
+      measurement_cell
+    ]
+  end
+
+  def to_tr padding: 0
     s = '<tr>'
 
-    s += content.map { |c| "#{c}" }.join
+    s += cells.map { |c| "#{c}" }.join
 
     padding.times do
       s += filler_cell
@@ -57,6 +65,10 @@ class GenericPresenter < SimpleDelegator
     s += '</tr>'
 
     s
+  end
+
+  def width
+    cells.count
   end
 
   def model

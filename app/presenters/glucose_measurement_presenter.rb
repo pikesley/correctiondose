@@ -16,11 +16,7 @@ class GlucoseMeasurementPresenter < GenericPresenter
   end
 
   def to_tr padding: 0
-    super [
-      edit_cell,
-      label_cell,
-      measurement_cell
-    ], padding: padding
+    super padding: padding
   end
 
   def units

@@ -20,12 +20,11 @@ class MedicationEventPresenter < GenericPresenter
   end
 
   def to_tr padding: 0
-    super [
-      edit_cell,
-      label_cell,
-      measurement_cell,
-      meds_cell
-    ]
+    super padding: padding
+  end
+
+  def cells
+    super.push meds_cell
   end
 
   def units

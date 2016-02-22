@@ -56,4 +56,8 @@ describe BloodPressurePresenter do
       "<tr><td><a title=\"Edit Blood Pressure\" href=\"/bp/1/edit\">15:53</a></td><td>Blood Pressure</td><td class='blood-pressure-reading'><div class='value' data-toggle='tooltip' data-placement='top' title='130/82 Systolic/Diastolic'><span class='number'>130/82</span> <span class='units'>mmHg</span></div></td><td class='filler'></td></tr>"
     )
   end
+
+  it 'knows how wide it is' do
+    expect(decorated_bp.width).to eq 3
+  end
 end

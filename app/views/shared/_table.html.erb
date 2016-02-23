@@ -7,9 +7,8 @@
       </th>
     </tr>
     <% values.each do |value| %>
-      <%= render partial: 'shared/table_row', locals: {
-        value: value
-      } %>
+      <% padding = @widest - value.width %>
+      <%= value.to_tr(padding: padding).html_safe %> 
     <% end %>
   <% end %>
 </table>

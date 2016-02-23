@@ -7,9 +7,9 @@
 }%>
 
 <table class='table table-bordered table-hover' id='recent'>
-  <% date_sift(@metrics).each_pair do |day, values| %>
+  <% @data.each_pair do |day, values| %>
     <tr>
-      <th colspan='<%= @widest + 2 %>' class='day-marker'>
+      <th colspan='<%= @widest %>' class='day-marker'>
         <% date = Time.parse(day) %>
         <%= date.strftime "%A %B #{date.day.ordinalize}" %>
       </th>

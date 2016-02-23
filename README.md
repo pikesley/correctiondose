@@ -4,7 +4,9 @@
 [![Code Climate](http://img.shields.io/codeclimate/github/pikesley/correctiondose.svg?style=flat-square)](https://codeclimate.com/github/pikesley/correctiondose)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://pikesley.mit-license.org)
 
-Words coming soon. In the meantime...
+# Correction dose
+
+Metrics tracker app, optimised for mobile. Specifically _my_ mobile
 
 ![Screenshot](http://i.imgur.com/CLiVOJ0.png)
 

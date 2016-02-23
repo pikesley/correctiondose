@@ -1,18 +1,4 @@
 module ApplicationHelper
-  def date_sift measurements
-    h = {}
-    measurements.sort_by { |m| m.datetime }.reverse.each do |m|
-      date = m.datetime.strftime '%Y-%m-%d'
-      begin
-        h[date] << m
-      rescue NoMethodError
-        h[date] = [m]
-      end
-    end
-
-    h
-  end
-
   def models
     [
       GlucoseMeasurement,
@@ -35,16 +21,6 @@ module ApplicationHelper
     rescue Exception => e
       return instance.class.name.constantize if e.message.match /undefined method `name' for/
     end
-  end
-
-  def get_type metric, field
-    metric.class.columns.map { |m|
-      {
-        m.name => m.type
-      }
-    }.select { |p|
-      p.keys[0] == field
-    }[0].values[0]
   end
 
   def class_for_table_cell metric, field

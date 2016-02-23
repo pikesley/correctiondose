@@ -1,2 +1,2 @@
-<% if @widest then padding = (@widest - value.width) else padding = 0 end %>
+<% padding =  @widest - value.width %>
 <%= value.to_tr(padding: padding).html_safe  %>

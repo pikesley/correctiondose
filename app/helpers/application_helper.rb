@@ -47,10 +47,6 @@ module ApplicationHelper
     }[0].values[0]
   end
 
-  def intervals
-    [ 36, 48, 72]
-  end
-
   def insulin_for_time
     nighttime? ? 'lantus' : 'humalog'
   end

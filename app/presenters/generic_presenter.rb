@@ -53,6 +53,16 @@ class GenericPresenter < SimpleDelegator
     ]
   end
 
+  def form_fields
+    {
+      datetime: {
+        name: 'Date and time',
+        type: :text_field,
+        css_class: 'datetime'
+      }
+    }
+  end
+
   def to_tr padding: 0
     s = '<tr>'
 

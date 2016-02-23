@@ -3,8 +3,8 @@ class LongtermController < ApplicationController
 
   def index
     @metrics = [
-      BloodPressure.all,
-      GlycatedHaemoglobin.all
+      GlycatedHaemoglobin.all,
+      BloodPressure.all
     ]
   end
 end

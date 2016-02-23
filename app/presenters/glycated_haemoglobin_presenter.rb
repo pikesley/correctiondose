@@ -19,6 +19,20 @@ class GlycatedHaemoglobinPresenter < GenericPresenter
     super padding: padding
   end
 
+  def form_fields
+    super.merge({
+      percentage: {
+        name: 'Percentage',
+        type: :number_field,
+        input_attributes: {
+          step: 0.1,
+          min: 0,
+          autofocus: 'autofocus'
+        }
+      }
+    })
+  end
+
   def units
     {
       full: 'percent',

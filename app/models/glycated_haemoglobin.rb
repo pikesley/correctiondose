@@ -3,12 +3,6 @@ class GlycatedHaemoglobin < ActiveRecord::Base
     'HbA1c'
   end
 
-  def self.fields
-    [
-      'percentage'
-    ]
-  end
-
   validates :datetime, presence: true
   validates :percentage, presence: true, numericality: { greater_than: 0 }
   validates_uniqueness_of :datetime

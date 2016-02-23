@@ -3,12 +3,6 @@ class BloodPressure < ActiveRecord::Base
     'Blood Pressure'
   end
 
-  def self.fields
-  [
-    'reading'
-  ]
-end
-
   validates :datetime, presence: true
   validates :reading, presence: true
   validates_format_of :reading, with: /[0-9]+\/[0-9]+/

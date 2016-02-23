@@ -15,6 +15,18 @@ class BloodPressurePresenter < GenericPresenter
     super :reading
   end
 
+  def form_fields
+    super.merge({
+      reading: {
+        name: 'Reading',
+        type: :text_field,
+        input_attributes: {
+          autofocus: 'autofocus'
+        }
+      }
+    })
+  end
+
   def to_tr padding: 0
     super padding: padding
   end

@@ -1,5 +1,2 @@
-<% if value.class.name =~ /Presenter/ then pr = value %>
-<% else pr = "#{value.class.name}Presenter".constantize.new value %>
-<% end %>
-<% if @widest then padding = (@widest - pr.width) else padding = 0 end %>
-<%= pr.to_tr(padding: padding).html_safe  %>
+<% if @widest then padding = (@widest - value.width) else padding = 0 end %>
+<%= value.to_tr(padding: padding).html_safe  %>

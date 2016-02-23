@@ -1,16 +1,16 @@
-<% @metrics.each do |metric| %>
-<div class='row'>
-  <div class='col-xs-8'>
-    <h1><%= class_name(metric).short_name %></h1>
+<% @metrics.each_with_index do |metric, index| %>
+  <div class='row'>
+    <div class='col-xs-8'>
+      <h1><%= class_name(metric).short_name %></h1>
+    </div>
+    <div class='col-xs-4'>
+      <%= link_to "Add #{class_name(metric).short_name}",
+          send("new_#{metric.name.underscore}_path".to_sym),
+          class: "btn #{button_name metric} pull-right" %>
+    </div>
   </div>
-  <div class='col-xs-4'>
-    <%= link_to "Add #{class_name(metric).short_name}",
-        send("new_#{metric.class.to_s.split('::')[0].underscore}_path".to_sym),
-        class: "btn #{button_name metric} pull-right" %>
-  </div>
-</div>
-<%= render partial: 'shared/table', locals: {
-  metrics: metric,
-  with_year: true
-} %>
+  <% @data = @datas[index] %>
+  <%= render partial: 'shared/table', locals: {
+    with_year: true
+  } %>
 <% end %>

@@ -46,10 +46,23 @@ describe GlucoseMeasurementPresenter do
     end
   end
 
-  context 'form fields' do
-    let(:bg) { build :glucose_measurement }
-    let(:decorated_bg) { GlucoseMeasurementPresenter.new bg }
+  context 'out-of-range BG' do
+    let(:high_bg) { create :glucose_measurement, value: 19 }
+    let(:decorated_high_bg) { GlucoseMeasurementPresenter.new high_bg }
 
+    it 'knows if BG is high' do
+      expect(decorated_high_bg.highlight_class).to eq 'bg-high'
+    end
 
+    let(:low_bg) { create :glucose_measurement, value: 3 }
+    let(:decorated_low_bg) { GlucoseMeasurementPresenter.new low_bg }
+
+    it 'knows if BG is low' do
+      expect(decorated_low_bg.highlight_class).to eq 'bg-low'
+    end
+
+    it 'has the correct css class for a high BG' do
+      expect(decorated_high_bg.measurement_cell).to match /<td class='glucose-measurement-value bg-high'>/
+    end
   end
 end

@@ -36,10 +36,13 @@ class GenericPresenter < SimpleDelegator
     cell '', 'filler'
   end
 
-  def cell content, css_class = nil
+  def cell content, css_classes = nil
     s = nil
-    if css_class
-      s = " class='#{css_class}'"
+    if css_classes
+      css_classes = [css_classes] unless css_classes.is_a? Array
+      s = " class='"
+      s += css_classes.join(' ').strip
+      s += "'"
     end
 
     "<td#{s}>#{content}</td>"

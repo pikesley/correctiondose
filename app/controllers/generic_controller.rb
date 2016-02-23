@@ -3,6 +3,8 @@ class GenericController < ApplicationController
 
   def index
     @metrics = find_class.all
+    @data = ControllerHelpers.for_table @metrics
+    @widest = ControllerHelpers.widest @data
   end
 
   def show

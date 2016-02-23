@@ -10,13 +10,6 @@ class MedicationEvent < ActiveRecord::Base
     ]
   end
 
-  def self.fields
-    [
-      'dose',
-      'insulin'
-    ]
-  end
-
   validates :datetime, presence: true
   validates :dose, presence: true, numericality: { greater_than: 0 }
   validates :insulin, presence: true, inclusion: { in: insulin_types }

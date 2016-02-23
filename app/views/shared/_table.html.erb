@@ -1,16 +1,11 @@
-<table class='table table-bordered table-hover' id='metric'>
-  <% date_sift(metrics).each_pair do |day, values| %>
+<table class='table table-bordered table-hover' id='recent'>
+  <% @data.each_pair do |day, values| %>
     <tr>
-      <th colspan='4' class='day-marker'> <!-- bootstrap ignores this maybe? -->
+      <th colspan='<%= @widest %>' class='day-marker'>
         <% date = Time.parse(day) %>
-        <% header = date.strftime "%A %B #{date.day.ordinalize}" %>
-        <% if with_year %>
-          <% header = date.strftime "%A %B #{date.day.ordinalize} %Y" %>
-        <% end %>
-        <%= header %>
+        <%= date.strftime "%A %B #{date.day.ordinalize}" %>
       </th>
     </tr>
-
     <% values.each do |value| %>
       <%= render partial: 'shared/table_row', locals: {
         value: value

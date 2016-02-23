@@ -16,15 +16,11 @@ class WelcomeController < ApplicationController
       @metrics.concat model.where(datetime: (Time.now - @hours.hours)..Time.now)
     end
 
-    @widest = widest @metrics
+    @data = ControllerHelpers.for_table @metrics
+    @widest = ControllerHelpers.widest @data
   end
 
   private
-
-  def widest metrics
-    # THIS IS A HACK
-    4
-  end
 
   def hours parameter
     return parameter.to_i if parameter.to_i > 0

@@ -41,4 +41,24 @@ describe MedicationEventPresenter do
       "<tr><td><a title=\"Edit Meds\" href=\"/meds/1/edit\">19:44</a></td><td>Meds</td><td class='medication-event-dose'><div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10.0</span> <span class='units'>u</span></div></td><td class='medication-event-insulin'>humalog</td></tr>"
     )
   end
+
+  describe '#insulin_for_time' do
+    it 'defaults to humalog' do
+      Timecop.freeze 2016, 02, 16, 12, 00 do
+        expect(decorated_meds.insulin_for_time).to eq 'humalog'
+      end
+    end
+
+    it 'knows lantus is for bedtime' do
+      Timecop.freeze 2016, 02, 16, 22, 00 do
+        expect(decorated_meds.insulin_for_time).to eq 'lantus'
+      end
+    end
+
+    it 'thinks bedtime lasts until 06:00' do
+      Timecop.freeze 2016, 02, 16, 06, 00 do
+        expect(decorated_meds.insulin_for_time).to eq 'lantus'
+      end
+    end
+  end
 end

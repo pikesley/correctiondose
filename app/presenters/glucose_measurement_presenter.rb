@@ -41,8 +41,23 @@ class GlucoseMeasurementPresenter < GenericPresenter
   end
 
   def highlight_class
-    return 'bg-high' if model.value > 8
-    return 'bg-low' if model.value < 4.5
-    nil
+    return 'bg-high' if is_high
+    return 'bg-low' if is_low
+  end
+
+  def is_high
+    return true if model.value > 7 && is_morning
+    return true if model.value > 8
+    false
+  end
+
+  def is_low
+    return true if model.value < 4.5
+    false
+  end
+
+  def is_morning
+    time = model.datetime.strftime '%H:%M'
+    time > '06:30' && time < '11:00'
   end
 end

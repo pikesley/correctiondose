@@ -64,5 +64,11 @@ describe GlucoseMeasurementPresenter do
     it 'has the correct css class for a high BG' do
       expect(decorated_high_bg.measurement_cell).to match /<td class='glucose-measurement-value bg-high'>/
     end
+
+    let(:high_am_bg) { create :glucose_measurement, value: 7.5, datetime: '2016-01-26 07:15:29' }
+    let(:decorated_high_am_bg) { GlucoseMeasurementPresenter.new high_am_bg }
+    it 'knows the limits are different in the morning' do
+      expect(decorated_high_am_bg.measurement_cell).to match /<td class='glucose-measurement-value bg-high'>/
+    end
   end
 end

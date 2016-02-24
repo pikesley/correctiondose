@@ -42,8 +42,7 @@ class GlucoseMeasurementPresenter < GenericPresenter
 
   def highlight_class
     return 'bg-high' if is_high
-    return 'bg-high' if model.value > 8
-    return 'bg-low' if is
+    return 'bg-low' if is_low
   end
 
   def is_high

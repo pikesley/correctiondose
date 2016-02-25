@@ -1,19 +1,7 @@
 class MedicationEventPresenter < GenericPresenter
-  def edit_cell
-    super :edit_medication_event_path
-  end
-
-  def number_span
-    super :dose
-  end
-
-  def value_div
-    super :dose
-  end
-
-  def measurement_cell
-    cell value_div, 'medication-event-dose'
-  end
+#  def thing
+#    :dose
+#  end
 
   def meds_cell
     cell model.insulin, 'medication-event-insulin'
@@ -22,7 +10,6 @@ class MedicationEventPresenter < GenericPresenter
   def form_fields
     super.merge({
       dose: {
-        name: 'Dose',
         type: :number_field,
         input_attributes: {
           step: 0.5,
@@ -31,7 +18,6 @@ class MedicationEventPresenter < GenericPresenter
         }
       },
       insulin: {
-        name: 'Insulin',
         type: :select,
         options_for_select: {
           choices: model.class.insulin_types,
@@ -39,10 +25,6 @@ class MedicationEventPresenter < GenericPresenter
         }
       }
     })
-  end
-
-  def to_tr padding: 0
-    super padding: padding
   end
 
   def cells

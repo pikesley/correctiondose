@@ -71,4 +71,15 @@ describe GlucoseMeasurementPresenter do
       expect(decorated_high_am_bg.measurement_cell).to match /<td class='glucose-measurement-value bg-high'>/
     end
   end
+
+  context 'wrapped model' do
+    let(:bg) { create :glucose_measurement }
+    let(:decorated_bg) { GlucoseMeasurementPresenter.new bg }
+
+    it 'exposes stuff about the wrapped model' do
+      expect(decorated_bg.wrapped_model[:name]).to eq 'GlucoseMeasurement'
+      expect(decorated_bg.wrapped_model[:underscore]).to eq 'glucose_measurement'
+      expect(decorated_bg.wrapped_model[:url_friendly]).to eq 'glucose-measurement'
+    end
+  end
 end

@@ -99,7 +99,7 @@ describe ('ChartWrangler', function() {
   })
 })
 
-describe('isBreakfastTime()', function() {
+/*describe('isBreakfastTime()', function() {
   it('knows when it is breakfast-time', function() {
     expect(isBreakfastTime('08:00')).toEqual(true)
   })
@@ -126,4 +126,4 @@ describe('classForBG()', function() {
   it('knows that breakfast-time is a special case', function() {
     expect(classForBG(7.5, '07:30')).toEqual('bg-high')
   })
-})
+})*/

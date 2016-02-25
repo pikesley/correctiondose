@@ -11,7 +11,5 @@
   </div>
   <% @data = @datas[index] %>
   <% @widest = ControllerHelpers.widest @data %>
-  <%= render partial: 'shared/table', locals: {
-    with_year: true
-  } %>
+  <%= render partial: 'shared/table' %>
 <% end %>

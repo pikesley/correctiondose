@@ -1,4 +1,6 @@
 class CarbohydrateIntake < ActiveRecord::Base
+  include PresenterExtension
+
   def self.short_name
     'Carbs'
   end

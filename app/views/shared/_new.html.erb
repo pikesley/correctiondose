@@ -1,4 +1,4 @@
-<h1>Add <%= class_name(@metric).short_name %></h1>
 <% @decorated_metric = "#{@metric.class.name}Presenter".constantize.new @metric %>
+<h1>Add <%= @decorated_metric.short_name %></h1>
 
 <%= render partial: 'shared/form' %>

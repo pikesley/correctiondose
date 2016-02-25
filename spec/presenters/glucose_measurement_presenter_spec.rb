@@ -80,6 +80,7 @@ describe GlucoseMeasurementPresenter do
       expect(decorated_bg.wrapped_model[:name]).to eq 'GlucoseMeasurement'
       expect(decorated_bg.wrapped_model[:underscore]).to eq 'glucose_measurement'
       expect(decorated_bg.wrapped_model[:url_friendly]).to eq 'glucose-measurement'
+      expect(decorated_bg.short_name).to eq 'Glucose'
     end
   end
 end

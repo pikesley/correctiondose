@@ -1,4 +1,6 @@
 class MedicationEvent < ActiveRecord::Base
+  include PresenterExtension
+
   def self.short_name
     'Meds'
   end

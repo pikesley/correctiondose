@@ -1,4 +1,6 @@
 class PhysicalExercise < ActiveRecord::Base
+  include PresenterExtension
+
   def self.short_name
     'Exercise'
   end

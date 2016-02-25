@@ -1,4 +1,6 @@
 class GlucoseMeasurement < ActiveRecord::Base
+  include PresenterExtension
+
   def self.short_name
     'Glucose'
   end

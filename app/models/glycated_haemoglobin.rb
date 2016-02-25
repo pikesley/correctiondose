@@ -1,4 +1,6 @@
 class GlycatedHaemoglobin < ActiveRecord::Base
+  include PresenterExtension
+
   def self.short_name
     'HbA1c'
   end

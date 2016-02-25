@@ -107,6 +107,10 @@ class GenericPresenter < SimpleDelegator
     }
   end
 
+  def short_name
+    model.class.short_name
+  end
+
   private
 
   def model

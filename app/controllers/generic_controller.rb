@@ -2,7 +2,12 @@ class GenericController < ApplicationController
   before_action :require_login
 
   def index
-    @metrics = find_class.all
+    @hours = 72
+    if params[:hours]
+      @hours = hours(params[:hours]) ? hours(params[:hours]) : @hours
+    end
+
+    @metrics = find_class.where(datetime: (Time.now - @hours.hours)..Time.now)
     @data = ControllerHelpers.for_table @metrics
     @widest = ControllerHelpers.widest @data
   end
@@ -53,5 +58,9 @@ class GenericController < ApplicationController
 
   def metrics_path
     send("#{@metric.class.name.underscore}s_path".to_sym)
+  end
+
+  def hours parameter
+    return parameter.to_i if parameter.to_i > 0
   end
 end

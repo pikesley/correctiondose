@@ -26,11 +26,13 @@ describe 'GlucoseMeasurements' do
     end
 
     it 'edits a measurement' do
-      glucose_measurement = create(:glucose_measurement, datetime: '1992-06-15 12:00:00', value: '7')
-      visit glucose_measurements_path(as: user)
-      click_link '12:00'
-      expect(page).to have_content 'Glucose'
-      expect(page).to have_content 'Delete'
+      Timecop.freeze 1992, 06, 15, 18, 11 do
+        glucose_measurement = create(:glucose_measurement, datetime: '1992-06-15 12:00:00', value: '7')
+        visit glucose_measurements_path(as: user)
+        click_link '12:00'
+        expect(page).to have_content 'Glucose'
+        expect(page).to have_content 'Delete'
+      end
     end
 
     it 'adds several measurements' do

@@ -11,5 +11,7 @@ class LongtermController < ApplicationController
       ControllerHelpers.for_table(GlycatedHaemoglobin.all),
       ControllerHelpers.for_table(BloodPressure.all)
     ]
+
+    @no_picker = true;
   end
 end

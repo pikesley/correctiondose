@@ -9,6 +9,14 @@
   </div>
 </div>
 
+<% unless @no_picker %>
+  <%= render partial: 'shared/hours_picker', locals: {
+    label: 'Charts',
+    fontawesome: 'fa-area-chart',
+    path: nil
+  }%>
+<% end %>
+
 <%= render partial: 'shared/table', locals: {
   metrics: @metrics,
   with_year: true

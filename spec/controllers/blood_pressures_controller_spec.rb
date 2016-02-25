@@ -5,9 +5,11 @@ describe BloodPressuresController, type: :controller do
 
   describe 'GET #index' do
     it 'populates an array of bp values' do
-      blood_pressure = create(:blood_pressure)
-      get :index
-      expect(assigns(:metrics)).to eq [blood_pressure]
+      Timecop.freeze 2016, 02, 21, 16, 00 do
+        blood_pressure = create(:blood_pressure)
+        get :index
+        expect(assigns(:metrics)).to eq [blood_pressure]
+      end
     end
 
     it 'renders the #index view' do

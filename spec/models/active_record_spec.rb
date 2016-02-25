@@ -1,5 +1,7 @@
 describe GlucoseMeasurement, type: :model do
+  let(:bg) { build :glucose_measurement }
+  
   it 'knows what its presenter is' do
-    expect(described_class.presenter).to eq GlucoseMeasurementPresenter
+    expect(bg.presenter).to be_a GlucoseMeasurementPresenter
   end
 end

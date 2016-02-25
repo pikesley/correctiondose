@@ -83,4 +83,12 @@ describe GlucoseMeasurementPresenter do
       expect(decorated_bg.short_name).to eq 'Glucose'
     end
   end
+
+  describe '#button_name' do
+    let(:bg) { create :glucose_measurement }
+    let(:decorated_bg) { GlucoseMeasurementPresenter.new bg }
+    it 'generates the button name for the model' do
+      expect(decorated_bg.button_name).to eq 'btn-glucose'
+    end
+  end
 end

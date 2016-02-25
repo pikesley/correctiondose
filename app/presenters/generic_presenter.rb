@@ -98,6 +98,10 @@ class GenericPresenter < SimpleDelegator
     cells.count
   end
 
+  def underscore
+    model.class.underscore
+  end
+
   def wrapped_model
     m = model.class
     {
@@ -111,13 +115,15 @@ class GenericPresenter < SimpleDelegator
     model.class.short_name
   end
 
-  private
+  def button_name
+    "btn-#{url_friendly short_name}"
+  end
 
   def model
     __getobj__
   end
 
   def url_friendly string
-    string.gsub('_', '-')
+    string.gsub('_', '-').downcase
   end
 end

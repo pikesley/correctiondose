@@ -1,5 +1,5 @@
 <div class='row'>
-<%= form_for @metric do |f| %>
+<%= form_for @decorated_metric.model do |f| %>
   <%= render partial: 'shared/form_errors' %>
 
   <% @decorated_metric.form_fields.each_pair do |label, data| %>
@@ -26,7 +26,7 @@
   <% end %>
 
   <div class='col-xs-12 buttons'>
-    <%= f.submit class: "btn #{button_name @metric}" %>
+    <%= f.submit class: "btn #{@decorated_metric.button_name}" %>
     <%= render partial: 'shared/back' %>
     <%= render partial: 'shared/delete' %>
   </div>

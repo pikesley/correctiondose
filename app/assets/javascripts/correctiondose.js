@@ -26,7 +26,7 @@ function points(json, y_field) {
   }
 }
 
-function isBreakfastTime(time) {
+/*function isBreakfastTime(time) {
   if(time >= '06:30' && time <= '11:00') {
     return true
   }
@@ -47,4 +47,4 @@ function classForBG(value, time) {
   }
 
   return 'bg-ok'
-}
+}*/

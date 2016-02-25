@@ -7,7 +7,12 @@ class GenericPresenter < SimpleDelegator
   # https://christoph.luppri.ch/articles/2015/07/04/handmade-rails-presenters/
   include ActionView::Helpers::UrlHelper
 
-  def edit_cell path
+  def thing
+    form_fields.keys[1]
+  end
+
+  def edit_cell
+    path = "edit_#{wrapped_model[:underscore]}_path"
     cell(link_to model.datetime.strftime('%H:%M'),
     url_helpers.send(path, model),
     title: "Edit #{model.class.short_name}")
@@ -17,19 +22,27 @@ class GenericPresenter < SimpleDelegator
     cell model.class.short_name
   end
 
-  def number_span attribute
-    "<span class='number'>#{model.send attribute}</span>"
+  def number_span
+    "<span class='number'>#{model.send thing}</span>"
   end
 
   def units_span
     "<span class='units'>#{units[:short]}</span>"
   end
 
-  def value_div attribute, space: true
+  def measurement_cell extra_css_class = nil
+    params = ["#{wrapped_model[:url_friendly]}-#{thing.to_s}"]
+    if extra_css_class
+      params.push extra_css_class
+    end
+    cell value_div, params
+  end
+
+  def value_div space: true
     s = ''
     s = ' ' if space
 
-    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{model.send attribute} #{units[:full]}'>#{number_span}#{s}#{units_span}</div>"
+    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{model.send thing} #{units[:full]}'>#{number_span}#{s}#{units_span}</div>"
   end
 
   def filler_cell
@@ -59,7 +72,6 @@ class GenericPresenter < SimpleDelegator
   def form_fields
     {
       datetime: {
-        name: 'Date and time',
         type: :text_field,
         css_class: 'datetime'
       }
@@ -86,7 +98,22 @@ class GenericPresenter < SimpleDelegator
     cells.count
   end
 
+  def wrapped_model
+    m = model.class
+    {
+      name: m.name,
+      underscore: m.name.underscore,
+      url_friendly: url_friendly(m.name.underscore)
+    }
+  end
+
+  private
+
   def model
     __getobj__
+  end
+
+  def url_friendly string
+    string.gsub('_', '-')
   end
 end

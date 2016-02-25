@@ -46,4 +46,10 @@ module ApplicationHelper
   def param_name model
     class_name(model).short_name.downcase.gsub(' ', '-')
   end
+
+  def title_for_form symbol
+    s = symbol.to_s
+    return 'Date and time' if s == 'datetime'
+    s[0].upcase + s[1..-1]
+  end
 end

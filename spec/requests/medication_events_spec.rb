@@ -32,12 +32,13 @@ describe 'MedicationEvents' do
 
     it 'edits an event' do
       DatabaseCleaner.clean
-
-      medication_event = create(:medication_event, datetime: '1992-06-15 12:00:00', dose: '7', insulin: 'humalog')
-      visit medication_events_path(as: user)
-      click_link '12:00'
-      expect(page).to have_content 'Meds'
-      expect(page).to have_content 'Delete'
+      Timecop.freeze 1992, 06, 15, 18, 11 do
+        medication_event = create(:medication_event, datetime: '1992-06-15 12:00:00', dose: '7', insulin: 'humalog')
+        visit medication_events_path(as: user)
+        click_link '12:00'
+        expect(page).to have_content 'Meds'
+        expect(page).to have_content 'Delete'
+      end
     end
 
     it 'adds several measurements' do

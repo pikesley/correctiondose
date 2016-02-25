@@ -15,7 +15,7 @@ module ControllerHelpers
 
   def self.to_presenter metric
     return metric if metric.class.name =~ /Presenter$/
-    "#{metric.class.name}Presenter".constantize.new metric
+    metric.presenter
   end
 
   def self.for_table metrics

@@ -1,4 +1,6 @@
 class BloodPressure < ActiveRecord::Base
+  include PresenterExtension
+
   def self.short_name
     'Blood Pressure'
   end

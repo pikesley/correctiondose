@@ -4,11 +4,14 @@
       <th colspan='<%= @widest %>' class='day-marker'>
         <% date = Time.parse(day) %>
         <%= date.strftime "%A %B #{date.day.ordinalize}" %>
+        <% if @with_year %>
+          <%= date.strftime "%Y" %>
+        <% end %>
       </th>
     </tr>
     <% values.each do |value| %>
       <% padding = @widest - value.width %>
-      <%= value.to_tr(padding: padding).html_safe %> 
+      <%= value.to_tr(padding: padding).html_safe %>
     <% end %>
   <% end %>
 </table>

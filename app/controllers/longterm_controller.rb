@@ -13,5 +13,6 @@ class LongtermController < ApplicationController
     ]
 
     @no_picker = true;
+    @with_year = true;
   end
 end

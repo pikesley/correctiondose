@@ -61,6 +61,8 @@ class GenericController < ApplicationController
   end
 
   def hours parameter
+    # hours since 1970-01-01 i.e. FOREVER
+    return ((Time.now.strftime "%s").to_i / 3600) if parameter == '0'
     return parameter.to_i if parameter.to_i > 0
   end
 end

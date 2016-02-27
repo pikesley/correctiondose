@@ -5,11 +5,9 @@ describe GlycatedHaemoglobinsController, type: :controller do
 
   describe 'GET #index' do
     it 'populates an array of hba1c values' do
-      Timecop.freeze 2016, 02, 20, 18, 11 do
-        glycated_haemoglobin = create(:glycated_haemoglobin)
-        get :index
-        expect(assigns(:metrics)).to eq [glycated_haemoglobin]
-      end
+      glycated_haemoglobin = create(:glycated_haemoglobin)
+      get :index, {hours: 0}
+      expect(assigns(:metrics)).to eq [glycated_haemoglobin]
     end
 
     it 'renders the #index view' do

@@ -16,6 +16,8 @@ class WelcomeController < ApplicationController
       @metrics.concat model.where(datetime: (Time.now - @hours.hours)..Time.now)
     end
 
+    @metrics = @metrics.sort.reverse
+
     @bucketed_metrics = {}
     @metrics.group_by do |g|
       g.datetime.strftime "%Y-%m-%d"
@@ -26,6 +28,8 @@ class WelcomeController < ApplicationController
         @bucketed_metrics[date] = metric
       end
     end
+
+    @has_charts = true
   end
 
   private

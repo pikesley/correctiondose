@@ -2,15 +2,18 @@ class LongtermController < ApplicationController
   before_action :require_login
 
   def index
-    @metrics = [
-      GlycatedHaemoglobin.all,
-      BloodPressure.all
+    @sets = [
+      {
+        model: GlycatedHaemoglobin,
+        metrics: GlycatedHaemoglobin.all,
+        bucketed_metrics: GlycatedHaemoglobin.all.group_by { |g| g.datetime.strftime "%Y-%m-%d" }
+      },
+      {
+        model: BloodPressure,
+        metrics: BloodPressure.all,
+        bucketed_metrics: BloodPressure.all.group_by { |g| g.datetime.strftime "%Y-%m-%d" }
+      }
     ]
-
-#    @datas = [
-#      ControllerHelpers.for_table(GlycatedHaemoglobin.all),
-#      ControllerHelpers.for_table(BloodPressure.all)
-#    ]
 
     @no_picker = true;
     @with_year = true;

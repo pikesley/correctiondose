@@ -4,6 +4,8 @@ describe GlycatedHaemoglobinsController, type: :controller do
   end
 
   describe 'GET #index' do
+    render_views
+
     it 'populates an array of hba1c values' do
       glycated_haemoglobin = create(:glycated_haemoglobin)
       get :index, {hours: 0}
@@ -120,13 +122,7 @@ describe GlycatedHaemoglobinsController, type: :controller do
     end
   end
 
-#  describe '#GET JSON' do
-#    it 'shows some JSON' do
-#      Timecop.freeze 2016, 02, 20, 20, 00 do
-#        glycated_haemoglobin = create(:glycated_haemoglobin)
-#        page.driver.header 'Accept', 'application/json'
-#        get 'index'
-#      end
-#    end
-#  end
+  describe '#GET JSON' do
+
+  end
 end

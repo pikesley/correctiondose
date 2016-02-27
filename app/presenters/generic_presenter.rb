@@ -132,6 +132,6 @@ class GenericPresenter < SimpleDelegator
   end
 
   def url_friendly string
-    string.gsub('_', '-').downcase
+    string.gsub('_', '-').gsub(' ', '-').downcase
   end
 end

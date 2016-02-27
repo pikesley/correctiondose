@@ -1,3 +1,6 @@
-<% @metrics.each do |metric| %>
+<% @sets.each do |set| %>
+  <% @model = set[:model] %>
+  <% @metrics = set[:metrics] %>
+  <% @bucketed_metrics = set[:bucketed_metrics] %>
   <%= render partial: 'shared/block' %>
 <% end %>

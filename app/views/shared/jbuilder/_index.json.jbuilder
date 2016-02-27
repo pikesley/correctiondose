@@ -1,5 +1,6 @@
 json.ignore_nil!
-json.array! @raw_metrics[0..100] do |metric|
+
+json.array! @metrics[0..100] do |metric|
   json.id metric.id
   json.datetime metric.datetime
   metric.presenter.fields.each do |field|

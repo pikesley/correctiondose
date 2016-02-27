@@ -17,7 +17,7 @@
   <%= render partial: 'shared/hours_picker', locals: {
     label: 'Charts',
     fontawesome: 'fa-area-chart',
-    path: charts_path ? @has_charts : nil
+    path: @has_charts ? charts_path : nil
   }%>
 <% end %>
 

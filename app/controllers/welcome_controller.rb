@@ -29,6 +29,7 @@ class WelcomeController < ApplicationController
       end
     end
 
+    @mixed_metrics = true
     @has_charts = true
   end
 

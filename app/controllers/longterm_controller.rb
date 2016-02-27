@@ -6,7 +6,8 @@ class LongtermController < ApplicationController
       {
         model: GlycatedHaemoglobin,
         metrics: GlycatedHaemoglobin.all,
-        bucketed_metrics: GlycatedHaemoglobin.all.group_by { |g| g.datetime.strftime "%Y-%m-%d" }
+        bucketed_metrics: GlycatedHaemoglobin.all.group_by { |g| g.datetime.strftime "%Y-%m-%d" },
+        with_year: nil
       },
       {
         model: BloodPressure,

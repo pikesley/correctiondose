@@ -1,10 +1,6 @@
-class MedicationEventPresenter < GenericPresenter
-#  def thing
-#    :dose
-#  end
-
+class MedicationEventPresenter < MetricPresenter
   def meds_cell
-    cell model.insulin, 'medication-event-insulin'
+    cell metric.insulin, 'medication-event-insulin'
   end
 
   def form_fields
@@ -20,7 +16,7 @@ class MedicationEventPresenter < GenericPresenter
       insulin: {
         type: :select,
         options_for_select: {
-          choices: model.class.insulin_types,
+          choices: metric.class.insulin_types,
           default: insulin_for_time
         }
       }

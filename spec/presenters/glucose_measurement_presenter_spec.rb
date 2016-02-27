@@ -77,9 +77,9 @@ describe GlucoseMeasurementPresenter do
     let(:decorated_bg) { GlucoseMeasurementPresenter.new bg }
 
     it 'exposes stuff about the wrapped model' do
-      expect(decorated_bg.wrapped_model[:name]).to eq 'GlucoseMeasurement'
-      expect(decorated_bg.wrapped_model[:underscore]).to eq 'glucose_measurement'
-      expect(decorated_bg.wrapped_model[:url_friendly]).to eq 'glucose-measurement'
+      expect(decorated_bg.model_name).to eq 'GlucoseMeasurement'
+      expect(decorated_bg.underscore).to eq 'glucose_measurement'
+      expect(decorated_bg.url_friendly).to eq 'glucose-measurement'
       expect(decorated_bg.short_name).to eq 'Glucose'
     end
   end

@@ -1,10 +1,10 @@
 <div class='row'>
-<%= form_for @decorated_metric.model do |f| %>
+<%= form_for @decorated_metric.metric do |f| %>
   <%= render partial: 'shared/form_errors' %>
 
   <% @decorated_metric.form_fields.each_pair do |label, data| %>
     <div class='col-xs-12'>
-      <%= f.label label, title_for_form(label) %>
+      <%= f.label label, @decorated_metric.title_for_form(label) %>
       <% attributes = {
         class: "form-control #{data[:css_class]}"
         }.merge data[:input_attributes].to_h %>

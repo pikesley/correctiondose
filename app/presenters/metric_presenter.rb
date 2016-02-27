@@ -1,29 +1,31 @@
 require 'delegate'
+require_relative 'presenter_helpers'
 
-class GenericPresenter < SimpleDelegator
+class MetricPresenter < SimpleDelegator
   # http://stackoverflow.com/questions/6074831/how-to-access-url-helper-from-rails-module
   delegate :url_helpers, to: 'Rails.application.routes'
 
   # https://christoph.luppri.ch/articles/2015/07/04/handmade-rails-presenters/
   include ActionView::Helpers::UrlHelper
+  include PresenterHelpers
 
   def thing
     form_fields.keys[1]
   end
 
   def edit_cell
-    path = "edit_#{wrapped_model[:underscore]}_path"
-    cell(link_to model.datetime.strftime('%H:%M'),
-    url_helpers.send(path, model),
-    title: "Edit #{model.class.short_name}")
+    path = "edit_#{underscore}_path"
+    cell(link_to metric.datetime.strftime('%H:%M'),
+    url_helpers.send(path, metric),
+    title: "Edit #{metric.class.short_name}")
   end
 
   def label_cell
-    cell model.class.short_name
+    cell metric.class.short_name
   end
 
   def number_span
-    "<span class='number'>#{model.send thing}</span>"
+    "<span class='number'>#{metric.send thing}</span>"
   end
 
   def units_span
@@ -31,7 +33,7 @@ class GenericPresenter < SimpleDelegator
   end
 
   def measurement_cell extra_css_class = nil
-    params = ["#{wrapped_model[:url_friendly]}-#{thing.to_s}"]
+    params = ["#{url_friendly}-#{thing.to_s}"]
     if extra_css_class
       params.push extra_css_class
     end
@@ -42,7 +44,7 @@ class GenericPresenter < SimpleDelegator
     s = ''
     s = ' ' if space
 
-    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{model.send thing} #{units[:full]}'>#{number_span}#{s}#{units_span}</div>"
+    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{metric.send thing} #{units[:full]}'>#{number_span}#{s}#{units_span}</div>"
   end
 
   def filler_cell
@@ -102,36 +104,19 @@ class GenericPresenter < SimpleDelegator
     cells.count
   end
 
-  def underscore
-    model.class.underscore
-  end
-
-  def wrapped_model
-    m = model.class
-    {
-      name: m.name,
-      underscore: m.name.underscore,
-      url_friendly: url_friendly(m.name.underscore)
-    }
+  def metric_name
+    metric.class.name
   end
 
   def underscore
-    model.class.name.underscore
+    metric.class.name.underscore
   end
 
   def short_name
-    model.class.short_name
+    metric.class.short_name
   end
 
-  def button_name
-    "btn-#{url_friendly short_name}"
-  end
-
-  def model
+  def metric
     __getobj__
-  end
-
-  def url_friendly string
-    string.gsub('_', '-').gsub(' ', '-').downcase
   end
 end

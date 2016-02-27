@@ -1,10 +1,6 @@
-class CarbohydrateIntakePresenter < GenericPresenter
-#  def thing
-#    :weight
-#  end
-
+class CarbohydrateIntakePresenter < MetricPresenter
   def description_cell
-    cell model.description, 'carbohydrate-intake-description'
+    cell metric.description, 'carbohydrate-intake-description'
   end
 
   def form_fields

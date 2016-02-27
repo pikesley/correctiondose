@@ -1,8 +1,4 @@
-class GlucoseMeasurementPresenter < GenericPresenter
-#  def thing
-#    :value
-#  end
-
+class GlucoseMeasurementPresenter < MetricPresenter
   def measurement_cell
     super highlight_class
   end
@@ -33,18 +29,18 @@ class GlucoseMeasurementPresenter < GenericPresenter
   end
 
   def is_high
-    return true if model.value > 7 && is_morning
-    return true if model.value > 8
+    return true if metric.value > 7 && is_morning
+    return true if metric.value > 8
     false
   end
 
   def is_low
-    return true if model.value < 4.5
+    return true if metric.value < 4.5
     false
   end
 
   def is_morning
-    time = model.datetime.strftime '%H:%M'
+    time = metric.datetime.strftime '%H:%M'
     time > '06:30' && time < '11:00'
   end
 end

@@ -8,7 +8,8 @@ describe MedicationEventsController, type: :controller do
       Timecop.freeze 2016, 01, 28, 20, 11 do
         medication_event = create(:medication_event, datetime: Time.now)
         get :index
-        expect(assigns(:metrics)['2016-01-28'].first).to eq medication_event
+        expect(assigns(:metrics)).to eq [medication_event]
+        expect(assigns(:bucketed_metrics)['2016-01-28'].first).to eq medication_event
       end
     end
 

@@ -7,29 +7,23 @@ class WelcomeController < ApplicationController
       @hours = hours(params[:hours]) ? hours(params[:hours]) : @hours
     end
 
-    @raw_metrics = []
+    @metrics = []
     [
       GlucoseMeasurement,
       CarbohydrateIntake,
       MedicationEvent
     ].each do |model|
-      @raw_metrics.concat model.where(datetime: (Time.now - @hours.hours)..Time.now)
+      @metrics.concat model.where(datetime: (Time.now - @hours.hours)..Time.now)
     end
 
-    @metrics = {}
-    [
-      GlucoseMeasurement,
-      CarbohydrateIntake,
-      MedicationEvent
-    ].each do |model|
-      model.where(datetime: (Time.now - @hours.hours)..Time.now).group_by do |g|
-        g.datetime.strftime "%Y-%m-%d"
-      end.each_pair do |date, metric|
-        begin
-          @metrics[date] << metric.first
-        rescue NoMethodError
-          @metrics[date] = metric
-        end
+    @bucketed_metrics = {}
+    @metrics.group_by do |g|
+      g.datetime.strftime "%Y-%m-%d"
+    end.each_pair do |date, metric|
+      begin
+        @bucketed_metrics[date] << metric.first
+      rescue NoMethodError
+        @bucketed_metrics[date] = metric
       end
     end
   end

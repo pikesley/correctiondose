@@ -1,15 +1,3 @@
-<% @metrics.each_with_index do |metric, index| %>
-  <div class='row'>
-    <div class='col-xs-8'>
-      <h1><%= class_name(metric).short_name %></h1>
-    </div>
-    <div class='col-xs-4'>
-      <%= link_to "Add #{class_name(metric).short_name}",
-          send("new_#{metric.name.underscore}_path".to_sym),
-          class: "btn #{button_name metric} pull-right" %>
-    </div>
-  </div>
-  <% @data = @datas[index] %>
-  <% @widest = ControllerHelpers.widest @data %>
-  <%= render partial: 'shared/table' %>
+<% @metrics.each do |metric| %>
+  <%= render partial: 'shared/block' %>
 <% end %>

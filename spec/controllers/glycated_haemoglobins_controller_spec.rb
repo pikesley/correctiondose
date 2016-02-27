@@ -121,4 +121,14 @@ describe GlycatedHaemoglobinsController, type: :controller do
       expect(response).to redirect_to root_url
     end
   end
+
+#  describe '#GET JSON' do
+#    it 'shows some JSON' do
+#      Timecop.freeze 2016, 02, 20, 20, 00 do
+#        glycated_haemoglobin = create(:glycated_haemoglobin)
+#        page.driver.header 'Accept', 'application/json'
+#        get 'index'
+#      end
+#    end
+#  end
 end

@@ -7,6 +7,15 @@ class WelcomeController < ApplicationController
       @hours = hours(params[:hours]) ? hours(params[:hours]) : @hours
     end
 
+    @raw_metrics = []
+    [
+      GlucoseMeasurement,
+      CarbohydrateIntake,
+      MedicationEvent
+    ].each do |model|
+      @raw_metrics.concat model.where(datetime: (Time.now - @hours.hours)..Time.now)
+    end
+
     @metrics = {}
     [
       GlucoseMeasurement,

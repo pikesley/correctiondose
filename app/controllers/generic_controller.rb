@@ -8,6 +8,7 @@ class GenericController < ApplicationController
     end
 
     @model = find_class
+    @raw_metrics = @model.where(datetime: (Time.now - @hours.hours)..Time.now)
     @metrics = @model.where(datetime: (Time.now - @hours.hours)..Time.now).group_by { |g| g.datetime.strftime "%Y-%m-%d" }
   end
 

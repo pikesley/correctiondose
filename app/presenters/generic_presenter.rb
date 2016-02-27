@@ -69,6 +69,10 @@ class GenericPresenter < SimpleDelegator
     ]
   end
 
+  def fields
+    form_fields.keys
+  end
+
   def form_fields
     {
       datetime: {

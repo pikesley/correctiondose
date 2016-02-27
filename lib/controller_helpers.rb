@@ -30,7 +30,6 @@ module ControllerHelpers
   end
 
   def self.widest data
-    #require "pry" ; binding.pry
     widest = 0
     data.each_pair do |k, v|
       v.each do |a|
@@ -53,6 +52,6 @@ class Hash
   end
 
   def first_metric
-    self.first.second.first
+    self.dig(:first, :second, :first) || nil
   end
 end

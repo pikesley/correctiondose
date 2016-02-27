@@ -7,9 +7,8 @@ class GenericController < ApplicationController
       @hours = hours(params[:hours]) ? hours(params[:hours]) : @hours
     end
 
-    @metrics = find_class.where(datetime: (Time.now - @hours.hours)..Time.now).group_by { |g| g.datetime.strftime "%Y-%m-%d" }
-  #  @data = ControllerHelpers.for_table @metrics
-  #  @widest = ControllerHelpers.widest @data
+    @model = find_class
+    @metrics = @model.where(datetime: (Time.now - @hours.hours)..Time.now).group_by { |g| g.datetime.strftime "%Y-%m-%d" }
   end
 
   def show

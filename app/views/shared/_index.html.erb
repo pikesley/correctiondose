@@ -1,11 +1,11 @@
 <div class='row'>
   <div class='col-xs-6'>
-    <h1><%= @metrics.first_metric.class.short_name %></h1>
+    <h1><%= @model.short_name %></h1>
   </div>
   <div class='col-xs-6'>
-    <%= link_to "Add #{@metrics.first_metric.class.short_name}",
-        send("new_#{@metrics.first_metric.presenter.underscore}_path".to_sym),
-        class: "btn #{@metrics.first_metric.presenter.button_name} pull-right" %>
+    <%= link_to "Add #{@model.short_name}",
+        send("new_#{@model.new.presenter.underscore}_path".to_sym),
+        class: "btn #{@model.new.presenter.button_name} pull-right" %>
   </div>
 </div>
 

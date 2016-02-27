@@ -1,7 +1,7 @@
 <table class='table table-bordered table-hover' id='recent'>
-  <% @data.each_pair do |day, values| %>
+  <% @bucketed_metrics.each_pair do |day, values| %>
     <tr>
-      <th colspan='<%= @widest %>' class='day-marker'>
+      <th colspan='<%= @bucketed_metrics.widest %>' class='day-marker'>
         <% date = Time.parse(day) %>
         <%= date.strftime "%A %B #{date.day.ordinalize}" %>
         <% if @with_year %>
@@ -10,8 +10,8 @@
       </th>
     </tr>
     <% values.each do |value| %>
-      <% padding = @widest - value.width %>
-      <%= value.to_tr(padding: padding).html_safe %>
+      <% padding = @bucketed_metrics.widest - value.presenter.width %>
+      <%= value.presenter.to_tr(padding: padding).html_safe %>
     <% end %>
   <% end %>
 </table>

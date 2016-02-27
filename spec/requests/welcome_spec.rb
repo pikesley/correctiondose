@@ -24,7 +24,9 @@ describe 'Welcome' do
         create(:glucose_measurement, datetime: Time.now - 3600),
         create(:glucose_measurement, datetime: Time.now - 7200),
         create(:medication_event, datetime: Time.now - 5400),
-        create(:carbohydrate_intake, datetime: Time.now - 1800)
+        create(:medication_event, datetime: Time.now - 108000),
+        create(:carbohydrate_intake, datetime: Time.now - 1800),
+        create(:carbohydrate_intake, datetime: Time.now - 200000)
       ]
     end
 

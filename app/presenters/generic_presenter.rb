@@ -69,6 +69,10 @@ class GenericPresenter < SimpleDelegator
     ]
   end
 
+  def fields
+    form_fields.keys
+  end
+
   def form_fields
     {
       datetime: {
@@ -111,6 +115,10 @@ class GenericPresenter < SimpleDelegator
     }
   end
 
+  def underscore
+    model.class.name.underscore
+  end
+
   def short_name
     model.class.short_name
   end
@@ -124,6 +132,6 @@ class GenericPresenter < SimpleDelegator
   end
 
   def url_friendly string
-    string.gsub('_', '-').downcase
+    string.gsub('_', '-').gsub(' ', '-').downcase
   end
 end

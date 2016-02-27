@@ -28,7 +28,5 @@ module CorrectionDose
     config.after_initialize do |app|
       app.config.paths.add 'app/presenters', :eager_load => true
     end
-
-    config.autoload_paths << Rails.root.join('lib')
   end
 end

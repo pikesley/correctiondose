@@ -1,1 +1,1 @@
-json.partial! 'shared/index'
+json.partial! 'shared/jbuilder/index'

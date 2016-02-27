@@ -7,9 +7,11 @@ class GenericController < ApplicationController
       @hours = hours(params[:hours]) ? hours(params[:hours]) : @hours
     end
 
-    @metrics = find_class.where(datetime: (Time.now - @hours.hours)..Time.now)
-    @data = ControllerHelpers.for_table @metrics
-    @widest = ControllerHelpers.widest @data
+    @model = find_class
+    @metrics = @model.where(datetime: (Time.now - @hours.hours)..Time.now)
+    @bucketed_metrics = @metrics.group_by { |g| g.datetime.strftime "%Y-%m-%d" }
+
+    @has_charts = false
   end
 
   def show
@@ -61,6 +63,8 @@ class GenericController < ApplicationController
   end
 
   def hours parameter
+    # hours since 1970-01-01 i.e. FOREVER
+    return ((Time.now.strftime "%s").to_i / 3600) if parameter == '0'
     return parameter.to_i if parameter.to_i > 0
   end
 end

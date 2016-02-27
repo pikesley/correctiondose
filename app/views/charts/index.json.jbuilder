@@ -1,3 +1,4 @@
+
 json.ignore_nil!
 
 json.glucose @metrics.select {|m| m.class == GlucoseMeasurement }

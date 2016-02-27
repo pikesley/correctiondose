@@ -1,1 +1,1 @@
-json.partial! 'shared/show'
+json.partial! 'shared/jbuilder/show'

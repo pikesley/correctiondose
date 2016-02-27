@@ -1,4 +1,5 @@
 require 'delegate'
+require_relative 'presenter_helpers'
 
 class ModelPresenter < SimpleDelegator
   # http://stackoverflow.com/questions/6074831/how-to-access-url-helper-from-rails-module
@@ -6,6 +7,7 @@ class ModelPresenter < SimpleDelegator
 
   # https://christoph.luppri.ch/articles/2015/07/04/handmade-rails-presenters/
   include ActionView::Helpers::UrlHelper
+  include PresenterHelpers
 
   def as_add_button css_class = nil
     css_classes = ['btn', "#{button_name}"]
@@ -14,14 +16,6 @@ class ModelPresenter < SimpleDelegator
     link_to "Add #{model.short_name}",
       url_helpers.send(path),
       class: css_classes.join(' ')
-  end
-
-  def button_name
-    "btn-#{short_name.gsub('_', '-').gsub(' ', '-').downcase}"
-  end
-
-  def url_friendly
-    underscore.gsub('_', '-').gsub(' ', '-').downcase
   end
 
   def underscore

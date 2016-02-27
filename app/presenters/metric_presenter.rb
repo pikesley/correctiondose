@@ -1,4 +1,5 @@
 require 'delegate'
+require_relative 'presenter_helpers'
 
 class MetricPresenter < SimpleDelegator
   # http://stackoverflow.com/questions/6074831/how-to-access-url-helper-from-rails-module
@@ -6,6 +7,7 @@ class MetricPresenter < SimpleDelegator
 
   # https://christoph.luppri.ch/articles/2015/07/04/handmade-rails-presenters/
   include ActionView::Helpers::UrlHelper
+  include PresenterHelpers
 
   def thing
     form_fields.keys[1]
@@ -100,14 +102,6 @@ class MetricPresenter < SimpleDelegator
 
   def width
     cells.count
-  end
-
-  def button_name
-    "btn-#{short_name.gsub('_', '-').gsub(' ', '-').downcase}"
-  end
-
-  def url_friendly
-    underscore.gsub('_', '-').gsub(' ', '-').downcase
   end
 
   def metric_name

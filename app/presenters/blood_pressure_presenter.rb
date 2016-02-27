@@ -1,8 +1,4 @@
-class BloodPressurePresenter < GenericPresenter
-#  def thing
-#    :reading
-#  end
-
+class BloodPressurePresenter < MetricPresenter
   def form_fields
     super.merge({
       reading: {

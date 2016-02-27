@@ -23,9 +23,9 @@ module ApplicationHelper
     end
   end
 
-#  def new_path model
-#    "new_#{class_name(model).name.underscore}_path".to_sym
-#  end
+  def new_path model
+    "new_#{class_name(model).name.underscore}_path".to_sym
+  end
 
   def model_path model
     "#{class_name(model).name.underscore}_path".to_sym

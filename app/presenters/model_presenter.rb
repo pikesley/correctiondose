@@ -7,8 +7,37 @@ class ModelPresenter < SimpleDelegator
   # https://christoph.luppri.ch/articles/2015/07/04/handmade-rails-presenters/
   include ActionView::Helpers::UrlHelper
 
-  def as_add_button
-    '<a class="btn btn-glucose" href="/glucose/new">Add Glucose</a>'
+  def as_add_button css_class = nil
+    css_classes = ['btn', "#{button_name}"]
+    css_classes.push css_class if css_class
+    path = "new_#{underscore}_path"
+    link_to "Add #{model.short_name}",
+      url_helpers.send(path),
+      class: css_classes.join(' ')
+  end
+
+  def button_name
+    "btn-#{short_name.gsub('_', '-').gsub(' ', '-').downcase}"
+  end
+
+  def url_friendly
+    underscore.gsub('_', '-').gsub(' ', '-').downcase
+  end
+
+  def underscore
+    model.underscore
+  end
+
+  def model_name
+    model.name
+  end
+
+  def underscore
+    model.name.underscore
+  end
+
+  def short_name
+    model.short_name
   end
 
   def model

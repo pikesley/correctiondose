@@ -1,6 +1,6 @@
 require 'delegate'
 
-class GenericPresenter < SimpleDelegator
+class MetricPresenter < SimpleDelegator
   # http://stackoverflow.com/questions/6074831/how-to-access-url-helper-from-rails-module
   delegate :url_helpers, to: 'Rails.application.routes'
 
@@ -13,17 +13,17 @@ class GenericPresenter < SimpleDelegator
 
   def edit_cell
     path = "edit_#{underscore}_path"
-    cell(link_to model.datetime.strftime('%H:%M'),
-    url_helpers.send(path, model),
-    title: "Edit #{model.class.short_name}")
+    cell(link_to metric.datetime.strftime('%H:%M'),
+    url_helpers.send(path, metric),
+    title: "Edit #{metric.class.short_name}")
   end
 
   def label_cell
-    cell model.class.short_name
+    cell metric.class.short_name
   end
 
   def number_span
-    "<span class='number'>#{model.send thing}</span>"
+    "<span class='number'>#{metric.send thing}</span>"
   end
 
   def units_span
@@ -42,7 +42,7 @@ class GenericPresenter < SimpleDelegator
     s = ''
     s = ' ' if space
 
-    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{model.send thing} #{units[:full]}'>#{number_span}#{s}#{units_span}</div>"
+    "<div class='value' data-toggle='tooltip' data-placement='top' title='#{metric.send thing} #{units[:full]}'>#{number_span}#{s}#{units_span}</div>"
   end
 
   def filler_cell
@@ -110,23 +110,19 @@ class GenericPresenter < SimpleDelegator
     underscore.gsub('_', '-').gsub(' ', '-').downcase
   end
 
-  def underscore
-    model.class.underscore
-  end
-
-  def model_name
-    model.class.name
+  def metric_name
+    metric.class.name
   end
 
   def underscore
-    model.class.name.underscore
+    metric.class.name.underscore
   end
 
   def short_name
-    model.class.short_name
+    metric.class.short_name
   end
 
-  def model
+  def metric
     __getobj__
   end
 end

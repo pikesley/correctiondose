@@ -1,8 +1,4 @@
-class GlycatedHaemoglobinPresenter < GenericPresenter
-#  def thing
-#    :percentage
-#  end
-
+class GlycatedHaemoglobinPresenter < MetricPresenter
   def value_div
     super space: false
   end

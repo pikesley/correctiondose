@@ -2,7 +2,7 @@ module PresenterExtension
   extend ActiveSupport::Concern
 
   def presenter
-    "#{self.class.name}Presenter".constantize.new self
+    @presenter ||= "#{self.class.name}Presenter".constantize.new self
   end
 
   def <=> other
@@ -10,9 +10,9 @@ module PresenterExtension
   end
 
   module ClassMethods
-#    def presenter
-#      "#{@metric.class.name}Presenter".constantize.new
-#    end
+    def model_presenter
+      ModelPresenter.new self
+    end
   end
 end
 

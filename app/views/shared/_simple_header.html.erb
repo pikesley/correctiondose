@@ -3,8 +3,6 @@
     <h1><%= @model.short_name %></h1>
   </div>
   <div class='col-xs-6'>
-    <%= link_to "Add #{@model.short_name}",
-        send("new_#{@model.new.presenter.underscore}_path".to_sym),
-        class: "btn #{@model.new.presenter.button_name} pull-right" %>
+    <%= @model.model_presenter.as_add_button 'pull-right' %>
   </div>
 </div>

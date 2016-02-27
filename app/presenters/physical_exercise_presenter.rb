@@ -1,10 +1,6 @@
-class PhysicalExercisePresenter < GenericPresenter
-#  def thing
-#    :duration
-#  end
-
+class PhysicalExercisePresenter < MetricPresenter
   def description_cell
-    cell model.description, 'physical-exercise-description'
+    cell metric.description, 'physical-exercise-description'
   end
 
   def form_fields

@@ -20,26 +20,4 @@ describe ApplicationHelper do
       end
     end
   end
-
-  describe '#button_name' do
-    let(:glucose) { build :glucose_measurement }
-    it 'generates the button name for the model' do
-      expect(helper.button_name GlucoseMeasurement).to eq 'btn-glucose'
-    end
-
-    it 'generate the button name for an instance' do
-      expect(helper.button_name glucose).to eq 'btn-glucose'
-    end
-  end
-
-  describe '#param_name' do
-    let(:bp) { build :blood_pressure }
-    it 'generates a html-friendly name from an instance' do
-      expect(helper.param_name bp).to eq 'blood-pressure'
-    end
-
-    it 'or from a model' do
-      expect(helper.param_name BloodPressure).to eq 'blood-pressure'
-    end
-  end
 end

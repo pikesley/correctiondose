@@ -9,7 +9,14 @@ class GenericController < ApplicationController
 
     @model = find_class
     @metrics = @model.where(datetime: (Time.now - @hours.hours)..Time.now)
+
+    if @metrics == []
+      @metrics = @model.first(3)
+    end
+
     @bucketed_metrics = @metrics.group_by { |g| g.datetime.strftime "%Y-%m-%d" }
+
+    @with_year = @metrics.first.datetime.year < Time.now.year
 
     @has_charts = false
   end

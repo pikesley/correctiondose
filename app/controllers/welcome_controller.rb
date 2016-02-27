@@ -23,9 +23,6 @@ class WelcomeController < ApplicationController
         end
       end
     end
-
-    @data = ControllerHelpers.for_table @metrics
-    @widest = ControllerHelpers.widest @data
   end
 
   private

@@ -3,14 +3,14 @@ class LongtermController < ApplicationController
 
   def index
     @metrics = [
-      GlycatedHaemoglobin,
-      BloodPressure
+      GlycatedHaemoglobin.all,
+      BloodPressure.all
     ]
 
-    @datas = [
-      ControllerHelpers.for_table(GlycatedHaemoglobin.all),
-      ControllerHelpers.for_table(BloodPressure.all)
-    ]
+#    @datas = [
+#      ControllerHelpers.for_table(GlycatedHaemoglobin.all),
+#      ControllerHelpers.for_table(BloodPressure.all)
+#    ]
 
     @no_picker = true;
     @with_year = true;

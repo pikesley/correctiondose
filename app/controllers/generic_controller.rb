@@ -16,7 +16,11 @@ class GenericController < ApplicationController
 
     @bucketed_metrics = @metrics.group_by { |g| g.datetime.strftime "%Y-%m-%d" }
 
-    @with_year = @metrics.first.datetime.year < Time.now.year
+    @with_year = begin
+      @metrics.first.datetime.year < Time.now.year
+    rescue NoMethodError
+      nil
+    end
 
     @has_charts = false
   end

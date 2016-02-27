@@ -12,7 +12,7 @@ class GenericPresenter < SimpleDelegator
   end
 
   def edit_cell
-    path = "edit_#{wrapped_model[:underscore]}_path"
+    path = "edit_#{underscore}_path"
     cell(link_to model.datetime.strftime('%H:%M'),
     url_helpers.send(path, model),
     title: "Edit #{model.class.short_name}")
@@ -31,7 +31,7 @@ class GenericPresenter < SimpleDelegator
   end
 
   def measurement_cell extra_css_class = nil
-    params = ["#{wrapped_model[:url_friendly]}-#{thing.to_s}"]
+    params = ["#{url_friendly}-#{thing.to_s}"]
     if extra_css_class
       params.push extra_css_class
     end
@@ -102,17 +102,20 @@ class GenericPresenter < SimpleDelegator
     cells.count
   end
 
+  def button_name
+    "btn-#{short_name.gsub('_', '-').gsub(' ', '-').downcase}"
+  end
+
+  def url_friendly
+    underscore.gsub('_', '-').gsub(' ', '-').downcase
+  end
+
   def underscore
     model.class.underscore
   end
 
-  def wrapped_model
-    m = model.class
-    {
-      name: m.name,
-      underscore: m.name.underscore,
-      url_friendly: url_friendly(m.name.underscore)
-    }
+  def model_name
+    model.class.name
   end
 
   def underscore
@@ -123,15 +126,7 @@ class GenericPresenter < SimpleDelegator
     model.class.short_name
   end
 
-  def button_name
-    "btn-#{url_friendly short_name}"
-  end
-
   def model
     __getobj__
-  end
-
-  def url_friendly string
-    string.gsub('_', '-').gsub(' ', '-').downcase
   end
 end

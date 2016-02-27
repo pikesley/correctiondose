@@ -1,16 +1,7 @@
 <% if @mixed_metrics %>
   <%= render partial: 'shared/add_links' %>
 <% else %>
-  <div class='row'>
-    <div class='col-xs-6'>
-      <h1><%= @model.short_name %></h1>
-    </div>
-    <div class='col-xs-6'>
-      <%= link_to "Add #{@model.short_name}",
-          send("new_#{@model.new.presenter.underscore}_path".to_sym),
-          class: "btn #{@model.new.presenter.button_name} pull-right" %>
-    </div>
-  </div>
+  <%= render partial: 'shared/simple_header' %>
 <% end %>
 
 <% unless @no_picker %>

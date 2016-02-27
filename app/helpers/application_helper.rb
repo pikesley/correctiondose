@@ -23,13 +23,9 @@ module ApplicationHelper
     end
   end
 
-  def class_for_table_cell metric, field
-    "#{class_name(metric).name.underscore.gsub('_', '-')}-#{field}"
-  end
-
-  def new_path model
-    "new_#{class_name(model).name.underscore}_path".to_sym
-  end
+#  def new_path model
+#    "new_#{class_name(model).name.underscore}_path".to_sym
+#  end
 
   def model_path model
     "#{class_name(model).name.underscore}_path".to_sym

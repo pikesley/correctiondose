@@ -1,11 +1,4 @@
 describe ApplicationHelper do
-  describe '#class_for_table_cell' do
-    let(:metric) { build :medication_event }
-    it 'generates the correct class' do
-      expect(helper.class_for_table_cell metric, 'insulin').to eq 'medication-event-insulin'
-    end
-  end
-
   context 'paths' do
     describe '#new_path' do
       it 'generates the _new_ path' do

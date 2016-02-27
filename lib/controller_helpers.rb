@@ -19,10 +19,10 @@ module ControllerHelpers
   end
 
   def self.for_table metrics
-    data = ControllerHelpers.date_sift metrics
+    data = metrics
     data.each_pair do |date, metrics|
       metrics.map! do |m|
-        to_presenter m
+        m.presenter
       end
     end
 
@@ -30,6 +30,7 @@ module ControllerHelpers
   end
 
   def self.widest data
+    #require "pry" ; binding.pry
     widest = 0
     data.each_pair do |k, v|
       v.each do |a|
@@ -37,5 +38,21 @@ module ControllerHelpers
       end
     end
     widest
+  end
+end
+
+class Hash
+  def widest
+    widest = 0
+    self.each_pair do |k, v|
+      v.each do |a|
+        widest = a.presenter.width if a.presenter.width > widest
+      end
+    end
+    widest
+  end
+
+  def first_metric
+    self.first.second.first
   end
 end

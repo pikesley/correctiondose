@@ -6,9 +6,9 @@ describe MedicationEventsController, type: :controller do
   describe 'GET #index' do
     it 'populates an array of medication events' do
       Timecop.freeze 2016, 01, 28, 20, 11 do
-        medication_event = create(:medication_event)
+        medication_event = create(:medication_event, datetime: Time.now)
         get :index
-        expect(assigns(:metrics)).to eq [medication_event]
+        expect(assigns(:metrics)['2016-01-28'].first.model).to eq medication_event
       end
     end
 

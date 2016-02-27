@@ -8,7 +8,7 @@ describe BloodPressuresController, type: :controller do
       Timecop.freeze 2016, 02, 21, 16, 00 do
         blood_pressure = create(:blood_pressure)
         get :index
-        expect(assigns(:metrics)).to eq [blood_pressure]
+        expect(assigns(:metrics).first[1]).to eq [blood_pressure]
       end
     end
 

@@ -111,6 +111,10 @@ class GenericPresenter < SimpleDelegator
     }
   end
 
+  def underscore
+    model.class.name.underscore
+  end
+
   def short_name
     model.class.short_name
   end

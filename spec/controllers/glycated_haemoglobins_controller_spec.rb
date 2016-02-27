@@ -8,7 +8,7 @@ describe GlycatedHaemoglobinsController, type: :controller do
       Timecop.freeze 2016, 02, 20, 18, 11 do
         glycated_haemoglobin = create(:glycated_haemoglobin)
         get :index
-        expect(assigns(:metrics)).to eq [glycated_haemoglobin]
+        expect(assigns(:metrics).first[1]).to eq [glycated_haemoglobin]
       end
     end
 

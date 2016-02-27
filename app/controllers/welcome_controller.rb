@@ -7,13 +7,21 @@ class WelcomeController < ApplicationController
       @hours = hours(params[:hours]) ? hours(params[:hours]) : @hours
     end
 
-    @metrics = []
+    @metrics = {}
     [
       GlucoseMeasurement,
       CarbohydrateIntake,
       MedicationEvent
     ].each do |model|
-      @metrics.concat model.where(datetime: (Time.now - @hours.hours)..Time.now)
+      model.where(datetime: (Time.now - @hours.hours)..Time.now).group_by do |g|
+        g.datetime.strftime "%Y-%m-%d"
+      end.each_pair do |date, metric|
+        begin
+          @metrics[date] << metric.first
+        rescue NoMethodError
+          @metrics[date] = metric
+        end
+      end
     end
 
     @data = ControllerHelpers.for_table @metrics

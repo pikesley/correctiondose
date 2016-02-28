@@ -1,4 +1,6 @@
 class LongtermController < ApplicationController
+  include ControllerHelpers
+
   before_action :require_login
 
   def index
@@ -9,12 +11,8 @@ class LongtermController < ApplicationController
       BloodPressure
     ].each do |model|
       metrics = model.all
-      bucketed_metrics = metrics.group_by { |g| g.datetime.strftime "%Y-%m-%d" }
-      with_year = begin
-        metrics.first.datetime.year < Time.now.year
-      rescue NoMethodError
-        nil
-      end
+      bucketed_metrics = bucket metrics
+      with_year = with_year metrics
 
       @sets.push({
         model: model,

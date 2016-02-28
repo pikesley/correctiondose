@@ -22,13 +22,13 @@ h1, h2 {
 
 .bg-high {
   color: $bg-high;
-  background-color: $bg-high-back;
+  background-color: lighten($bg-high, 50%);
   font-weight: bold;
 }
 
 .bg-low {
   color: $bg-low;
-  background-color: $bg-low-back;
+  background-color: lighten($bg-low, 50%);
   font-weight: bold;
 }
 

@@ -4,7 +4,7 @@ module PresenterHelpers
   end
 
   def button_name
-    "btn-#{short_name.gsub('_', '-').gsub(' ', '-').downcase}"
+    "btn-#{url_friendly}"
   end
 
   def model

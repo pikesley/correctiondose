@@ -1,0 +1,23 @@
+tr.glucose-measurement {
+  background-color: lighten($glucose-measurement, 45%);
+}
+
+tr.carbohydrate-intake {
+  background-color: lighten($carbohydrate-intake, 45%);
+}
+
+tr.medication-event {
+  background-color: lighten($medication-event, 45%);
+}
+
+tr.physical-exercise {
+  background-color: lighten($physical-exercise, 45%);
+}
+
+tr.glycated-haemoglobin {
+  background-color: lighten($glycated-haemoglobin, 45%);
+}
+
+tr.blood-pressure {
+  background-color: lighten($blood-pressure, 45%);
+}

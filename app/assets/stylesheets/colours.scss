@@ -1,11 +1,19 @@
 // http://paletton.com/#uid=40A0u0kw0vnjLCCp6xKyqoxDHjf
 
 $orange: #fa8000;
+$deep-blue: #1530ab;
+$green: #00b73e;
+$teal: #06779c;
+$deep-teal: #045d7a;
+$bright-green: #008f30;
+
 $brand-primary: $orange;
 
-$glucose-measurement: #fa8000;
-$medication-event: #1530ab;
-$carbohydrate-intake: #00b73e;
-$physical-exercise: #06779c;
-$glycated-haemoglobin: #045d7a;
-$blood-pressure: #008f30;
+$palette: (
+  glucose-measurement: $orange,
+  medication-event: $deep-blue,
+  carbohydrate-intake: $green,
+  physical-exercise: $teal,
+  glycated-haemoglobin: $deep-teal,
+  blood-pressure: $bright-green,
+);

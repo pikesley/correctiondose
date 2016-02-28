@@ -6,6 +6,7 @@
 @import 'nav';
 @import 'slider';
 @import 'buttons';
+@import 'table-rows';
 
 html {
   position: relative;
@@ -21,14 +22,14 @@ h1, h2 {
 }
 
 .bg-high {
-  color: $bg-high;
-  background-color: $bg-high-back;
+  color: lighten($glucose-measurement, 30%);
+  background-color: saturate($glucose-measurement, 50%);
   font-weight: bold;
 }
 
 .bg-low {
-  color: $bg-low;
-  background-color: $bg-low-back;
+  color: saturate($glucose-measurement, 50%);
+  background-color: lighten($glucose-measurement, 30%);
   font-weight: bold;
 }
 

@@ -22,6 +22,12 @@ class GenericController < ApplicationController
       nil
     end
 
+    @no_picker = begin
+      ((Time.now - @metrics.first.datetime) / 3600) > 168
+    rescue NoMethodError
+      true
+    end
+
     @has_charts = false
   end
 

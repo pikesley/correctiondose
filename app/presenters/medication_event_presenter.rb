@@ -10,7 +10,6 @@ class MedicationEventPresenter < MetricPresenter
         input_attributes: {
           step: 0.5,
           min: 0,
-          value: 10,
           autofocus: 'autofocus'
         }
       },

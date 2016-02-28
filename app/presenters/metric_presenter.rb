@@ -25,7 +25,7 @@ class MetricPresenter < SimpleDelegator
   end
 
   def number_span
-    "<span class='number'>#{metric.send thing}</span>"
+    "<span class='number'>#{MetricPresenter.rounder(metric.send thing)}</span>"
   end
 
   def units_span
@@ -104,16 +104,26 @@ class MetricPresenter < SimpleDelegator
     cells.count
   end
 
-  def metric_name
-    metric.class.name
-  end
-
   def underscore
     metric.class.name.underscore
   end
 
-  def short_name
-    metric.class.short_name
+  def self.title_for_form symbol
+    s = symbol.to_s
+    return 'Date and time' if s == 'datetime'
+    s[0].upcase + s[1..-1]
+  end
+
+  def self.rounder number
+    return number if number.is_a? String
+    return number if number.is_a? Integer
+    parts = number.to_s.split('.')
+    return number if parts[1].to_i > 0
+    parts[0].to_i
+  end
+
+  def method_missing m
+    model.class.send(m.id2name)
   end
 
   def metric

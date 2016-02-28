@@ -41,6 +41,6 @@ class GlucoseMeasurementPresenter < MetricPresenter
 
   def is_morning
     time = metric.datetime.strftime '%H:%M'
-    time > '06:30' && time < '11:00'
+    time > '06:30' && time < '09:30'
   end
 end

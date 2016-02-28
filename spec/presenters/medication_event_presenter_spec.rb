@@ -15,7 +15,7 @@ describe MedicationEventPresenter do
   end
 
   it 'has a Number span' do
-    expect(decorated_meds.number_span).to eq "<span class='number'>10.0</span>"
+    expect(decorated_meds.number_span).to eq "<span class='number'>10</span>"
   end
 
   it 'has a Units span' do
@@ -24,12 +24,12 @@ describe MedicationEventPresenter do
 
   it 'has a Value div' do
     expect(decorated_meds.value_div).to eq (
-      "<div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10.0</span> <span class='units'>u</span></div>"
+      "<div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10</span> <span class='units'>u</span></div>"
     )
   end
 
   it 'has a Measurement cell' do
-    expect(decorated_meds.measurement_cell).to eq "<td class='medication-event-dose'><div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10.0</span> <span class='units'>u</span></div></td>"
+    expect(decorated_meds.measurement_cell).to eq "<td class='medication-event-dose'><div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10</span> <span class='units'>u</span></div></td>"
   end
 
   it 'has a Medication cell' do
@@ -38,7 +38,7 @@ describe MedicationEventPresenter do
 
   it 'presents as a whole table row' do
     expect(decorated_meds.to_tr).to eq (
-      "<tr><td><a title=\"Edit Meds\" href=\"/meds/1/edit\">19:44</a></td><td>Meds</td><td class='medication-event-dose'><div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10.0</span> <span class='units'>u</span></div></td><td class='medication-event-insulin'>humalog</td></tr>"
+      "<tr><td><a title=\"Edit Meds\" href=\"/meds/1/edit\">19:44</a></td><td>Meds</td><td class='medication-event-dose'><div class='value' data-toggle='tooltip' data-placement='top' title='10.0 Insulin units'><span class='number'>10</span> <span class='units'>u</span></div></td><td class='medication-event-insulin'>humalog</td></tr>"
     )
   end
 

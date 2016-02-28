@@ -22,14 +22,14 @@ h1, h2 {
 }
 
 .bg-high {
-  color: lighten($glucose-measurement, 30%);
-  background-color: saturate($glucose-measurement, 50%);
+  color: lighten(map-get($palette, glucose-measurement), 30%);
+  background-color: saturate(map-get($palette, glucose-measurement), 50%);
   font-weight: bold;
 }
 
 .bg-low {
-  color: saturate($glucose-measurement, 50%);
-  background-color: lighten($glucose-measurement, 30%);
+  color: saturate(map-get($palette, glucose-measurement), 50%);
+  background-color: lighten(map-get($palette, glucose-measurement), 30%);
   font-weight: bold;
 }
 

@@ -6,34 +6,16 @@
   color: white;
 }
 
-.btn-glucose-measurement {
-  background-color: $glucose-measurement;
-}
-
-.btn-carbohydrate-intake {
-  background-color: $carbohydrate-intake;
-}
-
-.btn-medication-event {
-  background-color: $medication-event;
-}
-
-.btn-physical-exercise {
-  background-color: $physical-exercise;
-}
-
-.btn-glycated-haemoglobin {
-  background-color: $glycated-haemoglobin;
-}
-
-.btn-blood-pressure {
-  background-color: $blood-pressure;
-}
-
 .btn-back {
   background-color: $gray-light;
 }
 
 .btn-delete {
   background-color: $gray-dark;
+}
+
+@each $metric, $colour in $palette {
+  .btn-#{$metric} {
+    background-color: $colour;
+  }
 }

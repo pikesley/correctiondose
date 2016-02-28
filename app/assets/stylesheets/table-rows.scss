@@ -1,28 +1,10 @@
-tr.glucose-measurement {
-  background-color: lighten($glucose-measurement, 80%);
-}
-
-tr.carbohydrate-intake {
-  background-color: lighten($carbohydrate-intake, 80%);
-}
-
-tr.medication-event {
-  background-color: lighten($medication-event, 80%);
-}
-
-tr.physical-exercise {
-  background-color: lighten($physical-exercise, 80%);
-}
-
-tr.glycated-haemoglobin {
-  background-color: lighten($glycated-haemoglobin, 80%);
-}
-
-tr.blood-pressure {
-  background-color: lighten($blood-pressure, 80%);
-}
-
 #recent th {
   color: $gray-dark;
   background-color: $gray-lighter;
+}
+
+@each $metric, $colour in $palette {
+  tr.#{$metric} {
+    background-color: lighten($colour, 70%);
+  }
 }

@@ -19,19 +19,11 @@ class ModelPresenter < SimpleDelegator
   end
 
   def underscore
-    model.underscore
-  end
-
-  def model_name
-    model.name
-  end
-
-  def underscore
     model.name.underscore
   end
 
-  def short_name
-    model.short_name
+  def method_missing m
+    model.send(m.id2name)
   end
 
   def model

@@ -17,7 +17,7 @@ describe 'MedicationEvents' do
       visit new_medication_event_url(as: user)
       expect {
         fill_in 'Date and time', with: (Time.now - 3600)
-        fill_in 'Dose', with: '10.0'
+        fill_in 'Dose', with: '10.5'
         select 'humalog', from: 'Insulin'
         click_button 'Add'
       }.to change(MedicationEvent, :count).by 1
@@ -26,7 +26,7 @@ describe 'MedicationEvents' do
         expect(page).to have_content 'Sunday January 31st'
       end
       expect(page).to have_content '09:00'
-      expect(page).to have_content '10.0'
+      expect(page).to have_content '10.5'
       expect(page).to have_content 'humalog'
     end
 

@@ -4,7 +4,7 @@
 
   <% @decorated_metric.form_fields.each_pair do |label, data| %>
     <div class='col-xs-12'>
-      <% title = @decorated_metric.title_for_form(label) %>
+      <% title = MetricPresenter.title_for_form(label) %>
       <% title << " (#{@decorated_metric.units[:short]})" if @decorated_metric.thing == label %>
       <%= f.label label, title %>
       <% attributes = {

@@ -1,22 +1,28 @@
 class LongtermController < ApplicationController
+  include ControllerHelpers
+
   before_action :require_login
 
   def index
-    @sets = [
-      {
-        model: GlycatedHaemoglobin,
-        metrics: GlycatedHaemoglobin.all,
-        bucketed_metrics: GlycatedHaemoglobin.all.group_by { |g| g.datetime.strftime "%Y-%m-%d" },
-        with_year: nil
-      },
-      {
-        model: BloodPressure,
-        metrics: BloodPressure.all,
-        bucketed_metrics: BloodPressure.all.group_by { |g| g.datetime.strftime "%Y-%m-%d" }
-      }
-    ]
+    @sets = []
 
+    [
+      GlycatedHaemoglobin,
+      BloodPressure
+    ].each do |model|
+      metrics = model.all
+      bucketed_metrics = bucket metrics
+      with_year = with_year metrics
+
+      @sets.push({
+        model: model,
+        metrics: metrics,
+        bucketed_metrics: bucketed_metrics,
+        with_year: with_year
+      })
+    end
+
+#This should be dependent on whether there's any data
     @no_picker = true;
-    @with_year = true;
   end
 end

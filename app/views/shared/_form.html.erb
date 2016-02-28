@@ -4,7 +4,9 @@
 
   <% @decorated_metric.form_fields.each_pair do |label, data| %>
     <div class='col-xs-12'>
-      <%= f.label label, @decorated_metric.title_for_form(label) %>
+      <% title = @decorated_metric.title_for_form(label) %>
+      <% title << " (#{@decorated_metric.units[:short]})" if @decorated_metric.thing == label %>
+      <%= f.label label, title %>
       <% attributes = {
         class: "form-control #{data[:css_class]}"
         }.merge data[:input_attributes].to_h %>

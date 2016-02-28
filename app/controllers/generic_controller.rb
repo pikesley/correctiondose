@@ -1,4 +1,6 @@
 class GenericController < ApplicationController
+  include ControllerHelpers
+
   before_action :require_login
 
   def index
@@ -10,17 +12,15 @@ class GenericController < ApplicationController
     @model = find_class
     @metrics = @model.where(datetime: (Time.now - @hours.hours)..Time.now)
 
-    if @metrics == []
+    if @metrics.count < 3
       @metrics = @model.first(3)
     end
 
-    @bucketed_metrics = @metrics.group_by { |g| g.datetime.strftime "%Y-%m-%d" }
+    @bucketed_metrics = bucket @metrics
 
-    @with_year = begin
-      @metrics.first.datetime.year < Time.now.year
-    rescue NoMethodError
-      nil
-    end
+    @with_year = with_year @metrics
+
+    @no_picker = no_picker @metrics
 
     @has_charts = false
   end

@@ -35,13 +35,13 @@ describe GlucoseMeasurementPresenter do
 
     it 'presents as a whole table row' do
       expect(decorated_bg.to_tr).to eq (
-        "<tr><td><a title=\"Edit Glucose\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6</span> <span class='units'>mmol/L</span></div></td></tr>"
+        "<tr class='glucose-measurement'><td><a title=\"Edit Glucose\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6</span> <span class='units'>mmol/L</span></div></td></tr>"
       )
     end
 
     it 'pads the row if required' do
       expect(decorated_bg.to_tr padding: 1).to eq (
-        "<tr><td><a title=\"Edit Glucose\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6</span> <span class='units'>mmol/L</span></div></td><td class='filler'></td></tr>"
+        "<tr class='glucose-measurement'><td><a title=\"Edit Glucose\" href=\"/glucose/1/edit\">21:42</a></td><td>Glucose</td><td class='glucose-measurement-value'><div class='value' data-toggle='tooltip' data-placement='top' title='6.0 millimoles per Litre'><span class='number'>6</span> <span class='units'>mmol/L</span></div></td><td class='filler'></td></tr>"
       )
     end
   end

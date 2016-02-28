@@ -85,7 +85,7 @@ class MetricPresenter < SimpleDelegator
   end
 
   def to_tr padding: 0
-    s = '<tr>'
+    s = "<tr class='#{url_friendly}'>"
 
     s += cells.map { |c| "#{c}" }.join
 

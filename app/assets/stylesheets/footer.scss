@@ -1,0 +1,32 @@
+$footer-height: 40px;
+
+html {
+  position: relative;
+  min-height: 100%;
+  text-transform: none;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: $footer-height;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 1em;
+
+  margin-top: $padding-large-vertical;
+  background-image: image-url('subtle_dots.png');
+
+  opacity: 1;
+  color: white;
+  height: $footer-height;
+
+  padding: $padding-large-vertical $padding-large-horizontal;
+
+  a:hover {
+    text-decoration: none;
+  }
+}

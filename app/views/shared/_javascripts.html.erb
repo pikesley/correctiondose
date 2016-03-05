@@ -2,7 +2,9 @@
 $(function () {
   $('.datetime').datetimepicker({
     format: 'YYYY-MM-DD HH:mm',
-    defaultDate: moment()
-  });
-});
+    defaultDate: moment(),
+    toolbarPlacement: 'top',
+    ignoreReadonly: true
+  })
+})
 </script>

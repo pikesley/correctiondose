@@ -25,9 +25,9 @@ It also exposes GETtable JSON endpoints for each of the metrics, if you're into 
 
 ## Installing it
 
-~~This is not one-click thing: you'll need some strong Heroku- and Github-fu to get it up and running~~
+This is not a one-click thing: you'll need some strong Heroku- and Github-fu to get it up and running
 
-Oh wait I just found about Heroku Buttons. This might be awesome
+**Oh wait I just found about Heroku Buttons. This might be awesome**
 
 ## Your questions, asked and answered
 

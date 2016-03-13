@@ -5,7 +5,7 @@
 
 # Correction dose
 
-Diabetes tracker app, optimised for mobile. Specifically _my_ mobile. See some screenshots [here](SCREENSHOTS.md)
+Diabetes tracker app, optimised for mobile. Specifically _my_ mobile. See some screenshots [here](https://github.com/pikesley/correctiondose/blob/master/SCREENSHOTS.md)
 
 ## Tracking metrics
 

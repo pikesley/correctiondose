@@ -25,6 +25,22 @@ describe 'GlucoseMeasurements' do
       expect(page).to have_content '5.6'
     end
 
+    it 'adds a measurement and displays the results and knows about BST' do
+      Timecop.freeze 2016, 04, 01, 10, 00 do
+        visit new_glucose_measurement_url(as: user)
+        expect {
+          fill_in 'Date and time', with: Time.now.to_s
+          fill_in 'Value', with: '5.6'
+          click_button 'Add'
+        }.to change(GlucoseMeasurement, :count).by 1
+        within 'th' do
+          expect(page).to have_content 'Friday April 1st'
+        end
+        expect(page).to have_content '10:00'
+        expect(page).to have_content '5.6'
+      end
+    end
+
     it 'edits a measurement' do
       Timecop.freeze 1992, 06, 15, 18, 11 do
         glucose_measurement = create(:glucose_measurement, datetime: '1992-06-15 12:00:00', value: '7')

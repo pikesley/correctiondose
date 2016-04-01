@@ -40,7 +40,7 @@ class MedicationEventPresenter < MetricPresenter
 
   def nighttime?
     bedtime = 22
-    morning = 06
+    morning = 05
 
     Time.now.hour >= bedtime || Time.now.hour <= morning
   end

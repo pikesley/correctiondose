@@ -55,7 +55,7 @@ describe MedicationEventPresenter do
       end
     end
 
-    it 'thinks bedtime lasts until 05:00 (because DST is a ballache)' do
+    it 'thinks bedtime lasts until 05:00' do
       Timecop.freeze 2016, 02, 16, 05, 00 do
         expect(decorated_meds.insulin_for_time).to eq 'lantus'
       end

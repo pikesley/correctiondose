@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
       CarbohydrateIntake,
       MedicationEvent
     ].each do |model|
-      @metrics.concat model.where(datetime: (Time.now + dst_offset - @hours.hours)..Time.now + dst_offset)
+      @metrics.concat model.where(datetime: (Time.now - @hours.hours)..Time.now)
     end
 
     @metrics = @metrics.sort.reverse

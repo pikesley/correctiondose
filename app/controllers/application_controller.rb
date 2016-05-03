@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def dst_offset
-    return 7200 if Time.now.dst?
+    return 3600 if Time.now.dst?
     return 0
   end
 end

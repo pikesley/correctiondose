@@ -10,7 +10,7 @@ class GenericController < ApplicationController
     end
 
     @model = find_class
-    @metrics = @model.where(datetime: (Time.now - @hours.hours)..Time.now)
+    @metrics = @model.where(datetime: (Time.now + dst_offset - @hours.hours)..Time.now + dst_offset)
 
     if @metrics.count < 3
       @metrics = @model.first(3)

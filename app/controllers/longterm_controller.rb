@@ -12,13 +12,13 @@ class LongtermController < ApplicationController
     ].each do |model|
       metrics = model.all
       bucketed_metrics = bucket metrics
-      with_year = with_year metrics
+      with_year = true #with_year metrics
 
       @sets.push({
         model: model,
         metrics: metrics,
         bucketed_metrics: bucketed_metrics,
-        with_year: with_year
+        with_year: true
       })
     end
 

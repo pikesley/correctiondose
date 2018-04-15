@@ -13,7 +13,7 @@ class ModelPresenter < SimpleDelegator
     css_classes = ['btn', "#{button_name}"]
     css_classes.push css_class if css_class
     path = "new_#{underscore}_path"
-    link_to "Add #{model.short_name}",
+    link_to "+ #{model.short_name}",
       url_helpers.send(path),
       class: css_classes.join(' ')
   end

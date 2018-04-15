@@ -8,10 +8,10 @@ describe 'Welcome' do
       visit root_path(as: user)
       within(:css, 'div#add-links') do
         expect(page.all('a').map { |link| link.text } ).to eq [
-          'Add Glucose',
-          'Add Meds',
-          'Add Carbs',
-          'Add Exercise'
+          '+ Glucose',
+          '+ Meds',
+          '+ Carbs',
+          '+ Exercise'
         ]
       end
     end
